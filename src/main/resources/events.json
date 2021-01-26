@@ -1,0 +1,35 @@
+{
+  "events": [
+    {
+      "id": 1,
+      "text": "La Russie a décidé de vous envahir, que faites vous ?",
+      "seasons": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "nextEvents" : [
+        2, 3
+      ],
+      "choices": [
+        {
+          "text": "Vous décidez de résister\nEffets : Satisfaction nationalistes +30%, Argent -100",
+          "effects": [
+            {
+              "type": "faction",
+              "factionName": "nationalists",
+              "attribute": "satisfaction",
+              "modifier": 30
+            },
+            {
+              "type": "attribute",
+              "attribute": "money",
+              "modifier": -100
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+package com.esgi;
+
+public class Faction {
+    private final String name;
+    private int population;
+    private int satisfaction;
+
+    public Faction(String name, int population, int satisfaction) {
+        this.name = name;
+        this.population = population;
+        this.satisfaction = satisfaction;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public int getPopulation() {
+        return population;
+    }
+
+    public int getSatisfaction() {
+        return satisfaction;
+    }
+
+    public void modifyPopulation(int modifier) {
+        this.population += modifier;
+        if (this.population < 0) {
+            population = 0;
+        }
+    }
+
+    public void modifySatisfaction(int modifier) {
+        if (this.satisfaction > 0) {
+            this.satisfaction += modifier;
+            if (this.satisfaction < 0) {
+                this.satisfaction = 0;
+            }
+            if (this.satisfaction > 100) {
+                this.satisfaction = 100;
+            }
+        }
+    }
+
+}

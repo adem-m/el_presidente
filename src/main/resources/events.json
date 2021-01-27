@@ -9,12 +9,10 @@
         2,
         3
       ],
-      "nextEvents" : [
-        2, 3
-      ],
       "choices": [
         {
-          "text": "Vous décidez de résister\nEffets : Satisfaction nationalistes +30%, Argent -100",
+          "text": "Vous résistez !\nEffets : Satisfaction nationalistes +30%, Argent -500",
+          "nextEvents": [],
           "effects": [
             {
               "type": "faction",
@@ -25,7 +23,70 @@
             {
               "type": "attribute",
               "attribute": "money",
-              "modifier": -100
+              "modifier": -500
+            }
+          ]
+        },
+        {
+          "text": "Vous les laissez faire contre un pot de vin\nEffets : Satisfaction nationalistes -40%, Argent +1000, Agriculture -15, Industrie -15",
+          "nextEvents": [
+            2
+          ],
+          "effects": [
+            {
+              "type": "faction",
+              "factionName": "nationalists",
+              "attribute": "satisfaction",
+              "modifier": -40
+            },
+            {
+              "type": "attribute",
+              "attribute": "money",
+              "modifier": 1000
+            },
+            {
+              "type": "attribute",
+              "attribute": "agriculture",
+              "modifier": -15
+            },
+            {
+              "type": "attribute",
+              "attribute": "industry",
+              "modifier": -15
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "text": "Il faut reconstruire !",
+      "seasons": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "choices": [
+        {
+          "text": "Vous privilégiez l'agriculture\nEffets : Agriculture +20",
+          "nextEvents": [],
+          "effects": [
+            {
+              "type": "attribute",
+              "attribute": "agriculture",
+              "modifier": 20
+            }
+          ]
+        },
+        {
+          "text": "Vous privilégiez l'industrie\nEffets : Industrie +20",
+          "nextEvents": [],
+          "effects": [
+            {
+              "type": "attribute",
+              "attribute": "industry",
+              "modifier": 20
             }
           ]
         }

@@ -15,4 +15,18 @@ public enum Season {
     public int getId() {
         return id;
     }
+
+    public static Season fromId(int id) {
+        switch (id) {
+            case 0:
+                return SPRING;
+            case 1:
+                return SUMMER;
+            case 2:
+                return AUTUMN;
+            case 3:
+                return WINTER;
+        }
+        return null;
+    }
 }

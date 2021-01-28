@@ -10,7 +10,6 @@ public class App {
     public static void main(String[] args) {
         List<Event> eventList = new ArrayList<>();
 
-
         JSONHandler jsonHandler = new JSONHandler();
         JSONObject jsonObject = jsonHandler.getObjectFromJSON("events.json");
         JSONArray events = (JSONArray) jsonObject.get("events");
@@ -23,6 +22,5 @@ public class App {
                             (JSONArray) eventBis.get("seasons"),
                             (JSONArray) eventBis.get("choices")));
         }
-
     }
 }

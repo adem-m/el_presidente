@@ -19,7 +19,7 @@ public class Event {
             this.seasons.add(getSeasonFromSeasonId((long) seasonId));
         }
         for (Object choice : choices) {
-            this.choices.add(getChoiceFromJSON((JSONObject) choice));
+            this.choices.add(JSONtoEventChoice((JSONObject) choice));
         }
     }
 
@@ -43,7 +43,7 @@ public class Event {
         return Season.fromId((int) seasonId);
     }
 
-    private EventChoice getChoiceFromJSON(JSONObject JSONChoice) {
+    private EventChoice JSONtoEventChoice(JSONObject JSONChoice) {
         return new EventChoice(
                 (String) JSONChoice.get("text"),
                 (JSONArray) JSONChoice.get("nextEvents"),

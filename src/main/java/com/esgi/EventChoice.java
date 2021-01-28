@@ -18,7 +18,7 @@ public class EventChoice {
             this.nextEventsIds.add(id.intValue());
         }
         for (Object effect : effects) {
-            this.effects.add(getEffectFromJSON((JSONObject) effect));
+            this.effects.add(JSONtoEffect((JSONObject) effect));
         }
     }
 
@@ -30,18 +30,20 @@ public class EventChoice {
         return effects;
     }
 
-    private Effect getEffectFromJSON(JSONObject JSONEffect) {
+    private Effect JSONtoEffect(JSONObject JSONEffect) {
         if (JSONEffect.get("type").toString().equals("faction")) {
             return new Effect(
                     (String) JSONEffect.get("type"),
                     (String) JSONEffect.get("factionName"),
                     (String) JSONEffect.get("attribute"),
-                    (Long) JSONEffect.get("modifier"));
+                    (Long) JSONEffect.get("modifier"),
+                    (String) JSONEffect.get("modifierType"));
         } else {
             return new Effect(
                     (String) JSONEffect.get("type"),
                     (String) JSONEffect.get("attribute"),
-                    (Long) JSONEffect.get("modifier"));
+                    (Long) JSONEffect.get("modifier"),
+                    (String) JSONEffect.get("modifierType"));
         }
     }
 }

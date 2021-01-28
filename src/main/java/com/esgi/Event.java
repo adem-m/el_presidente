@@ -1,5 +1,8 @@
 package com.esgi;
 
+import org.json.simple.JSONArray;
+import org.json.simple.JSONObject;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -9,9 +12,15 @@ public class Event {
     private final List<Season> seasons = new ArrayList<>();
     private final List<EventChoice> choices = new ArrayList<>();
 
-    public Event(int id, String text) {
-        this.id = id;
+    public Event(long id, String text, JSONArray seasonIds, JSONArray choices) {
+        this.id = (int) id;
         this.text = text;
+        for (Object seasonId : seasonIds) {
+            this.seasons.add(getSeasonFromSeasonId((long) seasonId));
+        }
+        for (Object choice : choices) {
+            this.choices.add(JSONtoEventChoice((JSONObject) choice));
+        }
     }
 
     public int getId() {
@@ -28,5 +37,16 @@ public class Event {
 
     public List<EventChoice> getChoices() {
         return choices;
+    }
+
+    private Season getSeasonFromSeasonId(long seasonId) {
+        return Season.fromId((int) seasonId);
+    }
+
+    private EventChoice JSONtoEventChoice(JSONObject JSONChoice) {
+        return new EventChoice(
+                (String) JSONChoice.get("text"),
+                (JSONArray) JSONChoice.get("nextEvents"),
+                (JSONArray) JSONChoice.get("effects"));
     }
 }

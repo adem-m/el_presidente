@@ -37,13 +37,15 @@ public class EventChoice {
                     (String) JSONEffect.get("factionName"),
                     (String) JSONEffect.get("attribute"),
                     (Long) JSONEffect.get("modifier"),
-                    (String) JSONEffect.get("modifierType"));
+                    (String) JSONEffect.get("modifierType"),
+                    (String) JSONEffect.get("effectType"));
         } else {
             return new Effect(
                     (String) JSONEffect.get("type"),
                     (String) JSONEffect.get("attribute"),
                     (Long) JSONEffect.get("modifier"),
-                    (String) JSONEffect.get("modifierType"));
+                    (String) JSONEffect.get("modifierType"),
+                    (String) JSONEffect.get("effectType"));
         }
     }
 }

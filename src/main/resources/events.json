@@ -19,13 +19,15 @@
               "factionName": "nationalists",
               "attribute": "satisfaction",
               "modifier": 30,
-              "modifierType": "flat"
+              "modifierType": "flat",
+              "effectType": "bonus"
             },
             {
               "type": "attribute",
               "attribute": "money",
               "modifier": -500,
-              "modifierType": "flat"
+              "modifierType": "flat",
+              "effectType": "malus"
             }
           ]
         },
@@ -40,25 +42,29 @@
               "factionName": "nationalists",
               "attribute": "satisfaction",
               "modifier": -40,
-              "modifierType": "flat"
+              "modifierType": "flat",
+              "effectType": "malus"
             },
             {
               "type": "attribute",
               "attribute": "money",
               "modifier": 1000,
-              "modifierType": "flat"
+              "modifierType": "flat",
+              "effectType": "bonus"
             },
             {
               "type": "attribute",
               "attribute": "agriculture",
               "modifier": -15,
-              "modifierType": "flat"
+              "modifierType": "flat",
+              "effectType": "malus"
             },
             {
               "type": "attribute",
               "attribute": "industry",
               "modifier": -15,
-              "modifierType": "flat"
+              "modifierType": "flat",
+              "effectType": "malus"
             }
           ]
         }
@@ -82,7 +88,8 @@
               "type": "attribute",
               "attribute": "agriculture",
               "modifier": 20,
-              "modifierType": "flat"
+              "modifierType": "flat",
+              "effectType": "bonus"
             }
           ]
         },
@@ -94,7 +101,8 @@
               "type": "attribute",
               "attribute": "industry",
               "modifier": 20,
-              "modifierType": "flat"
+              "modifierType": "flat",
+              "effectType": "bonus"
             }
           ]
         }

@@ -8,10 +8,18 @@ import java.util.List;
 
 public class App {
     private GameMode mode;
+    private Keyboard inputHandler;
+
+    public App(){
+        this.inputHandler = new Keyboard();
+    }
 
     public void setGameMode( GameMode mode ){
+        mode.setParent( this );
+        mode.setInputHandler( this.inputHandler );
         this.mode = mode;
     }
+    
     public static void main(String[] args) {
         List<Event> eventList = new ArrayList<>();
 

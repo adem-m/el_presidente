@@ -2,12 +2,17 @@ package com.esgi;
 
 abstract class GameMode {
     private App parent;
+    protected Keyboard inputHandler;
 
     abstract void init();
     abstract void handleInput();
 
     public void setParent( App parent ){
         this.parent = parent;
+    }
+
+    public void setInputHandler( Keyboard inputHandler ){
+        this.inputHandler = inputHandler;
     }
 
     public void switchGameMode( GameMode mode ){

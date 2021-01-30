@@ -5,10 +5,10 @@ public class Faction {
     private int population;
     private int satisfaction;
 
-    public Faction(String name, int population, int satisfaction) {
+    public Faction(String name, Long population, Long satisfaction) {
         this.name = name;
-        this.population = population;
-        this.satisfaction = satisfaction;
+        this.population = population.intValue();
+        this.satisfaction = satisfaction.intValue();
     }
 
     public String getName() {

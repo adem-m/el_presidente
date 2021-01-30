@@ -44,4 +44,8 @@ public class Effect {
     public ModifierType getModifierType() {
         return modifierType;
     }
+
+    public EffectType getEffectType() {
+        return effectType;
+    }
 }

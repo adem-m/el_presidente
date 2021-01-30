@@ -12,7 +12,9 @@
       "choices": [
         {
           "text": "Vous résistez !\nEffets : Satisfaction nationalistes +30%, Argent -500",
-          "nextEvents": [],
+          "nextEvents": [
+            2
+          ],
           "effects": [
             {
               "type": "faction",
@@ -82,7 +84,9 @@
       "choices": [
         {
           "text": "Vous privilégiez l'agriculture\nEffets : Agriculture +20",
-          "nextEvents": [],
+          "nextEvents": [
+            1
+          ],
           "effects": [
             {
               "type": "attribute",
@@ -95,7 +99,9 @@
         },
         {
           "text": "Vous privilégiez l'industrie\nEffets : Industrie +20",
-          "nextEvents": [],
+          "nextEvents": [
+            1
+          ],
           "effects": [
             {
               "type": "attribute",

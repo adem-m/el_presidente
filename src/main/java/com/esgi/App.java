@@ -7,6 +7,11 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class App {
+    private GameMode mode;
+
+    public void setGameMode( GameMode mode ){
+        this.mode = mode;
+    }
     public static void main(String[] args) {
         List<Event> eventList = new ArrayList<>();
 

@@ -14,6 +14,7 @@ public class MainTitleGameMode extends GameMode {
                 System.out.println( "Touche pour continuer activée." );
             
             default:
+                System.out.println( "Fermeture de l'application..." );
                 System.exit( 0 );
         }
     }

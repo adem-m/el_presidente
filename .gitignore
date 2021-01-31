@@ -1,2 +1,8 @@
 /el_presidente.iml
 /.idea
+target/
+
+#VSCODE
+.settings
+.classpath
+.project

@@ -16,6 +16,30 @@ public class State {
     private int turnCount;
     private Season startingSeason;
 
+    public Map<String, Integer> getAttributes() {
+        return attributes;
+    }
+
+    public Map<String, Faction> getFactions() {
+        return factions;
+    }
+
+    public List<Event> getEvents() {
+        return events;
+    }
+
+    public List<Event> getNextEvents() {
+        return nextEvents;
+    }
+
+    public int getTurnCount() {
+        return turnCount;
+    }
+
+    public Season getStartingSeason() {
+        return startingSeason;
+    }
+
     public void initialize(String scenarioName) {
         initializeEvents();
         Scenario scenario = fetchScenarioFromName(scenarioName);

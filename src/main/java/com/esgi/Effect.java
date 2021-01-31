@@ -5,21 +5,24 @@ public class Effect {
     private String factionName;
     private final String attribute;
     private final int modifier;
-    private ModifierType modifierType;
+    private final ModifierType modifierType;
+    private final EffectType effectType;
 
-    public Effect(String type, String factionName, String attribute, Long modifier, String modifierType) {
+    public Effect(String type, String factionName, String attribute, Long modifier, String modifierType, String effectType) {
         this.type = type;
         this.factionName = factionName;
         this.attribute = attribute;
         this.modifier = modifier.intValue();
         this.modifierType = ModifierType.fromString(modifierType);
+        this.effectType = EffectType.fromString(effectType);
     }
 
-    public Effect(String type, String attribute, Long modifier, String modifierType) {
+    public Effect(String type, String attribute, Long modifier, String modifierType, String effectType) {
         this.type = type;
         this.attribute = attribute;
         this.modifier = modifier.intValue();
         this.modifierType = ModifierType.fromString(modifierType);
+        this.effectType = EffectType.fromString(effectType);
     }
 
     public String getType() {
@@ -40,5 +43,9 @@ public class Effect {
 
     public ModifierType getModifierType() {
         return modifierType;
+    }
+
+    public EffectType getEffectType() {
+        return effectType;
     }
 }

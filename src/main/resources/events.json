@@ -12,20 +12,24 @@
       "choices": [
         {
           "text": "Vous résistez !\nEffets : Satisfaction nationalistes +30%, Argent -500",
-          "nextEvents": [],
+          "nextEvents": [
+            2
+          ],
           "effects": [
             {
               "type": "faction",
               "factionName": "nationalists",
               "attribute": "satisfaction",
               "modifier": 30,
-              "modifierType": "flat"
+              "modifierType": "flat",
+              "effectType": "bonus"
             },
             {
               "type": "attribute",
               "attribute": "money",
               "modifier": -500,
-              "modifierType": "flat"
+              "modifierType": "flat",
+              "effectType": "malus"
             }
           ]
         },
@@ -40,25 +44,29 @@
               "factionName": "nationalists",
               "attribute": "satisfaction",
               "modifier": -40,
-              "modifierType": "flat"
+              "modifierType": "flat",
+              "effectType": "malus"
             },
             {
               "type": "attribute",
               "attribute": "money",
               "modifier": 1000,
-              "modifierType": "flat"
+              "modifierType": "flat",
+              "effectType": "bonus"
             },
             {
               "type": "attribute",
               "attribute": "agriculture",
               "modifier": -15,
-              "modifierType": "flat"
+              "modifierType": "flat",
+              "effectType": "malus"
             },
             {
               "type": "attribute",
               "attribute": "industry",
               "modifier": -15,
-              "modifierType": "flat"
+              "modifierType": "flat",
+              "effectType": "malus"
             }
           ]
         }
@@ -76,25 +84,31 @@
       "choices": [
         {
           "text": "Vous privilégiez l'agriculture\nEffets : Agriculture +20",
-          "nextEvents": [],
+          "nextEvents": [
+            1
+          ],
           "effects": [
             {
               "type": "attribute",
               "attribute": "agriculture",
               "modifier": 20,
-              "modifierType": "flat"
+              "modifierType": "flat",
+              "effectType": "bonus"
             }
           ]
         },
         {
           "text": "Vous privilégiez l'industrie\nEffets : Industrie +20",
-          "nextEvents": [],
+          "nextEvents": [
+            1
+          ],
           "effects": [
             {
               "type": "attribute",
               "attribute": "industry",
               "modifier": 20,
-              "modifierType": "flat"
+              "modifierType": "flat",
+              "effectType": "bonus"
             }
           ]
         }

@@ -1,4 +1,4 @@
-package com.esgi;
+package com.esgi.utils;
 
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;

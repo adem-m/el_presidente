@@ -1,4 +1,4 @@
-package com.esgi;
+package com.esgi.data;
 
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;

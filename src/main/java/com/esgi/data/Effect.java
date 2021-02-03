@@ -1,4 +1,7 @@
-package com.esgi;
+package com.esgi.data;
+
+import com.esgi.data.enums.EffectType;
+import com.esgi.data.enums.ModifierType;
 
 public class Effect {
     private final String type;

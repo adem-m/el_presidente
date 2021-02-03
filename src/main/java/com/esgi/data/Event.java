@@ -1,5 +1,6 @@
-package com.esgi;
+package com.esgi.data;
 
+import com.esgi.data.enums.Season;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 

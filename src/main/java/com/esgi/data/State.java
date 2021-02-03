@@ -1,14 +1,10 @@
-package com.esgi;
+package com.esgi.data;
 
-import org.json.simple.JSONArray;
-import org.json.simple.JSONObject;
+import com.esgi.data.enums.Season;
 
 import java.util.*;
 
 public class State {
-    private final static String SCENARIOS_FILE_NAME = "scenarios.json";
-    private final static String EVENTS_FILE_NAME = "events.json";
-
     private final Map<String, Integer> attributes = new HashMap<>();
     private final Map<String, Faction> factions = new HashMap<>();
     private final List<Event> events = new ArrayList<>();
@@ -41,24 +37,11 @@ public class State {
     }
 
     public void initialize(String scenarioName) {
-        initializeEvents();
-        Scenario scenario = fetchScenarioFromName(scenarioName);
+        this.events.addAll(Loader.fetchEvents());
+        Scenario scenario = Loader.fetchScenarioFromName(scenarioName);
         initializeAttributesFromScenario(scenario);
         turnCount = 0;
         startingSeason = Season.fromId(new Random().nextInt(4));
-    }
-
-    private Scenario fetchScenarioFromName(String scenarioName) {
-        JSONObject jsonObject = new JSONHandler().getObjectFromJSON(SCENARIOS_FILE_NAME);
-        JSONObject jsonScenario = (JSONObject) ((JSONObject) jsonObject.get("scenarios")).get(scenarioName);
-        return new Scenario(
-                scenarioName,
-                (Long) jsonScenario.get("industry"),
-                (Long) jsonScenario.get("agriculture"),
-                (Long) jsonScenario.get("money"),
-                (Long) jsonScenario.get("firstEventId"),
-                (JSONArray) jsonScenario.get("factions")
-        );
     }
 
     private void initializeAttributesFromScenario(Scenario scenario) {
@@ -77,22 +60,8 @@ public class State {
         }
     }
 
-    private void initializeEvents() {
-        JSONObject jsonObject = new JSONHandler().getObjectFromJSON(EVENTS_FILE_NAME);
-        JSONArray events = (JSONArray) jsonObject.get("events");
-        for (Object object : events) {
-            JSONObject event = (JSONObject) object;
-            this.events.add(
-                    new Event(
-                            (long) event.get("id"),
-                            (String) event.get("text"),
-                            (JSONArray) event.get("seasons"),
-                            (JSONArray) event.get("choices")));
-        }
-    }
-
     private Event getEventById(int id) throws Exception {
-        for (Event event : events) {
+        for (Event event : this.events) {
             if (event.getId() == id) {
                 return event;
             }

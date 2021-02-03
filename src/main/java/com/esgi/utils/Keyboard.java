@@ -1,4 +1,4 @@
-package com.esgi;
+package com.esgi.utils;
 
 import java.util.Scanner;
 

@@ -1,4 +1,4 @@
-package com.esgi;
+package com.esgi.data.enums;
 
 public enum ModifierType {
     FLAT,

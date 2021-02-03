@@ -1,4 +1,4 @@
-package com.esgi;
+package com.esgi.data;
 
 public class Faction {
     private final String name;

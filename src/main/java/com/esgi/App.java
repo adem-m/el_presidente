@@ -1,5 +1,7 @@
 package com.esgi;
 
+import com.esgi.utils.Keyboard;
+
 public class App {
     private GameMode mode;
     private Keyboard inputHandler;

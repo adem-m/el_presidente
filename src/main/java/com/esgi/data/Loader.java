@@ -8,7 +8,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class Loader {
-    private final static String SCENARIOS_FILE_NAME = "scenarios.json";
+    private final static String SCENARIOS_FILE_NAME = "scenarios_attributes.json";
     private final static String EVENTS_FILE_NAME = "events.json";
 
     public static Scenario fetchScenarioFromName(String scenarioName) {
@@ -24,9 +24,9 @@ public class Loader {
         );
     }
 
-    public static Map<Integer, Event> fetchEvents() {
+    public static Map<Integer, Event> fetchEvents(String scenarioName) {
         Map<Integer, Event> events = new HashMap<>();
-        JSONObject jsonObject = new JSONHandler().getObjectFromJSON(EVENTS_FILE_NAME);
+        JSONObject jsonObject = new JSONHandler().getObjectFromJSON("events/" + scenarioName + ".json");
         JSONArray JsonEvents = (JSONArray) jsonObject.get("events");
         for (Object object : JsonEvents) {
             JSONObject JsonEvent = (JSONObject) object;

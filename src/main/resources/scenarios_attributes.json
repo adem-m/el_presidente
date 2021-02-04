@@ -48,7 +48,7 @@
         }
       ]
     },
-    "coldWar": {
+    "cold_war": {
       "firstEventId": 1,
       "industry": 10,
       "agriculture": 30,

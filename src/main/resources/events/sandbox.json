@@ -1,0 +1,139 @@
+{
+  "events": [
+    {
+      "id": 1,
+      "text": "Les communistes et les religieux se font la guerre !",
+      "seasons": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "choices": [
+        {
+          "text": "Vous vous rangez du côté des cocos\nEffets : Satisfaction communistes +30%, Religieux -30%",
+          "nextEvents": [
+          ],
+          "effects": [
+            {
+              "target": "faction",
+              "factionName": "communists",
+              "attribute": "satisfaction",
+              "modifier": 30,
+              "modifierType": "flat",
+              "effectType": "bonus"
+            },
+            {
+              "target": "faction",
+              "factionName": "religious",
+              "attribute": "satisfaction",
+              "modifier": -30,
+              "modifierType": "flat",
+              "effectType": "malus"
+            }
+          ]
+        },
+        {
+          "text": "Vous vous rangez du côté des religieux\nEffets : Satisfaction religieux +30%, Communistes -30%",
+          "nextEvents": [
+          ],
+          "effects": [
+            {
+              "target": "faction",
+              "factionName": "religious",
+              "attribute": "satisfaction",
+              "modifier": 30,
+              "modifierType": "flat",
+              "effectType": "bonus"
+            },
+            {
+              "target": "faction",
+              "factionName": "communists",
+              "attribute": "satisfaction",
+              "modifier": -30,
+              "modifierType": "flat",
+              "effectType": "malus"
+            }
+          ]
+        },
+        {
+          "text": "Vous n'intervenez pas, c'est leur problème\nEffets : Satisfaction religieux -10%, Communistes -10%",
+          "nextEvents": [
+          ],
+          "effects": [
+            {
+              "target": "faction",
+              "factionName": "religious",
+              "attribute": "satisfaction",
+              "modifier": -10,
+              "modifierType": "flat",
+              "effectType": "malus"
+            },
+            {
+              "target": "faction",
+              "factionName": "communists",
+              "attribute": "satisfaction",
+              "modifier": -10,
+              "modifierType": "flat",
+              "effectType": "malus"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "text": "Tout va bien au pays d'El Presidente. Profitons-en pour investir !",
+      "seasons": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "choices": [
+        {
+          "text": "Vous investissez dans l'agriculture\nEffets : Agriculture +30, Argent -50",
+          "nextEvents": [
+          ],
+          "effects": [
+            {
+              "target": "attribute",
+              "attribute": "agriculture",
+              "modifier": 30,
+              "modifierType": "flat",
+              "effectType": "bonus"
+            },
+            {
+              "target": "attribute",
+              "attribute": "money",
+              "modifier": -50,
+              "modifierType": "flat",
+              "effectType": "malus"
+            }
+          ]
+        },
+        {
+          "text": "Vous investissez dans l'industrie\nEffets : Industrie +30, Argent -50",
+          "nextEvents": [
+          ],
+          "effects": [
+            {
+              "target": "attribute",
+              "attribute": "industry",
+              "modifier": 30,
+              "modifierType": "flat",
+              "effectType": "bonus"
+            },
+            {
+              "target": "attribute",
+              "attribute": "money",
+              "modifier": -50,
+              "modifierType": "flat",
+              "effectType": "malus"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

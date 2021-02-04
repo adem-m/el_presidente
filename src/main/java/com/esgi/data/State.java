@@ -40,7 +40,7 @@ public class State {
 
     public void initialize(String scenarioName) {
         this.choiceHandler = new ChoiceHandler(this);
-        this.events.putAll(Loader.fetchEvents());
+        this.events.putAll(Loader.fetchEvents(scenarioName));
         Scenario scenario = Loader.fetchScenarioFromName(scenarioName);
         initializeAttributesFromScenario(scenario);
         turnCount = 0;

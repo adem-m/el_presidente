@@ -1,15 +1,14 @@
 package com.esgi.data;
 
 import com.esgi.utils.JSONHandler;
+import javafx.util.Pair;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 
-import java.util.HashMap;
-import java.util.Map;
+import java.util.*;
 
 public class Loader {
     private final static String SCENARIOS_FILE_NAME = "scenarios_attributes.json";
-    private final static String EVENTS_FILE_NAME = "events.json";
 
     public static Scenario fetchScenarioFromName(String scenarioName) {
         JSONObject jsonObject = new JSONHandler().getObjectFromJSON(SCENARIOS_FILE_NAME);
@@ -38,5 +37,17 @@ public class Loader {
             events.put(event.getId(), event);
         }
         return events;
+    }
+
+    public static List<Pair<String, String>> fetchScenariosList() {
+        List<Pair<String, String>> scenarios = new ArrayList<>();
+        JSONObject jsonObject = new JSONHandler().getObjectFromJSON(SCENARIOS_FILE_NAME);
+        JSONObject jsonScenario = (JSONObject) jsonObject.get("scenarios");
+        for (Object object : jsonScenario.keySet()) {
+            String key = object.toString();
+            String value = (String) ((JSONObject) jsonScenario.get(key)).get("name");
+            scenarios.add(new Pair<>(key, value));
+        }
+        return scenarios;
     }
 }

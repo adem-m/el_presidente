@@ -43,7 +43,6 @@ public class State {
         this.events.putAll(Loader.fetchEvents(scenarioName));
         Scenario scenario = Loader.fetchScenarioFromName(scenarioName);
         initializeAttributesFromScenario(scenario);
-        turnCount = 0;
         startingSeason = Season.fromId(new Random().nextInt(4));
     }
 
@@ -67,7 +66,14 @@ public class State {
         return this.events.get(id);
     }
 
+    private Event getRandomEvent() {
+        Random generator = new Random();
+        Object[] values = events.values().toArray();
+        return (Event) values[generator.nextInt(values.length)];
+    }
+
     public void handleChoice(EventChoice choice) {
         this.choiceHandler.handle(choice);
+        this.turnCount++;
     }
 }

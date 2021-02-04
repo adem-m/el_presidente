@@ -85,7 +85,7 @@
         {
           "text": "Vous privilégiez l'agriculture\nEffets : Agriculture +20",
           "nextEvents": [
-            1
+
           ],
           "effects": [
             {

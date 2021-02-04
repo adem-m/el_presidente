@@ -13,6 +13,7 @@ public class State {
     private int turnCount;
     private Season startingSeason;
     private ChoiceHandler choiceHandler;
+    private boolean sandboxMode = false;
 
     public Map<String, Integer> getAttributes() {
         return attributes;
@@ -38,7 +39,7 @@ public class State {
         return startingSeason;
     }
 
-    public void initialize(String scenarioName) {
+    public State(String scenarioName) {
         this.choiceHandler = new ChoiceHandler(this);
         this.events.putAll(Loader.fetchEvents(scenarioName));
         Scenario scenario = Loader.fetchScenarioFromName(scenarioName);
@@ -53,6 +54,8 @@ public class State {
             } catch (Exception exception) {
                 System.out.println(exception.getMessage());
             }
+        } else {
+            this.sandboxMode = true;
         }
         attributes.put("industry", scenario.getIndustry());
         attributes.put("agriculture", scenario.getAgriculture());
@@ -60,6 +63,25 @@ public class State {
         for (Faction faction : scenario.getFactions()) {
             factions.put(faction.getName(), faction);
         }
+    }
+
+    public Event getNextEvent() {
+        if (sandboxMode) {
+            return getRandomEvent();
+        }
+        if (!nextEvents.isEmpty()) {
+            Event event = nextEvents.get(0);
+            nextEvents.remove(0);
+            return event;
+        }
+        turnSandboxMode();
+        return getRandomEvent();
+    }
+
+    private void turnSandboxMode() {
+        sandboxMode = true;
+        events.clear();
+        events.putAll(Loader.fetchEvents("sandbox"));
     }
 
     public Event getEventById(int id) {

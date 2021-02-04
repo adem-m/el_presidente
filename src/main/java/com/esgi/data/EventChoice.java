@@ -35,7 +35,7 @@ public class EventChoice {
     }
 
     private Effect JSONtoEffect(JSONObject JSONEffect) {
-        if (JSONEffect.get("type").toString().equals("faction")) {
+        if (JSONEffect.get("target").toString().equals("faction")) {
             return new Effect(
                     (String) JSONEffect.get("target"),
                     (String) JSONEffect.get("factionName"),

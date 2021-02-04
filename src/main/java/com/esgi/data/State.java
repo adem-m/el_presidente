@@ -8,7 +8,7 @@ import java.util.*;
 public class State {
     private final Map<String, Integer> attributes = new HashMap<>();
     private final Map<String, Faction> factions = new HashMap<>();
-    private final List<Event> events = new ArrayList<>();
+    private final Map<Integer, Event> events = new HashMap<>();
     private final List<Event> nextEvents = new ArrayList<>();
     private int turnCount;
     private Season startingSeason;
@@ -22,7 +22,7 @@ public class State {
         return factions;
     }
 
-    public List<Event> getEvents() {
+    public Map<Integer, Event> getEvents() {
         return events;
     }
 
@@ -40,7 +40,7 @@ public class State {
 
     public void initialize(String scenarioName) {
         this.choiceHandler = new ChoiceHandler(this);
-        this.events.addAll(Loader.fetchEvents());
+        this.events.putAll(Loader.fetchEvents());
         Scenario scenario = Loader.fetchScenarioFromName(scenarioName);
         initializeAttributesFromScenario(scenario);
         turnCount = 0;
@@ -63,13 +63,8 @@ public class State {
         }
     }
 
-    public Event getEventById(int id) throws Exception {
-        for (Event event : this.events) {
-            if (event.getId() == id) {
-                return event;
-            }
-        }
-        throw new Exception("Event " + id + " not found");
+    public Event getEventById(int id) {
+        return this.events.get(id);
     }
 
     public void handleChoice(EventChoice choice) {

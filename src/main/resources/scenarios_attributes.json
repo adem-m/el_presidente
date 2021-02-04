@@ -1,6 +1,7 @@
 {
   "scenarios": {
     "sandbox": {
+      "name": "Sandbox",
       "firstEventId": -1,
       "industry": 15,
       "agriculture": 15,
@@ -48,7 +49,8 @@
         }
       ]
     },
-    "coldWar": {
+    "cold_war": {
+      "name": "Guerre froide",
       "firstEventId": 1,
       "industry": 10,
       "agriculture": 30,

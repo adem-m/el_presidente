@@ -1,15 +1,14 @@
 package com.esgi.data;
 
 import com.esgi.utils.JSONHandler;
+import javafx.util.Pair;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.*;
 
 public class Loader {
-    private final static String SCENARIOS_FILE_NAME = "scenarios.json";
-    private final static String EVENTS_FILE_NAME = "events.json";
+    private final static String SCENARIOS_FILE_NAME = "scenarios_attributes.json";
 
     public static Scenario fetchScenarioFromName(String scenarioName) {
         JSONObject jsonObject = new JSONHandler().getObjectFromJSON(SCENARIOS_FILE_NAME);
@@ -24,19 +23,31 @@ public class Loader {
         );
     }
 
-    public static List<Event> fetchEvents() {
-        List<Event> events = new ArrayList<>();
-        JSONObject jsonObject = new JSONHandler().getObjectFromJSON(EVENTS_FILE_NAME);
+    public static Map<Integer, Event> fetchEvents(String scenarioName) {
+        Map<Integer, Event> events = new HashMap<>();
+        JSONObject jsonObject = new JSONHandler().getObjectFromJSON("events/" + scenarioName + ".json");
         JSONArray JsonEvents = (JSONArray) jsonObject.get("events");
         for (Object object : JsonEvents) {
-            JSONObject event = (JSONObject) object;
-            events.add(
-                    new Event(
-                            (long) event.get("id"),
-                            (String) event.get("text"),
-                            (JSONArray) event.get("seasons"),
-                            (JSONArray) event.get("choices")));
+            JSONObject JsonEvent = (JSONObject) object;
+            Event event = new Event(
+                    (long) JsonEvent.get("id"),
+                    (String) JsonEvent.get("text"),
+                    (JSONArray) JsonEvent.get("seasons"),
+                    (JSONArray) JsonEvent.get("choices"));
+            events.put(event.getId(), event);
         }
         return events;
+    }
+
+    public static List<Pair<String, String>> fetchScenariosList() {
+        List<Pair<String, String>> scenarios = new ArrayList<>();
+        JSONObject jsonObject = new JSONHandler().getObjectFromJSON(SCENARIOS_FILE_NAME);
+        JSONObject jsonScenario = (JSONObject) jsonObject.get("scenarios");
+        for (Object object : jsonScenario.keySet()) {
+            String key = object.toString();
+            String value = (String) ((JSONObject) jsonScenario.get(key)).get("name");
+            scenarios.add(new Pair<>(key, value));
+        }
+        return scenarios;
     }
 }

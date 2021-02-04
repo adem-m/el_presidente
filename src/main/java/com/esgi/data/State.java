@@ -8,11 +8,12 @@ import java.util.*;
 public class State {
     private final Map<String, Integer> attributes = new HashMap<>();
     private final Map<String, Faction> factions = new HashMap<>();
-    private final List<Event> events = new ArrayList<>();
+    private final Map<Integer, Event> events = new HashMap<>();
     private final List<Event> nextEvents = new ArrayList<>();
     private int turnCount;
     private Season startingSeason;
     private ChoiceHandler choiceHandler;
+    private boolean sandboxMode = false;
 
     public Map<String, Integer> getAttributes() {
         return attributes;
@@ -22,7 +23,7 @@ public class State {
         return factions;
     }
 
-    public List<Event> getEvents() {
+    public Map<Integer, Event> getEvents() {
         return events;
     }
 
@@ -38,12 +39,11 @@ public class State {
         return startingSeason;
     }
 
-    public void initialize(String scenarioName) {
+    public State(String scenarioName) {
         this.choiceHandler = new ChoiceHandler(this);
-        this.events.addAll(Loader.fetchEvents());
+        this.events.putAll(Loader.fetchEvents(scenarioName));
         Scenario scenario = Loader.fetchScenarioFromName(scenarioName);
         initializeAttributesFromScenario(scenario);
-        turnCount = 0;
         startingSeason = Season.fromId(new Random().nextInt(4));
     }
 
@@ -54,6 +54,8 @@ public class State {
             } catch (Exception exception) {
                 System.out.println(exception.getMessage());
             }
+        } else {
+            this.sandboxMode = true;
         }
         attributes.put("industry", scenario.getIndustry());
         attributes.put("agriculture", scenario.getAgriculture());
@@ -63,16 +65,37 @@ public class State {
         }
     }
 
-    public Event getEventById(int id) throws Exception {
-        for (Event event : this.events) {
-            if (event.getId() == id) {
-                return event;
-            }
+    public Event getNextEvent() {
+        if (sandboxMode) {
+            return getRandomEvent();
         }
-        throw new Exception("Event " + id + " not found");
+        if (!nextEvents.isEmpty()) {
+            Event event = nextEvents.get(0);
+            nextEvents.remove(0);
+            return event;
+        }
+        turnSandboxMode();
+        return getRandomEvent();
+    }
+
+    private void turnSandboxMode() {
+        sandboxMode = true;
+        events.clear();
+        events.putAll(Loader.fetchEvents("sandbox"));
+    }
+
+    public Event getEventById(int id) {
+        return this.events.get(id);
+    }
+
+    private Event getRandomEvent() {
+        Random generator = new Random();
+        Object[] values = events.values().toArray();
+        return (Event) values[generator.nextInt(values.length)];
     }
 
     public void handleChoice(EventChoice choice) {
         this.choiceHandler.handle(choice);
+        this.turnCount++;
     }
 }

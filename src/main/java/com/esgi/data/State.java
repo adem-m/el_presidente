@@ -1,6 +1,7 @@
 package com.esgi.data;
 
 import com.esgi.data.enums.Season;
+import com.esgi.game.ChoiceHandler;
 
 import java.util.*;
 
@@ -11,6 +12,7 @@ public class State {
     private final List<Event> nextEvents = new ArrayList<>();
     private int turnCount;
     private Season startingSeason;
+    private ChoiceHandler choiceHandler;
 
     public Map<String, Integer> getAttributes() {
         return attributes;
@@ -37,6 +39,7 @@ public class State {
     }
 
     public void initialize(String scenarioName) {
+        this.choiceHandler = new ChoiceHandler(this);
         this.events.addAll(Loader.fetchEvents());
         Scenario scenario = Loader.fetchScenarioFromName(scenarioName);
         initializeAttributesFromScenario(scenario);
@@ -60,12 +63,16 @@ public class State {
         }
     }
 
-    private Event getEventById(int id) throws Exception {
+    public Event getEventById(int id) throws Exception {
         for (Event event : this.events) {
             if (event.getId() == id) {
                 return event;
             }
         }
         throw new Exception("Event " + id + " not found");
+    }
+
+    public void handleChoice(EventChoice choice) {
+        this.choiceHandler.handle(choice);
     }
 }

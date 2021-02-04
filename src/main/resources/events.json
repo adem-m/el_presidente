@@ -17,7 +17,7 @@
           ],
           "effects": [
             {
-              "type": "faction",
+              "target": "faction",
               "factionName": "nationalists",
               "attribute": "satisfaction",
               "modifier": 30,
@@ -25,7 +25,7 @@
               "effectType": "bonus"
             },
             {
-              "type": "attribute",
+              "target": "attribute",
               "attribute": "money",
               "modifier": -500,
               "modifierType": "flat",
@@ -40,7 +40,7 @@
           ],
           "effects": [
             {
-              "type": "faction",
+              "target": "faction",
               "factionName": "nationalists",
               "attribute": "satisfaction",
               "modifier": -40,
@@ -48,21 +48,21 @@
               "effectType": "malus"
             },
             {
-              "type": "attribute",
+              "target": "attribute",
               "attribute": "money",
               "modifier": 1000,
               "modifierType": "flat",
               "effectType": "bonus"
             },
             {
-              "type": "attribute",
+              "target": "attribute",
               "attribute": "agriculture",
               "modifier": -15,
               "modifierType": "flat",
               "effectType": "malus"
             },
             {
-              "type": "attribute",
+              "target": "attribute",
               "attribute": "industry",
               "modifier": -15,
               "modifierType": "flat",
@@ -89,7 +89,7 @@
           ],
           "effects": [
             {
-              "type": "attribute",
+              "target": "attribute",
               "attribute": "agriculture",
               "modifier": 20,
               "modifierType": "flat",
@@ -104,7 +104,7 @@
           ],
           "effects": [
             {
-              "type": "attribute",
+              "target": "attribute",
               "attribute": "industry",
               "modifier": 20,
               "modifierType": "flat",

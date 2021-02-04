@@ -13,7 +13,7 @@ public class EventChoice {
 
     public EventChoice(String text, JSONArray nextEventsIds, JSONArray effects) {
         this.text = text;
-        for(Object eventId : nextEventsIds){
+        for (Object eventId : nextEventsIds) {
             Long id = (Long) eventId;
             this.nextEventsIds.add(id.intValue());
         }
@@ -30,10 +30,14 @@ public class EventChoice {
         return effects;
     }
 
+    public List<Integer> getNextEventsIds() {
+        return nextEventsIds;
+    }
+
     private Effect JSONtoEffect(JSONObject JSONEffect) {
         if (JSONEffect.get("type").toString().equals("faction")) {
             return new Effect(
-                    (String) JSONEffect.get("type"),
+                    (String) JSONEffect.get("target"),
                     (String) JSONEffect.get("factionName"),
                     (String) JSONEffect.get("attribute"),
                     (Long) JSONEffect.get("modifier"),
@@ -41,7 +45,7 @@ public class EventChoice {
                     (String) JSONEffect.get("effectType"));
         } else {
             return new Effect(
-                    (String) JSONEffect.get("type"),
+                    (String) JSONEffect.get("target"),
                     (String) JSONEffect.get("attribute"),
                     (Long) JSONEffect.get("modifier"),
                     (String) JSONEffect.get("modifierType"),

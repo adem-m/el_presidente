@@ -8,7 +8,7 @@ public class Effect {
     private final Target target;
     private String factionName;
     private final String attribute;
-    private final int modifier;
+    private int modifier;
     private final ModifierType modifierType;
     private final EffectType effectType;
 
@@ -43,6 +43,10 @@ public class Effect {
 
     public int getModifier() {
         return modifier;
+    }
+
+    public void setModifier(int modifier) {
+        this.modifier = modifier;
     }
 
     public ModifierType getModifierType() {

@@ -11,7 +11,7 @@
       ],
       "choices": [
         {
-          "text": "Vous résistez !\nEffets : Satisfaction nationalistes +30%, Argent -500",
+          "text": "Vous résistez !\nEffets : Satisfaction nationalistes +%d%%, Argent %d",
           "nextEvents": [
             2
           ],
@@ -34,7 +34,7 @@
           ]
         },
         {
-          "text": "Vous les laissez faire contre un pot de vin\nEffets : Satisfaction nationalistes -40%, Argent +1000, Agriculture -15, Industrie -15",
+          "text": "Vous les laissez faire contre un pot de vin\nEffets : Satisfaction nationalistes %d%%, Argent +%d, Agriculture %d, Industrie %d",
           "nextEvents": [
             2
           ],
@@ -83,7 +83,7 @@
       ],
       "choices": [
         {
-          "text": "Vous privilégiez l'agriculture\nEffets : Agriculture +20",
+          "text": "Vous privilégiez l'agriculture\nEffets : Agriculture +%d",
           "nextEvents": [
 
           ],
@@ -98,7 +98,7 @@
           ]
         },
         {
-          "text": "Vous privilégiez l'industrie\nEffets : Industrie +20",
+          "text": "Vous privilégiez l'industrie\nEffets : Industrie +%d",
           "nextEvents": [
             1
           ],

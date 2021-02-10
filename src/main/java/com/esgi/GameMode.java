@@ -20,4 +20,8 @@ abstract class GameMode {
     public void switchGameMode( GameMode mode ){
         this.parent.setGameMode( mode );
     }
+
+    public void setPreviousGameMode(){
+        this.parent.setPreviousGameMode();
+    }
 }

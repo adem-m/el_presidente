@@ -8,13 +8,7 @@ public class MainTitleGameMode extends GameMode {
 
     @Override
     void handleInput() {
-        switch( this.inputHandler.getUserInput() ){
-            case 13:
-                System.out.println( "Touche pour continuer activée." );
-            
-            default:
-                System.out.println( "Fermeture de l'application..." );
-                System.exit( 0 );
-        }
+        this.inputHandler.expectEnter();
+        this.switchGameMode( new DifficultyGameMode() );
     }
 }

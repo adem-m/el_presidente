@@ -11,8 +11,8 @@ public class State {
     private final Map<Integer, Event> events = new HashMap<>();
     private final List<Event> nextEvents = new ArrayList<>();
     private int turnCount;
-    private Season startingSeason;
-    private ChoiceHandler choiceHandler;
+    private final Season startingSeason;
+    private final ChoiceHandler choiceHandler;
     private boolean sandboxMode = false;
 
     public Map<String, Integer> getAttributes() {

@@ -11,7 +11,7 @@
       ],
       "choices": [
         {
-          "text": "Vous vous rangez du côté des cocos\nEffets : Satisfaction communistes +30%, Religieux -30%",
+          "text": "Vous vous rangez du côté des cocos\nEffets : Satisfaction communistes +%d%%, Religieux %d%%",
           "nextEvents": [
           ],
           "effects": [
@@ -34,7 +34,7 @@
           ]
         },
         {
-          "text": "Vous vous rangez du côté des religieux\nEffets : Satisfaction religieux +30%, Communistes -30%",
+          "text": "Vous vous rangez du côté des religieux\nEffets : Satisfaction religieux +%d%%, Communistes %d%%",
           "nextEvents": [
           ],
           "effects": [
@@ -57,7 +57,7 @@
           ]
         },
         {
-          "text": "Vous n'intervenez pas, c'est leur problème\nEffets : Satisfaction religieux -10%, Communistes -10%",
+          "text": "Vous n'intervenez pas, c'est leur problème\nEffets : Satisfaction religieux %d%%, Communistes %d%%",
           "nextEvents": [
           ],
           "effects": [
@@ -92,7 +92,7 @@
       ],
       "choices": [
         {
-          "text": "Vous investissez dans l'agriculture\nEffets : Agriculture +30, Argent -50",
+          "text": "Vous investissez dans l'agriculture\nEffets : Agriculture +%d, Argent %d",
           "nextEvents": [
           ],
           "effects": [
@@ -113,7 +113,7 @@
           ]
         },
         {
-          "text": "Vous investissez dans l'industrie\nEffets : Industrie +30, Argent -50",
+          "text": "Vous investissez dans l'industrie\nEffets : Industrie +%d, Argent %d",
           "nextEvents": [
           ],
           "effects": [

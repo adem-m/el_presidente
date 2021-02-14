@@ -8,9 +8,12 @@ public class Keyboard {
     public Keyboard(){
         this.scanner = new Scanner( System.in );
     }
+
+    public void expectEnter(){
+        this.scanner.nextLine();
+    }
     
-    public char getUserInput(){
-        String input = this.scanner.nextLine();
-        return input.isEmpty() ? 13 : input.charAt( 0 );
+    public int getUserInput(){
+        return Integer.parseInt( this.scanner.nextLine() );
     }
 }

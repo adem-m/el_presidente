@@ -1,0 +1,1275 @@
+{
+  "events": [
+    {
+      "id": 1,
+      "text": "On est le 26 mai 1895, vous venez d'être Tsar,Quel est votre première déclaration ?",
+      "seasons": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "choices": [
+        {
+          "text": "C'est par la Grâce de Dieu que je suis arrivé à ce jour !\nEffets : Satisfaction religieux +20%, Satisfaction nationalistes +10%",
+          "nextEvents": [
+            2
+          ],
+          "effects": [
+            {
+              "target": "faction",
+              "factionName": "religious",
+              "attribute": "satisfaction",
+              "modifier": 30,
+              "modifierType": "flat",
+              "effectType": "bonus"
+            },
+            {
+              "target": "faction",
+              "factionName": "nationalists",
+              "attribute": "satisfaction",
+              "modifier": 10,
+              "modifierType": "flat",
+              "effectType": "bonus"
+            }
+          ]
+        },
+        {
+          "text": "Je vais continuer le travail de mon père et notre lignée \nEffets : Satisfaction nationalistes +20%, militaire +10%, communistes -10%",
+          "nextEvents": [
+            2
+          ],
+          "effects": [
+            {
+              "target": "faction",
+              "factionName": "nationalists",
+              "attribute": "satisfaction",
+              "modifier": 20,
+              "modifierType": "flat",
+              "effectType": "bonus"
+            },
+            {
+              "target": "faction",
+              "factionName": "militarists",
+              "attribute": "satisfaction",
+              "modifier": 10,
+              "modifierType": "flat",
+              "effectType": "bonus"
+            },
+            {
+              "target": "faction",
+              "factionName": "communists",
+              "attribute": "satisfaction",
+              "modifier": 10,
+              "modifierType": "flat",
+              "effectType": "malus"
+            }
+          ]
+        },
+        {
+          "text": "Je vais continuer le travail de mon père et notre lignée \nEffets : Satisfaction nationalistes +20%, militaire +10%, communistes -10%",
+          "nextEvents": [
+            2
+          ],
+          "effects": [
+            {
+              "target": "faction",
+              "factionName": "nationalists",
+              "attribute": "satisfaction",
+              "modifier": 20,
+              "modifierType": "flat",
+              "effectType": "bonus"
+            },
+            {
+              "target": "faction",
+              "factionName": "militarists",
+              "attribute": "satisfaction",
+              "modifier": 10,
+              "modifierType": "flat",
+              "effectType": "bonus"
+            },
+            {
+              "target": "faction",
+              "factionName": "communists",
+              "attribute": "satisfaction",
+              "modifier": 10,
+              "modifierType": "flat",
+              "effectType": "malus"
+            }
+          ]
+        },
+        {
+          "text": "Je vais rendre aux peuple ce qu'il m'a donné \nEffets : Satisfaction nationalistes +10%, communistes +20%, capitaliste -10%",
+          "nextEvents": [
+            2
+          ],
+          "effects": [
+            {
+              "target": "faction",
+              "factionName": "nationalists",
+              "attribute": "satisfaction",
+              "modifier": 20,
+              "modifierType": "flat",
+              "effectType": "bonus"
+            },
+            {
+              "target": "faction",
+              "factionName": "militarists",
+              "attribute": "satisfaction",
+              "modifier": 10,
+              "modifierType": "flat",
+              "effectType": "bonus"
+            },
+            {
+              "target": "faction",
+              "factionName": "communists",
+              "attribute": "satisfaction",
+              "modifier": 10,
+              "modifierType": "flat",
+              "effectType": "malus"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "text": "Où vous et votre famille royale allez vous vivre ?",
+      "seasons": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "choices": [
+        {
+          "text": "Vous vous installer dans les domaines de l'ancien Tsar\nEffets : nationalistes +10%, communistes -5%",
+          "nextEvents": [
+            3
+          ],
+          "effects": [
+            {
+              "target": "faction",
+              "factionName": "nationalists",
+              "attribute": "satisfaction",
+              "modifier": 10,
+              "modifierType": "flat",
+              "effectType": "bonus"
+            },
+            {
+              "target": "faction",
+              "factionName": "communists",
+              "attribute": "satisfaction",
+              "modifier": 5,
+              "modifierType": "flat",
+              "effectType": "malus"
+            }
+
+          ]
+        },
+        {
+          "text": "Vous vous installer dans un village loin de la Cour Russe \nEffets : Satisfaction religieux +10%, communistes +5%, nationaliste -10%",
+          "nextEvents": [
+            3
+          ],
+          "effects": [
+            {
+              "target": "faction",
+              "factionName": "religious",
+              "attribute": "satisfaction",
+              "modifier": 10,
+              "modifierType": "flat",
+              "effectType": "bonus"
+            },
+            {
+              "target": "faction",
+              "factionName": "communistes +5%",
+              "attribute": "satisfaction",
+              "modifier": 10,
+              "modifierType": "flat",
+              "effectType": "bonus"
+            },
+            {
+              "target": "faction",
+              "factionName": "nationalists",
+              "attribute": "satisfaction",
+              "modifier": 10,
+              "modifierType": "flat",
+              "effectType": "malus"
+            }
+          ]
+        },
+            {
+              "text": "Vous vous installer dans un quartier de travailleurs \nEffets : Satisfaction nationaliste +5%, communiste +10%, socialiste +10%n royalist -10%",
+              "nextEvents": [
+                3
+              ],
+              "effects": [
+                {
+                  "target": "faction",
+                  "factionName": "nationalists",
+                  "attribute": "satisfaction",
+                  "modifier": 5,
+                  "modifierType": "flat",
+                  "effectType": "bonus"
+                },
+                {
+                  "target": "faction",
+                  "factionName": "communist",
+                  "attribute": "satisfaction",
+                  "modifier": 10,
+                  "modifierType": "flat",
+                  "effectType": "bonus"
+                },
+                {
+                  "target": "faction",
+                  "factionName": "socialists",
+                  "attribute": "satisfaction",
+                  "modifier": 10,
+                  "modifierType": "flat",
+                  "effectType": "bonus"
+                },
+                {
+                  "target": "faction",
+                  "factionName": "royalists",
+                  "attribute": "satisfaction",
+                  "modifier": 10,
+                  "modifierType": "flat",
+                  "effectType": "malus"
+                }
+              ]
+            }
+        ]
+    },
+        {
+          "id": 3,
+          "text": "Quel est votre choix du mode de production de la nation ?",
+          "seasons": [
+            0,
+            1,
+            2,
+            3
+          ],
+          "choices": [
+            {
+              "text": "Vous ne faites rien\nEffets : royaliste +10%, communistes -5%, socialist -5%\n argent + 100,industrie -5% , agriculutre - 5%",
+              "nextEvents": [
+                4
+              ],
+              "effects": [
+                {
+                  "target": "faction",
+                  "factionName": "royalists",
+                  "attribute": "satisfaction",
+                  "modifier": 10,
+                  "modifierType": "flat",
+                  "effectType": "bonus"
+                },
+                {
+                  "target": "faction",
+                  "factionName": "communists",
+                  "attribute": "satisfaction",
+                  "modifier": 5,
+                  "modifierType": "flat",
+                  "effectType": "malus"
+                },
+                {
+                  "target": "faction",
+                  "factionName": "socialist",
+                  "attribute": "satisfaction",
+                  "modifier": 5,
+                  "modifierType": "flat",
+                  "effectType": "malus"
+                },
+                {
+                  "target": "attribute",
+                  "attribute": "Money",
+                  "modifier": 100,
+                  "modifierType": "flat",
+                  "effectType": "bonus"
+                },
+                {
+                  "target": "attribute",
+                  "attribute": "Industrie",
+                  "modifier": 5,
+                  "modifierType": "flat",
+                  "effectType": "malus"
+                }
+              ]
+            },
+            {
+              "text": "Vous diminuer les taxes sur les paysans \nEffets : capitalistes -10%, communistes +5%, socialist +15%\n argent - 100, agriculture +15%",
+              "nextEvents": [
+                4
+              ],
+              "effects": [
+                {
+                  "target": "faction",
+                  "factionName": "capitalists",
+                  "attribute": "satisfaction",
+                  "modifier": 10,
+                  "modifierType": "flat",
+                  "effectType": "malus"
+                },
+                {
+                  "target": "faction",
+                  "factionName": "communists",
+                  "attribute": "satisfaction",
+                  "modifier": 5,
+                  "modifierType": "flat",
+                  "effectType": "bonus"
+                },
+                {
+                  "target": "faction",
+                  "factionName": "socialist",
+                  "attribute": "satisfaction",
+                  "modifier": 15,
+                  "modifierType": "flat",
+                  "effectType": "bonus"
+                },
+                {
+                  "target": "attribute",
+                  "attribute": "Money",
+                  "modifier": 100,
+                  "modifierType": "flat",
+                  "effectType": "malus"
+                }
+              ]
+            },
+            {
+              "text": "Vous investissez dans l'industrie \nEffets : capitalistes +10%, communistes -5%, socialist +5%\n argent - 150, industrie +15%",
+              "nextEvents": [
+                4
+              ],
+              "effects": [
+                {
+                  "target": "faction",
+                  "factionName": "capitalists",
+                  "attribute": "satisfaction",
+                  "modifier": 10,
+                  "modifierType": "flat",
+                  "effectType": "bonus"
+                },
+                {
+                  "target": "faction",
+                  "factionName": "communists",
+                  "attribute": "satisfaction",
+                  "modifier": 5,
+                  "modifierType": "flat",
+                  "effectType": "malus"
+                },
+                {
+                  "target": "faction",
+                  "factionName": "socialist",
+                  "attribute": "satisfaction",
+                  "modifier": 5,
+                  "modifierType": "flat",
+                  "effectType": "bonus"
+                },
+                {
+                  "target": "attribute",
+                  "attribute": "Money",
+                  "modifier": 150,
+                  "modifierType": "flat",
+                  "effectType": "malus"
+                },
+                {
+                  "target": "attribute",
+                  "attribute": "Industrie",
+                  "modifier": 15,
+                  "modifierType": "flat",
+                  "effectType": "bonus"
+                }
+              ]
+            }
+          ]
+        },
+    {
+      "id": 4,
+      "text": "Votre conseiller Sergueï Witte vous propose de négocier avec l'allemagne afin d'avoir des échanges commerciaux privilégié",
+      "seasons": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "choices": [
+        {
+          "text": "Vous acceptez\nEffets : Satisfaction capitaliste +15%, Satisfaction nationalistes -10%, communist -5% , socialist -5%\n argent +100, industrie +5%",
+          "nextEvents": [
+            5
+          ],
+          "effects": [
+            {
+              "target": "faction",
+              "factionName": "capitalists",
+              "attribute": "satisfaction",
+              "modifier": 15,
+              "modifierType": "flat",
+              "effectType": "bonus"
+            },
+            {
+              "target": "faction",
+              "factionName": "nationalists",
+              "attribute": "satisfaction",
+              "modifier": 10,
+              "modifierType": "flat",
+              "effectType": "malus"
+            },
+            {
+              "target": "faction",
+              "factionName": "communists",
+              "attribute": "satisfaction",
+              "modifier": 5,
+              "modifierType": "flat",
+              "effectType": "malus"
+            },
+            {
+              "target": "faction",
+              "factionName": "socialist",
+              "attribute": "satisfaction",
+              "modifier": 5,
+              "modifierType": "flat",
+              "effectType": "malus"
+            },
+            {
+              "target": "attribute",
+              "attribute": "Money",
+              "modifier": 100,
+              "modifierType": "flat",
+              "effectType": "bonus"
+            },
+            {
+              "target": "attribute",
+              "attribute": "Industrie",
+              "modifier": 5,
+              "modifierType": "flat",
+              "effectType": "bonus"
+            }
+          ]
+        },
+        {
+          "text": "Vous refuser\nEffets : Satisfaction capitaliste -10%, Satisfaction nationalistes +10%, communist +5% , socialist +5%\n argent -100, industrie -5%",
+          "nextEvents": [
+            5
+          ],
+          "effects": [
+            {
+              "target": "faction",
+              "factionName": "capitalists",
+              "attribute": "satisfaction",
+              "modifier": 10,
+              "modifierType": "flat",
+              "effectType": "malus"
+            },
+            {
+              "target": "faction",
+              "factionName": "nationalists",
+              "attribute": "satisfaction",
+              "modifier": 10,
+              "modifierType": "flat",
+              "effectType": "bonus"
+            },
+            {
+              "target": "faction",
+              "factionName": "communists",
+              "attribute": "satisfaction",
+              "modifier": 5,
+              "modifierType": "flat",
+              "effectType": "bonus"
+            },
+            {
+              "target": "faction",
+              "factionName": "socialist",
+              "attribute": "satisfaction",
+              "modifier": 5,
+              "modifierType": "flat",
+              "effectType": "bonus"
+            },
+            {
+              "target": "attribute",
+              "attribute": "Money",
+              "modifier": 100,
+              "modifierType": "flat",
+              "effectType": "malus"
+            },
+            {
+              "target": "attribute",
+              "attribute": "Industrie",
+              "modifier": 5,
+              "modifierType": "flat",
+              "effectType": "malus"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": 5,
+      "text": "Après s'être allié à L'angleterre, le Japon vous attaque ! Que faites-vous ?",
+      "seasons": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "choices": [
+        {
+          "text": "Vous vous défendez\nEffets : Satisfaction capitaliste +15%, nationaliste +10%,militaristes +20% communiste -5%, royaliste +5%,\n argent -200, industrie +5%, agriculture -10%,partisan - 5 par faction",
+          "nextEvents": [
+            6
+          ],
+          "effects": [
+            {
+              "target": "faction",
+              "factionName": "capitalists",
+              "attribute": "satisfaction",
+              "modifier": 15,
+              "modifierType": "flat",
+              "effectType": "bonus"
+            },
+            {
+              "target": "faction",
+              "factionName": "nationalists",
+              "attribute": "satisfaction",
+              "modifier": 10,
+              "modifierType": "flat",
+              "effectType": "bonus"
+            },
+            {
+              "target": "faction",
+              "factionName": "militaristes",
+              "attribute": "satisfaction",
+              "modifier": 20,
+              "modifierType": "flat",
+              "effectType": "bonus"
+            },
+            {
+              "target": "faction",
+              "factionName": "communists",
+              "attribute": "satisfaction",
+              "modifier": 5,
+              "modifierType": "flat",
+              "effectType": "malus"
+            },
+            {
+              "target": "faction",
+              "factionName": "royalists",
+              "attribute": "satisfaction",
+              "modifier": 5,
+              "modifierType": "flat",
+              "effectType": "bonus"
+            },
+            {
+              "target": "attribute",
+              "attribute": "Money",
+              "modifier": 200,
+              "modifierType": "flat",
+              "effectType": "malus"
+            },
+            {
+              "target": "attribute",
+              "attribute": "Industrie",
+              "modifier": 5,
+              "modifierType": "flat",
+              "effectType": "bonus"
+            },
+            {
+              "target": "attribute",
+              "attribute": "agriculture",
+              "modifier": 10,
+              "modifierType": "flat",
+              "effectType": "malus"
+            },
+            {
+              "target": "faction",
+              "factionName": "capitalists",
+              "attribute": "population",
+              "modifier": 5,
+              "modifierType": "flat",
+              "effectType": "bonus"
+            },
+            {
+              "target": "faction",
+              "factionName": "nationalists",
+              "attribute": "population",
+              "modifier": 5,
+              "modifierType": "flat",
+              "effectType": "bonus"
+            },
+            {
+              "target": "faction",
+              "factionName": "communists",
+              "attribute": "population",
+              "modifier": 5,
+              "modifierType": "flat",
+              "effectType": "malus"
+            },
+            {
+              "target": "faction",
+              "factionName": "royalists",
+              "attribute": "population",
+              "modifier": 5,
+              "modifierType": "flat",
+              "effectType": "bonus"
+            },
+            {
+              "target": "faction",
+              "factionName": "religious",
+              "attribute": "population",
+              "modifier": 5,
+              "modifierType": "flat",
+              "effectType": "bonus"
+            },
+            {
+              "target": "faction",
+              "factionName": "militarists",
+              "attribute": "population",
+              "modifier": 5,
+              "modifierType": "flat",
+              "effectType": "bonus"
+            }
+          ]
+        },        {
+          "text": "Vous ne ripostez pas\nEffets : Satisfaction capitaliste -10%, nationaliste -10%,militaristes -15% communiste +5%, royaliste -5%,\n argent +100, industrie +5%, agriculture +5%,partisan - 1 par faction",
+          "nextEvents": [
+            6
+          ],
+          "effects": [
+            {
+              "target": "faction",
+              "factionName": "capitalists",
+              "attribute": "satisfaction",
+              "modifier": 10,
+              "modifierType": "flat",
+              "effectType": "malus"
+            },
+            {
+              "target": "faction",
+              "factionName": "nationalists",
+              "attribute": "satisfaction",
+              "modifier": 10,
+              "modifierType": "flat",
+              "effectType": "malus"
+            },
+            {
+              "target": "faction",
+              "factionName": "militaristes",
+              "attribute": "satisfaction",
+              "modifier": 15,
+              "modifierType": "flat",
+              "effectType": "malus"
+            },
+            {
+              "target": "faction",
+              "factionName": "communists",
+              "attribute": "satisfaction",
+              "modifier": 5,
+              "modifierType": "flat",
+              "effectType": "bonus"
+            },
+            {
+              "target": "faction",
+              "factionName": "royalists",
+              "attribute": "satisfaction",
+              "modifier": 5,
+              "modifierType": "flat",
+              "effectType": "malus"
+            },
+            {
+              "target": "attribute",
+              "attribute": "Money",
+              "modifier": 100,
+              "modifierType": "flat",
+              "effectType": "bonus"
+            },
+            {
+              "target": "attribute",
+              "attribute": "Industrie",
+              "modifier": 5,
+              "modifierType": "flat",
+              "effectType": "bonus"
+            },
+            {
+              "target": "attribute",
+              "attribute": "agriculture",
+              "modifier": 5,
+              "modifierType": "flat",
+              "effectType": "bonus"
+            },
+            {
+              "target": "faction",
+              "factionName": "capitalists",
+              "attribute": "population",
+              "modifier": 1,
+              "modifierType": "flat",
+              "effectType": "malus"
+            },
+            {
+              "target": "faction",
+              "factionName": "nationalists",
+              "attribute": "population",
+              "modifier": 1,
+              "modifierType": "flat",
+              "effectType": "malus"
+            },
+            {
+              "target": "faction",
+              "factionName": "communists",
+              "attribute": "population",
+              "modifier": 1,
+              "modifierType": "flat",
+              "effectType": "malus"
+            },
+            {
+              "target": "faction",
+              "factionName": "royalists",
+              "attribute": "population",
+              "modifier": 1,
+              "modifierType": "flat",
+              "effectType": "malus"
+            },
+            {
+              "target": "faction",
+              "factionName": "religious",
+              "attribute": "population",
+              "modifier": 1,
+              "modifierType": "flat",
+              "effectType": "malus"
+            },
+            {
+              "target": "faction",
+              "factionName": "militarists",
+              "attribute": "population",
+              "modifier": 1,
+              "modifierType": "flat",
+              "effectType": "malus"
+            }
+          ]
+        },    {
+          "text": "Vous négociez un traité de paix moyennement finance\nEffets : Satisfaction capitaliste -15%, nationaliste -15%,militaristes -15% communiste +10%, royaliste -5%,\n argent -300, industrie +5%, agriculture +10%,partisan + 1 par faction",
+          "nextEvents": [
+            6
+          ],
+          "effects": [
+            {
+              "target": "faction",
+              "factionName": "capitalists",
+              "attribute": "satisfaction",
+              "modifier": 15,
+              "modifierType": "flat",
+              "effectType": "malus"
+            },
+            {
+              "target": "faction",
+              "factionName": "nationalists",
+              "attribute": "satisfaction",
+              "modifier": 15,
+              "modifierType": "flat",
+              "effectType": "malus"
+            },
+            {
+              "target": "faction",
+              "factionName": "militaristes",
+              "attribute": "satisfaction",
+              "modifier": 15,
+              "modifierType": "flat",
+              "effectType": "malus"
+            },
+            {
+              "target": "faction",
+              "factionName": "communists",
+              "attribute": "satisfaction",
+              "modifier": 10,
+              "modifierType": "flat",
+              "effectType": "bonus"
+            },
+            {
+              "target": "faction",
+              "factionName": "royalists",
+              "attribute": "satisfaction",
+              "modifier": 5,
+              "modifierType": "flat",
+              "effectType": "malus"
+            },
+            {
+              "target": "attribute",
+              "attribute": "Money",
+              "modifier": 300,
+              "modifierType": "flat",
+              "effectType": "malus"
+            },
+            {
+              "target": "attribute",
+              "attribute": "Industrie",
+              "modifier": 5,
+              "modifierType": "flat",
+              "effectType": "bonus"
+            },
+            {
+              "target": "attribute",
+              "attribute": "agriculture",
+              "modifier": 5,
+              "modifierType": "flat",
+              "effectType": "bonus"
+            },
+            {
+              "target": "faction",
+              "factionName": "capitalists",
+              "attribute": "population",
+              "modifier": 1,
+              "modifierType": "flat",
+              "effectType": "bonus"
+            },
+            {
+              "target": "faction",
+              "factionName": "nationalists",
+              "attribute": "population",
+              "modifier": 1,
+              "modifierType": "flat",
+              "effectType": "bonus"
+            },
+            {
+              "target": "faction",
+              "factionName": "communists",
+              "attribute": "population",
+              "modifier": 1,
+              "modifierType": "flat",
+              "effectType": "bonus"
+            },
+            {
+              "target": "faction",
+              "factionName": "royalists",
+              "attribute": "population",
+              "modifier": 1,
+              "modifierType": "flat",
+              "effectType": "bonus"
+            },
+            {
+              "target": "faction",
+              "factionName": "religious",
+              "attribute": "population",
+              "modifier": 1,
+              "modifierType": "flat",
+              "effectType": "bonus"
+            },
+            {
+              "target": "faction",
+              "factionName": "militarists",
+              "attribute": "population",
+              "modifier": 1,
+              "modifierType": "flat",
+              "effectType": "bonus"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": 6,
+      "text": "Des manifestations éclatent partout dans le pays pour les droits des prolétaires par les groupes révolutionnaires tel que le Bund, que faites-vous ?",
+      "seasons": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "choices": [
+        {
+          "text": "Réprimer violemment les manifestants \nEffets : Satisfaction communiste -20%, socialiste -20%, nationalistes -10%, royaliste +15%,capitaliste +10%, militariste +10%\n argent +250, industrie -5%, agriculture-10%",
+          "nextEvents": [
+            7
+          ],
+          "effects": [
+            {
+              "target": "faction",
+              "factionName": "communists",
+              "attribute": "satisfaction",
+              "modifier": 20,
+              "modifierType": "flat",
+              "effectType": "malus"
+            },
+            {
+              "target": "faction",
+              "factionName": "socialists",
+              "attribute": "satisfaction",
+              "modifier": 20,
+              "modifierType": "flat",
+              "effectType": "malus"
+            },
+            {
+              "target": "faction",
+              "factionName": "nationalists",
+              "attribute": "satisfaction",
+              "modifier": 10,
+              "modifierType": "flat",
+              "effectType": "malus"
+            },
+            {
+              "target": "faction",
+              "factionName": "royalists",
+              "attribute": "satisfaction",
+              "modifier": 15,
+              "modifierType": "flat",
+              "effectType": "bonus"
+            },
+            {
+              "target": "faction",
+              "factionName": "capitalists",
+              "attribute": "satisfaction",
+              "modifier": 10,
+              "modifierType": "flat",
+              "effectType": "bonus"
+            },
+
+            {
+              "target": "faction",
+              "factionName": "militaristes",
+              "attribute": "satisfaction",
+              "modifier": 10,
+              "modifierType": "flat",
+              "effectType": "bonus"
+            },
+            {
+              "target": "attribute",
+              "attribute": "Money",
+              "modifier": 250,
+              "modifierType": "flat",
+              "effectType": "bonus"
+            },
+            {
+              "target": "attribute",
+              "attribute": "Industrie",
+              "modifier": 5,
+              "modifierType": "flat",
+              "effectType": "malus"
+            },
+            {
+              "target": "attribute",
+              "attribute": "agriculture",
+              "modifier": 10,
+              "modifierType": "flat",
+              "effectType": "malus"
+            }
+
+          ]
+        },
+        {
+          "text": "Vous répondez à la demande populaire \nEffets : Satisfaction communiste +20%, socialiste +20%, nationalistes +10%, royaliste -15%,capitaliste -10%, militariste -10%\n argent -150, industrie +10%, agriculture+10%",
+          "nextEvents": [
+            7
+          ],
+          "effects": [
+            {
+              "target": "faction",
+              "factionName": "communists",
+              "attribute": "satisfaction",
+              "modifier": 20,
+              "modifierType": "flat",
+              "effectType": "bonus"
+            },
+            {
+              "target": "faction",
+              "factionName": "socialists",
+              "attribute": "satisfaction",
+              "modifier": 20,
+              "modifierType": "flat",
+              "effectType": "bonus"
+            },
+            {
+              "target": "faction",
+              "factionName": "nationalists",
+              "attribute": "satisfaction",
+              "modifier": 10,
+              "modifierType": "flat",
+              "effectType": "bonus"
+            },
+            {
+              "target": "faction",
+              "factionName": "royalists",
+              "attribute": "satisfaction",
+              "modifier": 15,
+              "modifierType": "flat",
+              "effectType": "malus"
+            },
+            {
+              "target": "faction",
+              "factionName": "capitalists",
+              "attribute": "satisfaction",
+              "modifier": 10,
+              "modifierType": "flat",
+              "effectType": "malus"
+            },
+            {
+              "target": "faction",
+              "factionName": "militaristes",
+              "attribute": "satisfaction",
+              "modifier": 10,
+              "modifierType": "flat",
+              "effectType": "malus"
+            },
+            {
+              "target": "attribute",
+              "attribute": "Money",
+              "modifier": 150,
+              "modifierType": "flat",
+              "effectType": "malus"
+            },
+            {
+              "target": "attribute",
+              "attribute": "Industrie",
+              "modifier": 10,
+              "modifierType": "flat",
+              "effectType": "bonus"
+            },
+            {
+              "target": "attribute",
+              "attribute": "agriculture",
+              "modifier": 10,
+              "modifierType": "flat",
+              "effectType": "bonus"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": 7,
+      "text": "On est le 26 mai 1895, vous venez d'être Tsar,Quel est votre première déclaration ?",
+      "seasons": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "choices": [
+        {
+          "text": "C'est par la Grâce de Dieu que je suis arrivé à ce jour !\nEffets : Satisfaction religieux +20%, Satisfaction nationalistes +10%",
+          "nextEvents": [
+            8
+          ],
+          "effects": [
+            {
+              "target": "faction",
+              "factionName": "religious",
+              "attribute": "satisfaction",
+              "modifier": 30,
+              "modifierType": "flat",
+              "effectType": "bonus"
+            },
+            {
+              "target": "faction",
+              "factionName": "nationalists",
+              "attribute": "satisfaction",
+              "modifier": 10,
+              "modifierType": "flat",
+              "effectType": "bonus"
+            }
+          ]
+        },
+        {
+          "text": "Je vais continuer le travail de mon père et notre lignée \nEffets : Satisfaction nationalistes +20%, militaire +10%, communistes -10%",
+          "nextEvents": [
+            8
+          ],
+          "effects": [
+            {
+              "target": "faction",
+              "factionName": "nationalists",
+              "attribute": "satisfaction",
+              "modifier": 20,
+              "modifierType": "flat",
+              "effectType": "bonus"
+            },
+            {
+              "target": "faction",
+              "factionName": "militarists",
+              "attribute": "satisfaction",
+              "modifier": 10,
+              "modifierType": "flat",
+              "effectType": "bonus"
+            },
+            {
+              "target": "faction",
+              "factionName": "communists",
+              "attribute": "satisfaction",
+              "modifier": 10,
+              "modifierType": "flat",
+              "effectType": "malus"
+            }
+          ]
+        },
+        {
+          "text": "Je vais continuer le travail de mon père et notre lignée \nEffets : Satisfaction nationalistes +20%, militaire +10%, communistes -10%",
+          "nextEvents": [
+            8
+          ],
+          "effects": [
+            {
+              "target": "faction",
+              "factionName": "nationalists",
+              "attribute": "satisfaction",
+              "modifier": 20,
+              "modifierType": "flat",
+              "effectType": "bonus"
+            },
+            {
+              "target": "faction",
+              "factionName": "militarists",
+              "attribute": "satisfaction",
+              "modifier": 10,
+              "modifierType": "flat",
+              "effectType": "bonus"
+            },
+            {
+              "target": "faction",
+              "factionName": "communists",
+              "attribute": "satisfaction",
+              "modifier": 10,
+              "modifierType": "flat",
+              "effectType": "malus"
+            }
+          ]
+        },
+        {
+          "text": "Je vais rendre aux peuple ce qu'il m'a donné \nEffets : Satisfaction nationalistes +10%, communistes +20%, capitaliste -10%",
+          "nextEvents": [
+            8
+          ],
+          "effects": [
+            {
+              "target": "faction",
+              "factionName": "nationalists",
+              "attribute": "satisfaction",
+              "modifier": 20,
+              "modifierType": "flat",
+              "effectType": "bonus"
+            },
+            {
+              "target": "faction",
+              "factionName": "militarists",
+              "attribute": "satisfaction",
+              "modifier": 10,
+              "modifierType": "flat",
+              "effectType": "bonus"
+            },
+            {
+              "target": "faction",
+              "factionName": "communists",
+              "attribute": "satisfaction",
+              "modifier": 10,
+              "modifierType": "flat",
+              "effectType": "malus"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": 8,
+      "text": "On est le 26 mai 1895, vous venez d'être Tsar,Quel est votre première déclaration ?",
+      "seasons": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "choices": [
+        {
+          "text": "C'est par la Grâce de Dieu que je suis arrivé à ce jour !\nEffets : Satisfaction religieux +20%, Satisfaction nationalistes +10%",
+          "nextEvents": [
+            9
+          ],
+          "effects": [
+            {
+              "target": "faction",
+              "factionName": "religious",
+              "attribute": "satisfaction",
+              "modifier": 30,
+              "modifierType": "flat",
+              "effectType": "bonus"
+            },
+            {
+              "target": "faction",
+              "factionName": "nationalists",
+              "attribute": "satisfaction",
+              "modifier": 10,
+              "modifierType": "flat",
+              "effectType": "bonus"
+            }
+          ]
+        },
+        {
+          "text": "Je vais continuer le travail de mon père et notre lignée \nEffets : Satisfaction nationalistes +20%, militaire +10%, communistes -10%",
+          "nextEvents": [
+            9
+          ],
+          "effects": [
+            {
+              "target": "faction",
+              "factionName": "nationalists",
+              "attribute": "satisfaction",
+              "modifier": 20,
+              "modifierType": "flat",
+              "effectType": "bonus"
+            },
+            {
+              "target": "faction",
+              "factionName": "militarists",
+              "attribute": "satisfaction",
+              "modifier": 10,
+              "modifierType": "flat",
+              "effectType": "bonus"
+            },
+            {
+              "target": "faction",
+              "factionName": "communists",
+              "attribute": "satisfaction",
+              "modifier": 10,
+              "modifierType": "flat",
+              "effectType": "malus"
+            }
+          ]
+        },
+        {
+          "text": "Je vais rendre aux peuple ce qu'il m'a donné \nEffets : Satisfaction nationalistes +10%, communistes +20%, capitaliste -10%",
+          "nextEvents": [
+            9
+          ],
+          "effects": [
+            {
+              "target": "faction",
+              "factionName": "nationalists",
+              "attribute": "satisfaction",
+              "modifier": 20,
+              "modifierType": "flat",
+              "effectType": "bonus"
+            },
+            {
+              "target": "faction",
+              "factionName": "militarists",
+              "attribute": "satisfaction",
+              "modifier": 10,
+              "modifierType": "flat",
+              "effectType": "bonus"
+            },
+            {
+              "target": "faction",
+              "factionName": "communists",
+              "attribute": "satisfaction",
+              "modifier": 10,
+              "modifierType": "flat",
+              "effectType": "malus"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+
+}
+
+
+
+
+

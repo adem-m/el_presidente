@@ -9,6 +9,6 @@ public class MainTitleGameMode extends GameMode {
     @Override
     void handleInput() {
         this.inputHandler.expectEnter();
-        this.switchGameMode( new DifficultyGameMode() );
+        this.switchGameMode( new ScenarioGameMode() );
     }
 }

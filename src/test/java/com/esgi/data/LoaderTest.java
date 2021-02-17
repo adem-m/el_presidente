@@ -24,7 +24,8 @@ public class LoaderTest {
     @Test
     public void should_get_sandBoxScenario_given_scenariosList() {
         List<Pair<String, String>> scenarioList = Loader.fetchScenariosList();
-        assertEquals("sandbox",scenarioList.get(0).getKey());
-        assertEquals("cold_war",scenarioList.get(1).getKey());
+        assertEquals("tsar",scenarioList.get(0).getKey());
+        assertEquals("sandbox",scenarioList.get(1).getKey());
+        assertEquals("cold_war",scenarioList.get(2).getKey());
     }
 }

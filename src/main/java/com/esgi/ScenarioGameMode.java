@@ -1,4 +1,5 @@
 package com.esgi;
+import com.esgi.builders.StateBuilder;
 import com.esgi.data.Loader;
 import javafx.util.Pair;
 
@@ -14,11 +15,11 @@ public class ScenarioGameMode extends GameMode
         int index = 0;
         for( Pair<String, String> scenario: Loader.fetchScenariosList() )
         {
-            System.out.println(String.format( "%d - %s", ++index, scenario.getValue() ));
-            this.choices.add(scenario.getKey() );
+            System.out.println( String.format( "%d - %s", ++index, scenario.getValue() ));
+            this.choices.add( scenario.getKey() );
         }
         this.choices.add( "exit" );
-        System.out.println(String.format( "%d - %s", ++index, "exit" ));
+        System.out.println( String.format( "%d - %s", ++index, "exit" ));
     }
 
     @Override
@@ -28,10 +29,12 @@ public class ScenarioGameMode extends GameMode
         if( value.equals( "exit" ))
         {
             System.out.println( "Fermeture..." );
+            System.exit( 0 );
         } else
         {
-            System.out.println( String.format( "Choix : %s...", value ));
+            this.switchGameMode(
+                    new DifficultyGameMode(
+                            new StateBuilder().setScenarioName( this.choices.get( input - 1 ))));
         }
-        System.exit(0 );
     }
 }

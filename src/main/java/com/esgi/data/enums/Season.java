@@ -1,10 +1,20 @@
 package com.esgi.data.enums;
 
 public enum Season {
-    SPRING,
-    SUMMER,
-    AUTUMN,
-    WINTER;
+    SPRING(0),
+    SUMMER(1),
+    AUTUMN(2),
+    WINTER(3);
+
+    private final int id;
+
+    Season(int id) {
+        this.id = id;
+    }
+
+    public int getId() {
+        return id;
+    }
 
     public static Season fromId(int id) {
         switch (id) {

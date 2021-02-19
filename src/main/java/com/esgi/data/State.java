@@ -95,11 +95,19 @@ public class State {
     private Event getRandomEvent() {
         Random generator = new Random();
         Object[] values = events.values().toArray();
-        return (Event) values[generator.nextInt(values.length)];
+        Event event = (Event) values[generator.nextInt(values.length)];
+        if (!event.getSeasons().contains(getCurrentSeason())) {
+            return getRandomEvent();
+        }
+        return event;
     }
 
     public void handleChoice(EventChoice choice) {
         this.choiceHandler.handle(choice, this.difficulty);
         this.turnCount++;
+    }
+
+    private Season getCurrentSeason() {
+        return Season.fromId((turnCount + startingSeason.getId()) % 4);
     }
 }

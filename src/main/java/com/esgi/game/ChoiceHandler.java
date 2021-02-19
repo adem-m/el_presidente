@@ -4,6 +4,8 @@ import com.esgi.data.Effect;
 import com.esgi.data.EventChoice;
 import com.esgi.data.Faction;
 import com.esgi.data.State;
+import com.esgi.data.enums.Difficulty;
+import com.esgi.data.enums.EffectType;
 import com.esgi.data.enums.ModifierType;
 import com.esgi.data.enums.Target;
 
@@ -14,7 +16,7 @@ public class ChoiceHandler {
         this.state = state;
     }
 
-    public void handle(EventChoice choice) {
+    public void handle(EventChoice choice, Difficulty difficulty) {
         for (Integer i : choice.getNextEventsIds()) {
             try {
                 this.state.getNextEvents().add(this.state.getEventById(i));
@@ -24,17 +26,18 @@ public class ChoiceHandler {
         }
         for (Effect effect : choice.getEffects()) {
             try {
-                executeEffect(effect);
+                executeEffect(effect, difficulty);
             } catch (Exception exception) {
                 System.out.println(exception.getMessage());
             }
         }
     }
 
-    private void executeEffect(Effect effect) throws Exception {
+    private void executeEffect(Effect effect, Difficulty difficulty) throws Exception {
         int modifier = effect.getModifierType() == ModifierType.PERCENTAGE ?
                 calculatePercentage(state.getAttributes().get(effect.getAttribute()), effect.getModifier()) :
                 effect.getModifier();
+        modifier = applyDifficultyToModifier(modifier, difficulty, effect.getEffectType());
         if (effect.getTarget() == Target.FACTION) {
             executeFactionEffect(effect, modifier);
         } else if (effect.getTarget() == Target.ATTRIBUTE) {
@@ -87,5 +90,11 @@ public class ChoiceHandler {
 
     private int calculatePercentage(int amount, int percentage) {
         return Math.round((amount / 100f) * percentage);
+    }
+
+    private int applyDifficultyToModifier(int modifier, Difficulty difficulty, EffectType effectType) {
+        return effectType == EffectType.BONUS ?
+                Math.round((float) modifier / difficulty.getMultiplier()) :
+                Math.round(modifier * difficulty.getMultiplier());
     }
 }

@@ -1,5 +1,6 @@
 package com.esgi.data;
 
+import com.esgi.data.enums.Difficulty;
 import com.esgi.data.enums.Season;
 import com.esgi.game.ChoiceHandler;
 
@@ -14,6 +15,7 @@ public class State {
     private final Season startingSeason;
     private final ChoiceHandler choiceHandler;
     private boolean sandboxMode = false;
+    private final Difficulty difficulty;
 
     public Map<String, Integer> getAttributes() {
         return attributes;
@@ -39,7 +41,8 @@ public class State {
         return startingSeason;
     }
 
-    public State(String scenarioName) {
+    public State(String scenarioName, Difficulty difficulty) {
+        this.difficulty = difficulty;
         this.choiceHandler = new ChoiceHandler(this);
         this.events.putAll(Loader.fetchEvents(scenarioName));
         Scenario scenario = Loader.fetchScenarioFromName(scenarioName);
@@ -60,6 +63,7 @@ public class State {
         attributes.put("industry", scenario.getIndustry());
         attributes.put("agriculture", scenario.getAgriculture());
         attributes.put("money", scenario.getMoney());
+        attributes.put("food", scenario.getFood());
         for (Faction faction : scenario.getFactions()) {
             factions.put(faction.getName(), faction);
         }
@@ -95,7 +99,7 @@ public class State {
     }
 
     public void handleChoice(EventChoice choice) {
-        this.choiceHandler.handle(choice);
+        this.choiceHandler.handle(choice, this.difficulty);
         this.turnCount++;
     }
 }

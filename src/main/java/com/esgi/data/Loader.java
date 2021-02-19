@@ -18,6 +18,7 @@ public class Loader {
                 (Long) jsonScenario.get("industry"),
                 (Long) jsonScenario.get("agriculture"),
                 (Long) jsonScenario.get("money"),
+                (Long) jsonScenario.get("food"),
                 (Long) jsonScenario.get("firstEventId"),
                 (JSONArray) jsonScenario.get("factions")
         );

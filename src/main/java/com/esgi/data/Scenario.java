@@ -11,14 +11,16 @@ public class Scenario {
     private final int industry;
     private final int agriculture;
     private final int money;
+    private final int food;
     private final int firstEventId;
     private final List<Faction> factions = new ArrayList<>();
 
-    public Scenario(String name, Long industry, Long agriculture, Long money, Long firstEventId, JSONArray factions) {
+    public Scenario(String name, Long industry, Long agriculture, Long money, Long food, Long firstEventId, JSONArray factions) {
         this.name = name;
         this.industry = industry.intValue();
         this.agriculture = agriculture.intValue();
         this.money = money.intValue();
+        this.food = food.intValue();
         this.firstEventId = firstEventId.intValue();
         fillFactions(factions);
     }
@@ -37,6 +39,10 @@ public class Scenario {
 
     public int getMoney() {
         return money;
+    }
+
+    public int getFood() {
+        return food;
     }
 
     public int getFirstEventId() {

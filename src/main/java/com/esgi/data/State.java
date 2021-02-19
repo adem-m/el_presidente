@@ -63,6 +63,7 @@ public class State {
         attributes.put("industry", scenario.getIndustry());
         attributes.put("agriculture", scenario.getAgriculture());
         attributes.put("money", scenario.getMoney());
+        attributes.put("food", scenario.getFood());
         for (Faction faction : scenario.getFactions()) {
             factions.put(faction.getName(), faction);
         }

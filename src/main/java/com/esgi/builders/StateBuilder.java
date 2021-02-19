@@ -8,15 +8,10 @@ public class StateBuilder
     private String scenarioName;
     private Difficulty difficulty;
 
-    public StateBuilder setScenarioName(String scenarioName )
+    public StateBuilder setScenarioName( String scenarioName )
     {
         this.scenarioName = scenarioName;
         return this;
-    }
-
-    public String getScenarioName()
-    {
-        return this.scenarioName;
     }
 
     public StateBuilder setDifficulty( Difficulty difficulty )
@@ -27,6 +22,6 @@ public class StateBuilder
 
     public State build()
     {
-        return new State( this.scenarioName );
+        return new State( this.scenarioName, this.difficulty );
     }
 }

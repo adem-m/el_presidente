@@ -7,7 +7,6 @@ public class DifficultyGameMode extends GameMode {
 
     public DifficultyGameMode( StateBuilder stateBuilder )
     {
-        super();
         this.stateBuilder = stateBuilder;
     }
 

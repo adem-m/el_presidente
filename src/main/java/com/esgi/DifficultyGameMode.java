@@ -1,7 +1,15 @@
 package com.esgi;
+import com.esgi.builders.StateBuilder;
 import com.esgi.data.enums.Difficulty;
 
 public class DifficultyGameMode extends GameMode {
+    private StateBuilder stateBuilder;
+
+    public DifficultyGameMode( StateBuilder stateBuilder )
+    {
+        this.stateBuilder = stateBuilder;
+    }
+
     @Override
     void handleInput() {
         int input = this.inputHandler.getUserInput();
@@ -12,9 +20,11 @@ public class DifficultyGameMode extends GameMode {
 
         Difficulty difficulty = Difficulty.fromId( input );
         if( difficulty != null ){
-            System.out.println( difficulty );
+            this.switchGameMode(
+                    new PlayGameMode(
+                            this.stateBuilder.setDifficulty( difficulty )));
         } else {
-            System.out.println( "Error, closing app..." );
+            System.out.println( "Fermeture..." );
             System.exit( 0 );
         }
     }

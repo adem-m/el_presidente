@@ -17,6 +17,11 @@ public class State {
     private boolean sandboxMode = false;
     private final Difficulty difficulty;
 
+    public Difficulty getDifficulty()
+    {
+        return this.difficulty;
+    }
+
     public Map<String, Integer> getAttributes() {
         return attributes;
     }

@@ -48,10 +48,11 @@ public class ChoiceHandler {
     }
 
     private void executeAttributeEffect(Effect effect, int modifier) {
-        if (effect.getAttribute().equals("money")) {
-            this.state.getAttributes().put("money", this.state.getAttributes().get("money") + modifier);
-            if (this.state.getAttributes().get("money") < 0) {
-                this.state.getAttributes().put("money", 0);
+        String attribute = effect.getAttribute();
+        if (attribute.equals("money") || attribute.equals("food")) {
+            this.state.getAttributes().put(attribute, this.state.getAttributes().get(attribute) + modifier);
+            if (this.state.getAttributes().get(attribute) < 0) {
+                this.state.getAttributes().put(attribute, 0);
             }
         } else {
             modifyAgricultureOrIndustry(effect.getAttribute(), modifier);

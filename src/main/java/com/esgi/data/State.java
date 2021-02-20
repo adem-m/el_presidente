@@ -121,7 +121,7 @@ public class State {
         return satisfaction / population;
     }
 
-    private int calculateTotalPopulation() {
+    public int calculateTotalPopulation() {
         int population = 0;
         for (Map.Entry<String, Faction> faction : this.factions.entrySet()) {
             population += faction.getValue().getPopulation();
@@ -131,5 +131,10 @@ public class State {
 
     public boolean isGameLost() {
         return calculateGlobalSatisfaction() < this.difficulty.getMinimumGlobalSatisfaction();
+    }
+
+    public Faction getRandomFaction() {
+        List<String> factionKeys = new ArrayList<>(this.factions.keySet());
+        return this.factions.get(factionKeys.get(new Random().nextInt(factionKeys.size())));
     }
 }

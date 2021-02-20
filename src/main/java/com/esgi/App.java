@@ -2,6 +2,11 @@ package com.esgi;
 
 import java.util.Stack;
 
+import com.esgi.data.Event;
+import com.esgi.data.EventChoice;
+import com.esgi.data.State;
+import com.esgi.data.YearlyResults;
+import com.esgi.data.enums.Difficulty;
 import com.esgi.utils.Keyboard;
 
 public class App {
@@ -9,41 +14,53 @@ public class App {
     private Keyboard inputHandler;
     protected Stack<GameMode> modesStack;
 
-    public App(){
+    public App() {
         this.modesStack = new Stack<GameMode>();
         this.inputHandler = new Keyboard();
-        this.setGameMode( new MainTitleGameMode() );
+        this.setGameMode(new MainTitleGameMode());
         this.run();
     }
 
-    public void setGameMode( GameMode mode ){
-        this.modesStack.push( mode );
-        mode.setParent( this );
-        mode.setInputHandler( this.inputHandler );
+    public void setGameMode(GameMode mode) {
+        this.modesStack.push(mode);
+        mode.setParent(this);
+        mode.setInputHandler(this.inputHandler);
         this.mode = mode;
         this.mode.init();
     }
 
-    public void setPreviousGameMode(){
-        if( !this.modesStack.isEmpty() ){
+    public void setPreviousGameMode() {
+        if (!this.modesStack.isEmpty()) {
             this.modesStack.pop();
         }
 
-        if( this.modesStack.isEmpty() ){
-            System.out.println( "Erreur de la stack de menus..." );
-            System.exit( 1 );
+        if (this.modesStack.isEmpty()) {
+            System.out.println("Erreur de la stack de menus...");
+            System.exit(1);
         }
 
-        this.setGameMode( this.modesStack.pop() );
+        this.setGameMode(this.modesStack.pop());
     }
 
-    public void run(){
-        while( true ){
+    public void run() {
+        while (true) {
             this.mode.handleInput();
         }
     }
 
     public static void main(String[] args) {
-        new App();
+//        new App();
+        State state = new State("sandbox", Difficulty.HARD);
+//        for (int i = 0; i < 1; i++) {
+//            Event event = state.getNextEvent();
+//            System.out.println(event.getText() + "\n");
+//            for(EventChoice eventChoice : event.getChoices()){
+//                System.out.println(eventChoice.generateLabel(Difficulty.HARD));
+//            }
+//            state.handleChoice(event.getChoices().get(0));
+//        }
+//    }
+        YearlyResults yearlyResults = new YearlyResults(state);
+        int a = 0;
     }
 }

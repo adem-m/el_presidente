@@ -24,6 +24,11 @@ public class EventChoice {
         }
     }
 
+    public EventChoice(String text, List<Effect> effects) {
+        this.text = text;
+        this.effects.addAll(effects);
+    }
+
     public List<Effect> getEffects() {
         return effects;
     }

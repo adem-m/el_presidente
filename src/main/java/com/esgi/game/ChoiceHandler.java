@@ -95,7 +95,7 @@ public class ChoiceHandler {
 
     private int applyDifficultyToModifier(int modifier, Difficulty difficulty, EffectType effectType) {
         return effectType == EffectType.BONUS ?
-                Math.round((float) modifier / difficulty.getMultiplier()) :
+                Math.round(modifier / difficulty.getMultiplier()) :
                 Math.round(modifier * difficulty.getMultiplier());
     }
 }

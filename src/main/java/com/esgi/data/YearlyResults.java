@@ -13,12 +13,20 @@ public class YearlyResults {
         this.buyFoodEvent = buildBuyFoodEvent();
     }
 
+    public Event getCorruptEvent() {
+        return corruptEvent;
+    }
+
+    public Event getBuyFoodEvent() {
+        return buyFoodEvent;
+    }
+
     private int calculateMoneyRaise() {
         return this.state.getAttributes().get("industry") * 10;
     }
 
     public String generateMoneyRaiseLabel() {
-        return String.format("Votre industrie a rapporté %d$ cette année.\n", calculateMoneyRaise());
+        return String.format("Votre industrie a rapporté %d$ cette année.", calculateMoneyRaise());
     }
 
     private int calculateFoodRaise() {
@@ -26,7 +34,7 @@ public class YearlyResults {
     }
 
     public String generateFoodRaiseLabel() {
-        return String.format("Votre agriculture a rapporté %d unités de nourriture cette année.\n", calculateFoodRaise());
+        return String.format("Votre agriculture a rapporté %d unités de nourriture cette année.", calculateFoodRaise());
     }
 
     public void applyFoodAndMoneyRaises() {
@@ -91,6 +99,99 @@ public class YearlyResults {
     }
 
     private Event buildBuyFoodEvent() {
-        return null;
+        return new Event(
+                "Acheter de la nourriture pour vos habitants",
+                Arrays.asList(
+                        new EventChoice(
+                                "Acheter 1 unité de nourriture\nCoût : 8$",
+                                Arrays.asList(
+                                        new Effect(
+                                                "attribute",
+                                                "food",
+                                                1L,
+                                                "flat",
+                                                "bonus"
+                                        ),
+                                        new Effect(
+                                                "attribute",
+                                                "money",
+                                                -8L,
+                                                "flat",
+                                                "malus"
+                                        )
+                                )
+                        ),
+                        new EventChoice(
+                                "Acheter assez de nourriture pour tout le monde\nCoût : %d$",
+                                Arrays.asList(
+                                        new Effect(
+                                                "attribute",
+                                                "money",
+                                                calculateLackOfFood() * -8,
+                                                "flat",
+                                                "malus"
+                                        ),
+                                        new Effect(
+                                                "attribute",
+                                                "food",
+                                                calculateLackOfFood(),
+                                                "flat",
+                                                "bonus"
+                                        )
+                                )
+                        )
+                )
+        );
+    }
+
+    private long calculateLackOfFood() {
+        long need = this.state.calculateTotalPopulation() * 4L;
+        return this.state.getAttributes().get("food") < need ?
+                need - this.state.getAttributes().get("food") :
+                0;
+    }
+
+    public void end() {
+        int lackOfFood = eat();
+        if (lackOfFood > 0) {
+            killPeople(lackOfFood);
+        } else {
+            giveBirth();
+        }
+    }
+
+    private int eat() {
+        long lackOfFood = calculateLackOfFood();
+        if (lackOfFood > 0) {
+            this.state.getAttributes().put("food", 0);
+            return (int) lackOfFood;
+        }
+        this.state.getAttributes().put(
+                "food",
+                this.state.getAttributes().get("food") - (this.state.calculateTotalPopulation() * 4));
+        return 0;
+    }
+
+    private void giveBirth() {
+        int births = calculateBirthsNumber();
+        while (births > 0) {
+            this.state.getRandomFaction().modifyPopulation(1);
+            births--;
+        }
+    }
+
+    private int calculateBirthsNumber() {
+        return Math.round((this.state.calculateTotalPopulation() * 0.01f) * (new Random().nextInt(10) + 1));
+    }
+
+    private void killPeople(int foodRest) {
+        int deaths = foodRest / 4;
+        while (deaths > 0) {
+            Faction faction = this.state.getRandomFaction();
+            if (faction.getPopulation() > 0) {
+                faction.modifyPopulation(-1);
+                deaths--;
+            }
+        }
     }
 }

@@ -93,7 +93,7 @@ public class ChoiceHandler {
         return Math.round((amount / 100f) * percentage);
     }
 
-    private int applyDifficultyToModifier(int modifier, Difficulty difficulty, EffectType effectType) {
+    public static int applyDifficultyToModifier(int modifier, Difficulty difficulty, EffectType effectType) {
         return effectType == EffectType.BONUS ?
                 Math.round(modifier / difficulty.getMultiplier()) :
                 Math.round(modifier * difficulty.getMultiplier());

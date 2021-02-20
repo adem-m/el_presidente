@@ -110,4 +110,26 @@ public class State {
     private Season getCurrentSeason() {
         return Season.fromId((turnCount + startingSeason.getId()) % 4);
     }
+
+    private int calculateGlobalSatisfaction() {
+        int satisfaction = 0;
+        int population = 0;
+        for (Map.Entry<String, Faction> faction : this.factions.entrySet()) {
+            satisfaction += faction.getValue().getSatisfaction() * faction.getValue().getPopulation();
+            population += faction.getValue().getPopulation();
+        }
+        return satisfaction / population;
+    }
+
+    private int calculateTotalPopulation() {
+        int population = 0;
+        for (Map.Entry<String, Faction> faction : this.factions.entrySet()) {
+            population += faction.getValue().getPopulation();
+        }
+        return population;
+    }
+
+    public boolean isGameLost() {
+        return calculateGlobalSatisfaction() < this.difficulty.getMinimumGlobalSatisfaction();
+    }
 }

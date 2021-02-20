@@ -29,7 +29,16 @@ public class PlayGameMode extends GameMode
     @Override
     void handleInput()
     {
+        int input = this.inputHandler.getUserInput();
+        this.state.handleChoice(
+                this.currentChoices.get( input - 1));
+        this.printEvent( this.state.getNextEvent() );
+    }
 
+    private void printEvent( Event currentEvent )
+    {
+        System.out.println( currentEvent.getText() );
+        this.printChoices( currentEvent );
     }
 
     private void printChoices( Event event )

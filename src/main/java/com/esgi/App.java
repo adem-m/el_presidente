@@ -49,18 +49,6 @@ public class App {
     }
 
     public static void main(String[] args) {
-//        new App();
-        State state = new State("sandbox", Difficulty.HARD);
-//        for (int i = 0; i < 1; i++) {
-//            Event event = state.getNextEvent();
-//            System.out.println(event.getText() + "\n");
-//            for(EventChoice eventChoice : event.getChoices()){
-//                System.out.println(eventChoice.generateLabel(Difficulty.HARD));
-//            }
-//            state.handleChoice(event.getChoices().get(0));
-//        }
-//    }
-        YearlyResults yearlyResults = new YearlyResults(state);
-        int a = 0;
+        new App();
     }
 }

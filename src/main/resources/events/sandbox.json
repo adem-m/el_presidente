@@ -469,7 +469,7 @@
       ],
       "choices": [
         {
-          "text": "Vous rendez illégales son commerce et réaménager les bâtiments qui en sont fait \nEffets : Satisfaction communistes +%d%%, loyalists +%d%%, liberals +%d%%, capitalists %d%%\n argent %d, industrie %d%% ",
+          "text": "Vous rendez illégales son commerce et réaménager les bâtiments qui en sont fait \nEffets : Satisfaction communistes +%d%%, liberals +%d%%,loyalists +%d%%, capitalists %d%%\n argent %d, industrie %d%% ",
           "nextEvents": [
           ],
           "effects": [
@@ -484,6 +484,14 @@
             {
               "target": "faction",
               "factionName": "liberals",
+              "attribute": "satisfaction",
+              "modifier": 10,
+              "modifierType": "flat",
+              "effectType": "bonus"
+            },
+            {
+              "target": "faction",
+              "factionName": "loyalists",
               "attribute": "satisfaction",
               "modifier": 10,
               "modifierType": "flat",

@@ -57,7 +57,7 @@
           ]
         },
         {
-          "text": "Vous n'intervenez pas, c'est leur problème\nEffets : Satisfaction religieux -10%, Communistes -10%",
+          "text": "Vous n'intervenez pas, c'est leur problème\nEffets : Satisfaction religieux %d%%, Communistes %d%%",
           "nextEvents": [
           ],
           "effects": [

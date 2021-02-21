@@ -164,7 +164,6 @@
               "modifierType": "flat",
               "effectType": "bonus"
             }
-
           ]
         },
         {
@@ -183,7 +182,7 @@
             },
             {
               "target": "faction",
-              "factionName": "communistes",
+              "factionName": "communists",
               "attribute": "satisfaction",
               "modifier": 10,
               "modifierType": "flat",
@@ -236,7 +235,7 @@
       ],
       "choices": [
         {
-          "text": "Vous ne faites rien\nEffets : nationaliste +%d%%, communistes %d%%, socialist %d%%\n argent +%d,industrie %d%% , agriculture %d%%",
+          "text": "Vous ne faites rien\nEffets : nationaliste +%d%%, communistes %d%%\n argent +%d, industrie %d%% , agriculture %d%%",
           "nextEvents": [
             4
           ],
@@ -258,14 +257,6 @@
               "effectType": "malus"
             },
             {
-              "target": "faction",
-              "factionName": "socialist",
-              "attribute": "satisfaction",
-              "modifier": -5,
-              "modifierType": "flat",
-              "effectType": "malus"
-            },
-            {
               "target": "attribute",
               "attribute": "money",
               "modifier": 100,
@@ -278,11 +269,18 @@
               "modifier": -5,
               "modifierType": "flat",
               "effectType": "malus"
+            },
+            {
+              "target": "attribute",
+              "attribute": "agriculture",
+              "modifier": -5,
+              "modifierType": "flat",
+              "effectType": "malus"
             }
           ]
         },
         {
-          "text": "Vous diminuer les taxes sur les pauvres, et augmenter les taxes des riches \nEffets : capitalistes %d%%, communistes +%d%%, socialist +%d%%\n argent %d, agriculture +%d%%",
+          "text": "Vous diminuer les taxes sur les pauvres, et augmenter les taxes des riches \nEffets : capitalistes %d%%, communistes +%d%%\n argent %d, agriculture +%d%%",
           "nextEvents": [
             4
           ],
@@ -304,19 +302,18 @@
               "effectType": "bonus"
             },
             {
-              "target": "faction",
-              "factionName": "socialist",
-              "attribute": "satisfaction",
-              "modifier": 15,
-              "modifierType": "flat",
-              "effectType": "bonus"
-            },
-            {
               "target": "attribute",
               "attribute": "money",
               "modifier": -100,
               "modifierType": "flat",
               "effectType": "malus"
+            },
+            {
+              "target": "attribute",
+              "attribute": "agriculture",
+              "modifier": 20,
+              "modifierType": "flat",
+              "effectType": "bonus"
             }
           ]
         }
@@ -364,7 +361,7 @@
             },
             {
               "target": "faction",
-              "factionName": "militarists",
+              "factionName": "liberals",
               "attribute": "satisfaction",
               "modifier": 15,
               "modifierType": "flat",
@@ -372,7 +369,23 @@
             },
             {
               "target": "faction",
-              "factionName": "liberals",
+              "factionName": "ecologists",
+              "attribute": "satisfaction",
+              "modifier": -25,
+              "modifierType": "flat",
+              "effectType": "malus"
+            },
+            {
+              "target": "faction",
+              "factionName": "religious",
+              "attribute": "satisfaction",
+              "modifier": -25,
+              "modifierType": "flat",
+              "effectType": "malus"
+            },
+            {
+              "target": "faction",
+              "factionName": "militarists",
               "attribute": "satisfaction",
               "modifier": -25,
               "modifierType": "flat",
@@ -382,13 +395,6 @@
               "target": "attribute",
               "attribute": "money",
               "modifier": -100,
-              "modifierType": "flat",
-              "effectType": "bonus"
-            },
-            {
-              "target": "attribute",
-              "attribute": "industry",
-              "modifier": 5,
               "modifierType": "flat",
               "effectType": "bonus"
             }
@@ -462,13 +468,6 @@
               "modifier": 100,
               "modifierType": "flat",
               "effectType": "bonus"
-            },
-            {
-              "target": "attribute",
-              "attribute": "industry",
-              "modifier": -5,
-              "modifierType": "flat",
-              "effectType": "malus"
             }
           ]
         }
@@ -577,7 +576,7 @@
             },
             {
               "target": "faction",
-              "factionName": "royalists",
+              "factionName": "loyalists",
               "attribute": "population",
               "modifier": -5,
               "modifierType": "flat",
@@ -600,7 +599,8 @@
               "effectType": "malus"
             }
           ]
-        },        {
+        },
+        {
           "text": "Vous ne faites rien\nEffets : Satisfaction capitaliste +%d%%, nationaliste %d%%,militaristes %d%% communiste %d%%, liberals  %d%%,\n  industrie %d%%, agriculture %d%%,partisan %d par faction en moins sauf capitaliste",
           "nextEvents": [
             6
@@ -660,7 +660,6 @@
               "modifierType": "flat",
               "effectType": "malus"
             },
-
             {
               "target": "faction",
               "factionName": "nationalists",
@@ -769,7 +768,6 @@
               "modifierType": "flat",
               "effectType": "bonus"
             },
-
             {
               "target": "faction",
               "factionName": "militarists",
@@ -792,7 +790,6 @@
               "modifierType": "flat",
               "effectType": "malus"
             }
-
           ]
         },
         {
@@ -878,7 +875,7 @@
       ],
       "choices": [
         {
-          "text": "Instaurer le plan Marshall, un prêt d'argent colossal \nEffets : Satisfaction religieux +%d%%, nationalistes %d%%, communistes +%d%%, socialistes +%d%%, capitalistes %d%%, militariste %d%%\n argent %d%% industrie +%d%%, agriculture +%d%%",
+          "text": "Instaurer le plan Marshall, un prêt d'argent colossal \nEffets : Satisfaction religieux +%d%%, nationalistes %d%%, communistes +%d%%, capitalistes %d%%, militariste %d%%\n argent %d%% industrie +%d%%, agriculture +%d%%",
           "nextEvents": [
             8
           ],
@@ -902,14 +899,6 @@
             {
               "target": "faction",
               "factionName": "communists",
-              "attribute": "satisfaction",
-              "modifier": 10,
-              "modifierType": "flat",
-              "effectType": "bonus"
-            },
-            {
-              "target": "faction",
-              "factionName": "socialists",
               "attribute": "satisfaction",
               "modifier": 10,
               "modifierType": "flat",
@@ -1013,6 +1002,13 @@
               "modifier": 5,
               "modifierType": "flat",
               "effectType": "bonus"
+            },
+            {
+              "target": "attribute",
+              "attribute": "agriculture",
+              "modifier": 5,
+              "modifierType": "flat",
+              "effectType": "bonus"
             }
           ]
         }
@@ -1073,18 +1069,39 @@
               "modifier": 5,
               "modifierType": "flat",
               "effectType": "bonus"
+            },
+            {
+              "target": "attribute",
+              "attribute": "money",
+              "modifier": 50,
+              "modifierType": "flat",
+              "effectType": "bonus"
+            },
+            {
+              "target": "attribute",
+              "attribute": "industry",
+              "modifier": -5,
+              "modifierType": "flat",
+              "effectType": "bonus"
+            },
+            {
+              "target": "attribute",
+              "attribute": "agriculture",
+              "modifier": 5,
+              "modifierType": "flat",
+              "effectType": "malus"
             }
           ]
         },
         {
-          "text": "Se ranger du côté de la Corée du Nord \nEffets : Satisfaction nationalistes +%d%%, communistes +%d%%, socialistes +%d%%, capitalistes %d%%, militariste %d%%\n argent %d%%, industrie +%d%%, agriculture +%d%%",
+          "text": "Se ranger du côté de la Corée du Nord \nEffets : Satisfaction nationalistes +%d%%, communistes +%d%%, capitalistes %d%%, militariste %d%%\n argent %d%%, industrie +%d%%, agriculture +%d%%",
           "nextEvents": [
             9
           ],
           "effects": [
             {
               "target": "faction",
-              "factionName": "communists",
+              "factionName": "nationalists",
               "attribute": "satisfaction",
               "modifier": 10,
               "modifierType": "flat",
@@ -1092,7 +1109,7 @@
             },
             {
               "target": "faction",
-              "factionName": "socialists",
+              "factionName": "communists",
               "attribute": "satisfaction",
               "modifier": 10,
               "modifierType": "flat",
@@ -1111,6 +1128,13 @@
               "factionName": "militarists",
               "attribute": "satisfaction",
               "modifier": -5,
+              "modifierType": "flat",
+              "effectType": "malus"
+            },
+            {
+              "target": "attribute",
+              "attribute": "money",
+              "modifier": -100,
               "modifierType": "flat",
               "effectType": "malus"
             },
@@ -1145,7 +1169,6 @@
         {
           "text": "Accuser les communistes de votre gouvernement d'en être responsable et les virer de la politique \nEffets : Satisfaction nationalistes %d%%, communistes %d%%, socialistes %d%%, capitalistes %d%%, militariste +%d%%, religieux %d%% ",
           "nextEvents": [
-            10
           ],
           "effects": [
             {
@@ -1187,14 +1210,20 @@
               "modifier": 5,
               "modifierType": "flat",
               "effectType": "bonus"
+            },
+            {
+              "target": "faction",
+              "factionName": "religious",
+              "attribute": "satisfaction",
+              "modifier": -5,
+              "modifierType": "flat",
+              "effectType": "malus"
             }
-
           ]
         },
         {
-          "text": "Ne fais rien\nEffets : Satisfaction nationalistes +%d%%, communistes +%d%%, socialistes +%d%%, capitalistes %d%%, militariste %d%%\n",
+          "text": "Ne fais rien\nEffets : Satisfaction nationalistes +%d%%, communistes +%d%%, capitalistes %d%%, militariste %d%%\n",
           "nextEvents": [
-            9
           ],
           "effects": [
             {
@@ -1208,14 +1237,6 @@
             {
               "target": "faction",
               "factionName": "communists",
-              "attribute": "satisfaction",
-              "modifier": 5,
-              "modifierType": "flat",
-              "effectType": "bonus"
-            },
-            {
-              "target": "faction",
-              "factionName": "socialists",
               "attribute": "satisfaction",
               "modifier": 5,
               "modifierType": "flat",
@@ -1242,7 +1263,6 @@
       ]
     }
   ]
-
 }
 
 

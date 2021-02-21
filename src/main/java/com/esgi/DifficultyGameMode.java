@@ -22,7 +22,7 @@ public class DifficultyGameMode extends GameMode {
         if (difficulty != null) {
             this.switchGameMode(
                     new PlayGameMode(
-                            this.stateBuilder.setDifficulty(difficulty)));
+                            this.stateBuilder.setDifficulty(difficulty).build() ));
         } else {
             System.out.println("Fermeture...");
             System.exit(0);

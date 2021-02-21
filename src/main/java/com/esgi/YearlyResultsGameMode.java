@@ -28,12 +28,16 @@ public class YearlyResultsGameMode extends PlayGameMode {
 
         if( input == returnInput )
         {
-            System.out.println( this.results.killingOrBirthingPeople() );
-            this.setPreviousGameMode();
+            this.endYearlyResults();
             return;
         }
 
         this.printAllChoices();
+    }
+
+    private void endYearlyResults(){
+        System.out.println( this.results.killingOrBirthingPeople() );
+        this.setPreviousGameMode();
     }
 
     private void printAllChoices()
@@ -55,11 +59,18 @@ public class YearlyResultsGameMode extends PlayGameMode {
     {
         System.out.printf( "1 - %s\n", "Nourrir le peuple" );
         System.out.printf( "2 - %s\n", "¡ Corrupción absoluta !" );
+        System.out.printf( "3 - %s\n", "¡ Adelante Señor Presidente ! (Continuer)" );
 
         int input;
         do{
             input = this.inputHandler.getUserInput();
-        } while( input != 1 && input != 2 );
+        } while( input < 1 || 3 < input );
+
+        if( input == 3 )
+        {
+            this.endYearlyResults();
+            return;
+        }
 
         this.yearlyEvent = input == 1 ? results.getBuyFoodEvent() : results.getCorruptEvent();
         this.printAllChoices();

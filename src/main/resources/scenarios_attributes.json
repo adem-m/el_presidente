@@ -99,6 +99,91 @@
           "population": 15
         }
       ]
+    },
+    "tsar": {
+      "name": "Le Tsar",
+      "firstEventId": 1,
+      "industry": 10,
+      "agriculture": 30,
+      "money": 400,
+      "food": 100,
+      "factions": [
+        {
+          "name": "capitalists",
+          "satisfaction": 10,
+          "population": 5
+        },
+        {
+          "name": "communists",
+          "satisfaction": 80,
+          "population": 40
+        },
+        {
+          "name": "socialists",
+          "satisfaction": 10,
+          "population": 5
+        },
+        {
+          "name": "religious",
+          "satisfaction": 50,
+          "population": 15
+        },
+        {
+          "name": "militarists",
+          "satisfaction": 50,
+          "population": 15
+        },
+        {
+          "name": "nationalists",
+          "satisfaction": 50,
+          "population": 20
+        },
+        {
+          "name": "loyalists",
+          "satisfaction": 100,
+          "population": 15
+        }
+      ]
+    },
+    "fma": {
+      "name": "FullMetal Alchemist",
+      "firstEventId": 1,
+      "industry": 10,
+      "agriculture": 30,
+      "money": 400,
+      "food": 100,
+      "factions": [
+        {
+          "name": "capitalists",
+          "satisfaction": 10,
+          "population": 5
+        },
+        {
+          "name": "communists",
+          "satisfaction": 80,
+          "population": 40
+        },
+        {
+          "name": "religious",
+          "satisfaction": 50,
+          "population": 15
+        },
+        {
+          "name": "militarists",
+          "satisfaction": 50,
+          "population": 15
+        },
+        {
+          "name": "nationalists",
+          "satisfaction": 50,
+          "population": 20
+        },
+        {
+          "name": "loyalists",
+          "satisfaction": 100,
+          "population": 15
+        }
+      ]
     }
   }
 }

@@ -41,11 +41,17 @@ public class State {
         return this.turnCount;
     }
 
+    public boolean hasYearPassed()
+    {
+        return this.turnCount % 4 == 0;
+    }
+
     public Season getStartingSeason() {
         return this.startingSeason;
     }
 
     public State(String scenarioName, Difficulty difficulty) {
+        this.turnCount = 0;
         this.difficulty = difficulty;
         this.choiceHandler = new ChoiceHandler(this);
         this.events.putAll(Loader.fetchEvents(scenarioName));

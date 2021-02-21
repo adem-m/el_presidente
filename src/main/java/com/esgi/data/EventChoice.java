@@ -1,5 +1,7 @@
 package com.esgi.data;
 
+import com.esgi.data.enums.Difficulty;
+import com.esgi.game.ChoiceHandler;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 
@@ -22,16 +24,29 @@ public class EventChoice {
         }
     }
 
-    public String getText() {
-        return text;
+    public EventChoice(String text, List<Effect> effects) {
+        this.text = text;
+        this.effects.addAll(effects);
     }
 
     public List<Effect> getEffects() {
-        return effects;
+        return this.effects;
     }
 
     public List<Integer> getNextEventsIds() {
-        return nextEventsIds;
+        return this.nextEventsIds;
+    }
+
+    public String generateLabel(Difficulty difficulty) {
+        Object[] values = new Object[this.effects.size()];
+        for (int i = 0; i < this.effects.size(); i++) {
+            values[i] = ChoiceHandler.applyDifficultyToModifier(
+                    this.effects.get(i).getModifier(),
+                    difficulty,
+                    this.effects.get(i).getEffectType()
+            );
+        }
+        return String.format(this.text, values);
     }
 
     private Effect JSONtoEffect(JSONObject JSONEffect) {

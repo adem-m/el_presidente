@@ -4,16 +4,23 @@ import com.esgi.data.Effect;
 import com.esgi.data.EventChoice;
 import com.esgi.data.Faction;
 import com.esgi.data.State;
+import com.esgi.data.enums.Difficulty;
+import com.esgi.data.enums.EffectType;
+import com.esgi.data.enums.ModifierType;
 import com.esgi.data.enums.Target;
 
 public class ChoiceHandler {
+    final static int MINIMUM_ATTRIBUTE_VALUE = 0;
+    final static int MAXIMUM_SUM_OF_AGRICULTURE_AND_INDUSTRY = 100;
+    final static int AGRICULTURE_OR_INDUSTRY_MAXIMUM_VALUE = 100;
+
     private final State state;
 
     public ChoiceHandler(State state) {
         this.state = state;
     }
 
-    public void handle(EventChoice choice) {
+    public void handle(EventChoice choice, Difficulty difficulty) {
         for (Integer i : choice.getNextEventsIds()) {
             try {
                 this.state.getNextEvents().add(this.state.getEventById(i));
@@ -23,40 +30,45 @@ public class ChoiceHandler {
         }
         for (Effect effect : choice.getEffects()) {
             try {
-                executeEffect(effect);
+                executeEffect(effect, difficulty);
             } catch (Exception exception) {
                 System.out.println(exception.getMessage());
             }
         }
     }
 
-    private void executeEffect(Effect effect) throws Exception {
+    private void executeEffect(Effect effect, Difficulty difficulty) throws Exception {
+        int modifier = effect.getModifierType() == ModifierType.PERCENTAGE ?
+                calculatePercentage(state.getAttributes().get(effect.getAttribute()), effect.getModifier()) :
+                effect.getModifier();
+        modifier = applyDifficultyToModifier(modifier, difficulty, effect.getEffectType());
         if (effect.getTarget() == Target.FACTION) {
-            executeFactionEffect(effect);
+            executeFactionEffect(effect, modifier);
         } else if (effect.getTarget() == Target.ATTRIBUTE) {
-            executeAttributeEffect(effect);
+            executeAttributeEffect(effect, modifier);
         } else {
             throw new Exception("Unknown effect type : " + effect.getTarget());
         }
     }
 
-    private void executeAttributeEffect(Effect effect) {
-        if (effect.getAttribute().equals("money")) {
-            this.state.getAttributes().put("money", this.state.getAttributes().get("money") + effect.getModifier());
-            if (this.state.getAttributes().get("money") < 0) {
-                this.state.getAttributes().put("money", 0);
+    private void executeAttributeEffect(Effect effect, int modifier) {
+        String attribute = effect.getAttribute();
+        if (attribute.equals("money") || attribute.equals("food")) {
+            this.state.getAttributes().put(attribute, this.state.getAttributes().get(attribute) + modifier);
+            if (this.state.getAttributes().get(attribute) < MINIMUM_ATTRIBUTE_VALUE) {
+                this.state.getAttributes().put(attribute, MINIMUM_ATTRIBUTE_VALUE);
             }
         } else {
-            modifyAgricultureOrIndustry(effect.getAttribute(), effect.getModifier());
+            modifyAgricultureOrIndustry(effect.getAttribute(), modifier);
         }
     }
 
-    private void executeFactionEffect(Effect effect) {
+    private void executeFactionEffect(Effect effect, int modifier) {
         Faction faction = this.state.getFactions().get(effect.getFactionName());
         if (effect.getAttribute().equals("satisfaction")) {
-            faction.modifySatisfaction(effect.getModifier());
+            faction.modifySatisfaction(modifier);
         } else {
-            faction.modifyPopulation(effect.getModifier());
+            faction.modifyPopulation(modifier);
         }
     }
 
@@ -66,18 +78,31 @@ public class ChoiceHandler {
         int modification = calculateModificationValue(currentValue, modifier);
         this.state.getAttributes().put(attribute, currentValue + modification);
         int total = this.state.getAttributes().get(attribute) + this.state.getAttributes().get(other);
-        if (total > 100) {
-            this.state.getAttributes().put(other, this.state.getAttributes().get(other) - (total - 100));
+        if (total > MAXIMUM_SUM_OF_AGRICULTURE_AND_INDUSTRY) {
+            this.state.getAttributes().put(
+                    other,
+                    this.state.getAttributes().get(other) - (total - MAXIMUM_SUM_OF_AGRICULTURE_AND_INDUSTRY)
+            );
         }
     }
 
     private int calculateModificationValue(int currentValue, int modifier) {
-        if (currentValue + modifier > 100) {
-            return currentValue + modifier - 100;
+        if (currentValue + modifier > AGRICULTURE_OR_INDUSTRY_MAXIMUM_VALUE) {
+            return AGRICULTURE_OR_INDUSTRY_MAXIMUM_VALUE - currentValue;
         } else if (currentValue + modifier < 0) {
             return currentValue * (-1);
         } else {
             return modifier;
         }
+    }
+
+    private int calculatePercentage(int amount, int percentage) {
+        return Math.round((amount / 100f) * percentage);
+    }
+
+    public static int applyDifficultyToModifier(int modifier, Difficulty difficulty, EffectType effectType) {
+        return effectType == EffectType.BONUS ?
+                Math.round(modifier / difficulty.getMultiplier()) :
+                Math.round(modifier * difficulty.getMultiplier());
     }
 }

@@ -5,6 +5,7 @@ import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 public class Event {
@@ -24,20 +25,27 @@ public class Event {
         }
     }
 
+    public Event(String text, List<EventChoice> choices) {
+        this.id = 0;
+        this.text = text;
+        this.seasons.addAll(Arrays.asList(Season.SPRING, Season.SUMMER, Season.AUTUMN, Season.WINTER));
+        this.choices.addAll(choices);
+    }
+
     public int getId() {
-        return id;
+        return this.id;
     }
 
     public String getText() {
-        return text;
+        return this.text;
     }
 
     public List<Season> getSeasons() {
-        return seasons;
+        return this.seasons;
     }
 
     public List<EventChoice> getChoices() {
-        return choices;
+        return this.choices;
     }
 
     private Season getSeasonFromSeasonId(long seasonId) {

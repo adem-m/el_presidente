@@ -7,17 +7,22 @@ abstract class GameMode {
     protected Keyboard inputHandler;
 
     abstract void init();
+
     abstract void handleInput();
 
-    public void setParent( App parent ){
+    public void setParent(App parent) {
         this.parent = parent;
     }
 
-    public void setInputHandler( Keyboard inputHandler ){
+    public void setInputHandler(Keyboard inputHandler) {
         this.inputHandler = inputHandler;
     }
 
-    public void switchGameMode( GameMode mode ){
-        this.parent.setGameMode( mode );
+    public void switchGameMode(GameMode mode) {
+        this.parent.setGameMode(mode);
+    }
+
+    public void setPreviousGameMode() {
+        this.parent.setPreviousGameMode();
     }
 }

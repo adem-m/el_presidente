@@ -91,6 +91,7 @@ public class State {
     }
 
     private void turnSandboxMode() {
+        System.out.print( "\n\nVous avez terminé ce scénario, passage en mode sandbox...\n\n" );
         this.sandboxMode = true;
         this.events.clear();
         this.events.putAll(Loader.fetchEvents("sandbox"));

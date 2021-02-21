@@ -251,14 +251,14 @@
                 },
                 {
                   "target": "attribute",
-                  "attribute": "Money",
+                  "attribute": "money",
                   "modifier": 100,
                   "modifierType": "flat",
                   "effectType": "bonus"
                 },
                 {
                   "target": "attribute",
-                  "attribute": "Industrie",
+                  "attribute": "industrie",
                   "modifier": -5,
                   "modifierType": "flat",
                   "effectType": "malus"
@@ -297,7 +297,7 @@
                 },
                 {
                   "target": "attribute",
-                  "attribute": "Money",
+                  "attribute": "money",
                   "modifier": -100,
                   "modifierType": "flat",
                   "effectType": "malus"
@@ -336,14 +336,14 @@
                 },
                 {
                   "target": "attribute",
-                  "attribute": "Money",
+                  "attribute": "money",
                   "modifier": -150,
                   "modifierType": "flat",
                   "effectType": "malus"
                 },
                 {
                   "target": "attribute",
-                  "attribute": "Industrie",
+                  "attribute": "industrie",
                   "modifier": 15,
                   "modifierType": "flat",
                   "effectType": "bonus"
@@ -402,14 +402,14 @@
             },
             {
               "target": "attribute",
-              "attribute": "Money",
+              "attribute": "money",
               "modifier": 100,
               "modifierType": "flat",
               "effectType": "bonus"
             },
             {
               "target": "attribute",
-              "attribute": "Industrie",
+              "attribute": "industrie",
               "modifier": 5,
               "modifierType": "flat",
               "effectType": "bonus"
@@ -456,14 +456,14 @@
             },
             {
               "target": "attribute",
-              "attribute": "Money",
+              "attribute": "money",
               "modifier": -100,
               "modifierType": "flat",
               "effectType": "malus"
             },
             {
               "target": "attribute",
-              "attribute": "Industrie",
+              "attribute": "industrie",
               "modifier": -5,
               "modifierType": "flat",
               "effectType": "malus"
@@ -530,14 +530,14 @@
             },
             {
               "target": "attribute",
-              "attribute": "Money",
+              "attribute": "money",
               "modifier": -200,
               "modifierType": "flat",
               "effectType": "malus"
             },
             {
               "target": "attribute",
-              "attribute": "Industrie",
+              "attribute": "industrie",
               "modifier": 5,
               "modifierType": "flat",
               "effectType": "bonus"
@@ -646,14 +646,14 @@
             },
             {
               "target": "attribute",
-              "attribute": "Money",
+              "attribute": "money",
               "modifier": 100,
               "modifierType": "flat",
               "effectType": "bonus"
             },
             {
               "target": "attribute",
-              "attribute": "Industrie",
+              "attribute": "industrie",
               "modifier": 5,
               "modifierType": "flat",
               "effectType": "bonus"
@@ -762,14 +762,14 @@
             },
             {
               "target": "attribute",
-              "attribute": "Money",
+              "attribute": "money",
               "modifier": -300,
               "modifierType": "flat",
               "effectType": "malus"
             },
             {
               "target": "attribute",
-              "attribute": "Industrie",
+              "attribute": "industrie",
               "modifier": 5,
               "modifierType": "flat",
               "effectType": "bonus"
@@ -900,14 +900,14 @@
             },
             {
               "target": "attribute",
-              "attribute": "Money",
+              "attribute": "money",
               "modifier": 250,
               "modifierType": "flat",
               "effectType": "bonus"
             },
             {
               "target": "attribute",
-              "attribute": "Industrie",
+              "attribute": "industrie",
               "modifier": -5,
               "modifierType": "flat",
               "effectType": "malus"
@@ -978,14 +978,14 @@
             },
             {
               "target": "attribute",
-              "attribute": "Money",
+              "attribute": "money",
               "modifier": -150,
               "modifierType": "flat",
               "effectType": "malus"
             },
             {
               "target": "attribute",
-              "attribute": "Industrie",
+              "attribute": "industrie",
               "modifier": 10,
               "modifierType": "flat",
               "effectType": "bonus"
@@ -1067,7 +1067,7 @@
             },
             {
               "target": "attribute",
-              "attribute": "Industrie",
+              "attribute": "industrie",
               "modifier": 5,
               "modifierType": "flat",
               "effectType": "bonus"
@@ -1137,7 +1137,7 @@
             },
             {
               "target": "attribute",
-              "attribute": "Industrie",
+              "attribute": "i",
               "modifier": 5,
               "modifierType": "flat",
               "effectType": "bonus"
@@ -1199,7 +1199,7 @@
             },
             {
               "target": "attribute",
-              "attribute": "Industrie",
+              "attribute": "industrie",
               "modifier": 5,
               "modifierType": "flat",
               "effectType": "bonus"
@@ -1273,7 +1273,7 @@
             },
             {
               "target": "attribute",
-              "attribute": "Industrie",
+              "attribute": "industrie",
               "modifier": 10,
               "modifierType": "flat",
               "effectType": "bonus"
@@ -1335,7 +1335,7 @@
             },
             {
               "target": "attribute",
-              "attribute": "Industrie",
+              "attribute": "industrie",
               "modifier": 3,
               "modifierType": "flat",
               "effectType": "bonus"

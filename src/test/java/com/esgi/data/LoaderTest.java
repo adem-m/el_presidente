@@ -26,6 +26,7 @@ public class LoaderTest {
         List<Pair<String, String>> scenarioList = Loader.fetchScenariosList();
         assertEquals("tsar",scenarioList.get(0).getKey());
         assertEquals("sandbox",scenarioList.get(1).getKey());
-        assertEquals("cold_war",scenarioList.get(2).getKey());
+        assertEquals("fma",scenarioList.get(2).getKey());
+        assertEquals("cold_war",scenarioList.get(3).getKey());
     }
 }

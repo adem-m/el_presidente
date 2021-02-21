@@ -1,19 +1,26 @@
 package com.esgi.data.enums;
 
 public enum Season {
-    SPRING(0),
-    SUMMER(1),
-    AUTUMN(2),
-    WINTER(3);
+    SPRING(0, "Printemps"),
+    SUMMER(1, "Eté"),
+    AUTUMN(2, "Automne"),
+    WINTER(3, "Hiver");
 
     private final int id;
 
-    Season(int id) {
+    private final String name;
+
+    Season(int id, String name) {
         this.id = id;
+        this.name = name;
     }
 
     public int getId() {
         return id;
+    }
+
+    public String getName() {
+        return name;
     }
 
     public static Season fromId(int id) {

@@ -11,7 +11,7 @@ public class State {
     private final Map<String, Faction> factions = new HashMap<>();
     private final Map<Integer, Event> events = new HashMap<>();
     private final List<Event> nextEvents = new ArrayList<>();
-    private int turnCount;
+    private int turnCount = 1;
     private final Season startingSeason;
     private final ChoiceHandler choiceHandler;
     private boolean sandboxMode = false;
@@ -115,8 +115,8 @@ public class State {
         this.choiceHandler.handle(choice, this.difficulty);
     }
 
-    private Season getCurrentSeason() {
-        return Season.fromId((this.turnCount + this.startingSeason.getId()) % 4);
+    public Season getCurrentSeason() {
+        return Season.fromId((this.turnCount - 1 + this.startingSeason.getId()) % 4);
     }
 
     private int calculateGlobalSatisfaction() {
@@ -144,5 +144,9 @@ public class State {
     public Faction getRandomFaction() {
         List<String> factionKeys = new ArrayList<>(this.factions.keySet());
         return this.factions.get(factionKeys.get(new Random().nextInt(factionKeys.size())));
+    }
+
+    public String generateStateDisplay() {
+        return new DisplayGenerator(this).generateStateDisplay();
     }
 }

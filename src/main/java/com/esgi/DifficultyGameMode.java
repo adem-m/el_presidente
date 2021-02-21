@@ -36,7 +36,7 @@ public class DifficultyGameMode extends GameMode {
 
     @Override
     void init() {
-        System.out.println("Veuillez choisir un niveau de difficulté :\n");
+        System.out.println("\n\nVeuillez choisir un niveau de difficulté :");
 
         int index = 1;
         for (Difficulty difficulty : Difficulty.values()) {

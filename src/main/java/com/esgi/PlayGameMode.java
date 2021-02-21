@@ -26,7 +26,7 @@ public class PlayGameMode extends GameMode {
         int input;
         do {
             input = this.inputHandler.getUserInput();
-        } while( input < 0 || this.currentChoices.size() < input );
+        } while( input < 1 || this.currentChoices.size() < input );
 
         this.state.handleChoice(
                 this.currentChoices.get(input - 1));

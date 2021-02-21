@@ -24,7 +24,7 @@ public class YearlyResultsGameMode extends PlayGameMode {
         int returnInput = this.currentChoices.size() + 1;
         do {
             input = this.inputHandler.getUserInput();
-        } while( input < 0 || returnInput < input );
+        } while( input < 1 || returnInput < input );
 
         if( input == returnInput )
         {

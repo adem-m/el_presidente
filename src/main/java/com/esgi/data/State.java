@@ -127,7 +127,7 @@ public class State {
         return Season.fromId((this.turnCount - 1 + this.startingSeason.getId()) % 4);
     }
 
-    private int calculateGlobalSatisfaction() {
+    public int calculateGlobalSatisfaction() {
         int satisfaction = 0;
         int population = 0;
         for (Map.Entry<String, Faction> faction : this.factions.entrySet()) {

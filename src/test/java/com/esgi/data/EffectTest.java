@@ -24,19 +24,19 @@ public class EffectTest {
         String attribute = effect.getAttribute();
 
 
-        Long manual_modifier = Long.valueOf(30);
-        Effect manual_effect = new Effect("FACTION","religious","satisfaction",manual_modifier,
+        Long manualModifier = Long.valueOf(20);
+        Effect manualEffect = new Effect("FACTION","religious","satisfaction",manualModifier,
                 "FLAT","BONUS");
 
         Effect fetch_effect = new Effect(target.toString(),factionName,attribute,modifierLong,
                 modifierType.toString(),effectType.toString());
 
-        assertEquals(manual_effect.getTarget(),fetch_effect.getTarget());
-        assertEquals(manual_effect.getEffectType(),fetch_effect.getEffectType());
-        assertEquals(manual_effect.getAttribute(),fetch_effect.getAttribute());
-        assertEquals(manual_effect.getModifier(),fetch_effect.getModifier());
-        assertEquals(manual_effect.getFactionName(),fetch_effect.getFactionName());
-        assertEquals(manual_effect.getModifierType(),fetch_effect.getModifierType());
+        assertEquals(manualEffect.getTarget(),fetch_effect.getTarget());
+        assertEquals(manualEffect.getEffectType(),fetch_effect.getEffectType());
+        assertEquals(manualEffect.getAttribute(),fetch_effect.getAttribute());
+        assertEquals(manualEffect.getModifier(),fetch_effect.getModifier());
+        assertEquals(manualEffect.getFactionName(),fetch_effect.getFactionName());
+        assertEquals(manualEffect.getModifierType(),fetch_effect.getModifierType());
 
     }
 

@@ -41,8 +41,7 @@ public class State {
         return this.turnCount;
     }
 
-    public boolean hasYearPassed()
-    {
+    public boolean hasYearPassed() {
         return this.turnCount % 4 == 0;
     }
 
@@ -51,7 +50,6 @@ public class State {
     }
 
     public State(String scenarioName, Difficulty difficulty) {
-        this.turnCount = 0;
         this.difficulty = difficulty;
         this.choiceHandler = new ChoiceHandler(this);
         this.events.putAll(Loader.fetchEvents(scenarioName));
@@ -117,8 +115,8 @@ public class State {
         this.turnCount++;
     }
 
-    public void handleYearlyChoice( EventChoice choice ) {
-        this.choiceHandler.handle( choice, this.difficulty );
+    public void handleYearlyChoice(EventChoice choice) {
+        this.choiceHandler.handle(choice, this.difficulty);
     }
 
     public void handleYearlyResultsChoice(EventChoice choice) {
@@ -136,6 +134,9 @@ public class State {
             satisfaction += faction.getValue().getSatisfaction() * faction.getValue().getPopulation();
             population += faction.getValue().getPopulation();
         }
+        if (population == 0) {
+            return 0;
+        }
         return satisfaction / population;
     }
 
@@ -148,7 +149,8 @@ public class State {
     }
 
     public boolean isGameLost() {
-        return calculateGlobalSatisfaction() < this.difficulty.getMinimumGlobalSatisfaction();
+        return calculateGlobalSatisfaction() < this.difficulty.getMinimumGlobalSatisfaction() ||
+                calculateTotalPopulation() == 0;
     }
 
     public Faction getRandomFaction() {

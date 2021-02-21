@@ -174,7 +174,7 @@
             },
             {
               "target": "faction",
-              "factionName": "communistes",
+              "factionName": "communists",
               "attribute": "satisfaction",
               "modifier": -5,
               "modifierType": "flat",
@@ -575,7 +575,8 @@
               "effectType": "malus"
             }
           ]
-        },        {
+        },
+        {
           "text": "Vous tuer vos propres prisonniers\nEffets : Satisfaction capitaliste +%d%%, nationaliste %d%%,militaristes %d%% communiste %d%%\n  industrie %d%%, agriculture %d%%,partisan %d par faction en moins sauf capitaliste",
           "nextEvents": [
             6
@@ -627,7 +628,6 @@
               "modifierType": "flat",
               "effectType": "malus"
             },
-
             {
               "target": "faction",
               "factionName": "nationalists",
@@ -663,14 +663,6 @@
             {
               "target": "faction",
               "factionName": "militarists",
-              "attribute": "population",
-              "modifier": -1,
-              "modifierType": "flat",
-              "effectType": "malus"
-            },
-            {
-              "target": "faction",
-              "factionName": "ecologists",
               "attribute": "population",
               "modifier": -1,
               "modifierType": "flat",
@@ -728,7 +720,6 @@
               "modifierType": "flat",
               "effectType": "bonus"
             },
-
             {
               "target": "faction",
               "factionName": "militarists",
@@ -751,7 +742,6 @@
               "modifierType": "flat",
               "effectType": "malus"
             }
-
           ]
         },
         {
@@ -768,7 +758,6 @@
               "modifierType": "flat",
               "effectType": "bonus"
             },
-
             {
               "target": "faction",
               "factionName": "nationalists",
@@ -1067,7 +1056,6 @@
               "modifierType": "flat",
               "effectType": "malus"
             }
-
           ]
         },
         {
@@ -1112,7 +1100,6 @@
       ]
     }
   ]
-
 }
 
 

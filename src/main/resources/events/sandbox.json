@@ -189,7 +189,8 @@
               "modifier": -10,
               "modifierType": "flat",
               "effectType": "malus"
-            },            {
+            },
+            {
               "target": "attribute",
               "attribute": "money",
               "modifier": 50,
@@ -201,8 +202,8 @@
       ]
     },
     {
-      "id": 4,
-      "text": "Des aliens débarquent pour voler vos vaches, que faites vous ? ",
+      "id": 3,
+      "text": "Tout va bien au pays d'El Presidente. Profitons-en pour investir !",
       "seasons": [
         0,
         1,
@@ -211,129 +212,42 @@
       ],
       "choices": [
         {
-          "text": "Vous leur envoyer un missile  \nEffets : Satisfaction communistes %d%%, religieux +%d%%, nationalists +%d%%, liberals +%d%%, capitalists +%d%%, ecologists %d%%, militaristes +%d%%\n argent %d, agriculture +%d%%",
+          "text": "Vous investissez dans l'agriculture\nEffets : Agriculture +%d%%, Argent %d%%",
           "nextEvents": [
           ],
           "effects": [
-            {
-              "target": "faction",
-              "factionName": "communists",
-              "attribute": "satisfaction",
-              "modifier": -5,
-              "modifierType": "flat",
-              "effectType": "bonus"
-            },
-            {
-              "target": "faction",
-              "factionName": "religious",
-              "attribute": "satisfaction",
-              "modifier": 10,
-              "modifierType": "flat",
-              "effectType": "bonus"
-            },
-            {
-              "target": "faction",
-              "factionName": "nationalists",
-              "attribute": "satisfaction",
-              "modifier": 10,
-              "modifierType": "flat",
-              "effectType": "bonus"
-            },
-            {
-              "target": "faction",
-              "factionName": "liberals",
-              "attribute": "satisfaction",
-              "modifier": 10,
-              "modifierType": "flat",
-              "effectType": "bonus"
-            },
-            {
-              "target": "faction",
-              "factionName": "capitalists",
-              "attribute": "satisfaction",
-              "modifier": 10,
-              "modifierType": "flat",
-              "effectType": "bonus"
-            },
-            {
-              "target": "faction",
-              "factionName": "ecologists",
-              "attribute": "satisfaction",
-              "modifier": -10,
-              "modifierType": "flat",
-              "effectType": "malus"
-            },
-            {
-              "target": "faction",
-              "factionName": "militarists",
-              "attribute": "satisfaction",
-              "modifier": 10,
-              "modifierType": "flat",
-              "effectType": "bonus"
-            },
-            {
-              "target": "attribute",
-              "attribute": "money",
-              "modifier": -150,
-              "modifierType": "flat",
-              "effectType": "malus"
-            },
             {
               "target": "attribute",
               "attribute": "agriculture",
-              "modifier": 20,
-              "modifierType": "flat",
-              "effectType": "bonus"
-            }
-          ]
-        },
-        {
-          "text": "Vous les laisser faire en guise de paix\nEffets : Satisfaction religieux %d%%, communistes +%d%%, militaristes %d%%, loyalistes %d%% \n argent %d, agriculture %d%%",
-          "nextEvents": [
-          ],
-          "effects": [
-            {
-              "target": "faction",
-              "factionName": "religious",
-              "attribute": "satisfaction",
-              "modifier": -10,
-              "modifierType": "flat",
-              "effectType": "malus"
-            },
-            {
-              "target": "faction",
-              "factionName": "communists",
-              "attribute": "satisfaction",
               "modifier": 10,
               "modifierType": "flat",
               "effectType": "bonus"
             },
             {
-              "target": "faction",
-              "factionName": "militarists",
-              "attribute": "satisfaction",
-              "modifier": -10,
-              "modifierType": "flat",
-              "effectType": "malus"
-            },
-            {
-              "target": "faction",
-              "factionName": "loyalists",
-              "attribute": "satisfaction",
-              "modifier": -10,
-              "modifierType": "flat",
-              "effectType": "malus"
-            },            {
               "target": "attribute",
               "attribute": "money",
               "modifier": -50,
               "modifierType": "flat",
               "effectType": "malus"
+            }
+          ]
+        },
+        {
+          "text": "Vous investissez dans l'industrie\nEffets : Industrie +%d%%, Argent %d%%",
+          "nextEvents": [
+          ],
+          "effects": [
+            {
+              "target": "attribute",
+              "attribute": "industry",
+              "modifier": 30,
+              "modifierType": "flat",
+              "effectType": "bonus"
             },
             {
               "target": "attribute",
-              "attribute": "agriculture",
-              "modifier": -10,
+              "attribute": "money",
+              "modifier": -50,
               "modifierType": "flat",
               "effectType": "malus"
             }
@@ -1006,8 +920,8 @@
       ]
     },
     {
-      "id": 3,
-      "text": "Tout va bien au pays d'El Presidente. Profitons-en pour investir !",
+      "id": 10,
+      "text": "Des aliens débarquent pour voler vos vaches, que faites vous ? ",
       "seasons": [
         0,
         1,
@@ -1016,13 +930,62 @@
       ],
       "choices": [
         {
-          "text": "Vous investissez dans l'agriculture\nEffets : Agriculture +%d%%, Argent %d%%",
+          "text": "Vous leur envoyer un missile  \nEffets : Satisfaction communistes %d%%, religieux +%d%%, nationalists +%d%%, liberals +%d%%, capitalists +%d%%, ecologists %d%%, militaristes +%d%%\n argent %d, agriculture +%d%%",
           "nextEvents": [
           ],
           "effects": [
             {
-              "target": "attribute",
-              "attribute": "agriculture",
+              "target": "faction",
+              "factionName": "communists",
+              "attribute": "satisfaction",
+              "modifier": -5,
+              "modifierType": "flat",
+              "effectType": "bonus"
+            },
+            {
+              "target": "faction",
+              "factionName": "religious",
+              "attribute": "satisfaction",
+              "modifier": 10,
+              "modifierType": "flat",
+              "effectType": "bonus"
+            },
+            {
+              "target": "faction",
+              "factionName": "nationalists",
+              "attribute": "satisfaction",
+              "modifier": 10,
+              "modifierType": "flat",
+              "effectType": "bonus"
+            },
+            {
+              "target": "faction",
+              "factionName": "liberals",
+              "attribute": "satisfaction",
+              "modifier": 10,
+              "modifierType": "flat",
+              "effectType": "bonus"
+            },
+            {
+              "target": "faction",
+              "factionName": "capitalists",
+              "attribute": "satisfaction",
+              "modifier": 10,
+              "modifierType": "flat",
+              "effectType": "bonus"
+            },
+            {
+              "target": "faction",
+              "factionName": "ecologists",
+              "attribute": "satisfaction",
+              "modifier": -10,
+              "modifierType": "flat",
+              "effectType": "malus"
+            },
+            {
+              "target": "faction",
+              "factionName": "militarists",
+              "attribute": "satisfaction",
               "modifier": 10,
               "modifierType": "flat",
               "effectType": "bonus"
@@ -1030,28 +993,67 @@
             {
               "target": "attribute",
               "attribute": "money",
-              "modifier": -50,
+              "modifier": -150,
               "modifierType": "flat",
               "effectType": "malus"
+            },
+            {
+              "target": "attribute",
+              "attribute": "agriculture",
+              "modifier": 20,
+              "modifierType": "flat",
+              "effectType": "bonus"
             }
           ]
         },
         {
-          "text": "Vous investissez dans l'industrie\nEffets : Industrie +%d%%, Argent %d%%",
+          "text": "Vous les laisser faire en guise de paix\nEffets : Satisfaction religieux %d%%, communistes +%d%%, militaristes %d%%, loyalistes %d%% \n argent %d, agriculture %d%%",
           "nextEvents": [
           ],
           "effects": [
             {
-              "target": "attribute",
-              "attribute": "industry",
-              "modifier": 30,
+              "target": "faction",
+              "factionName": "religious",
+              "attribute": "satisfaction",
+              "modifier": -10,
+              "modifierType": "flat",
+              "effectType": "malus"
+            },
+            {
+              "target": "faction",
+              "factionName": "communists",
+              "attribute": "satisfaction",
+              "modifier": 10,
               "modifierType": "flat",
               "effectType": "bonus"
+            },
+            {
+              "target": "faction",
+              "factionName": "militarists",
+              "attribute": "satisfaction",
+              "modifier": -10,
+              "modifierType": "flat",
+              "effectType": "malus"
+            },
+            {
+              "target": "faction",
+              "factionName": "loyalists",
+              "attribute": "satisfaction",
+              "modifier": -10,
+              "modifierType": "flat",
+              "effectType": "malus"
             },
             {
               "target": "attribute",
               "attribute": "money",
               "modifier": -50,
+              "modifierType": "flat",
+              "effectType": "malus"
+            },
+            {
+              "target": "attribute",
+              "attribute": "agriculture",
+              "modifier": -10,
               "modifierType": "flat",
               "effectType": "malus"
             }

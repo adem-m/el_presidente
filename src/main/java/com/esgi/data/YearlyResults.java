@@ -59,7 +59,7 @@ public class YearlyResults {
 
     private String generateFactionDetails(Faction faction) {
         return String.format(
-                "%s : %d partisans, %d%% de satisfaction\nCoût : %d$",
+                "%s : %d Partisans | Satisfaction %d / 100\nCoût %d$",
                 faction.getName(),
                 faction.getPopulation(),
                 faction.getSatisfaction(),

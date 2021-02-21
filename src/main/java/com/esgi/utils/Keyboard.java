@@ -14,7 +14,11 @@ public class Keyboard {
     }
     
     public int getUserInput(){
-        System.out.print( "señor presidente> ");
-        return Integer.parseInt( this.scanner.nextLine());
+        try {
+            System.out.print( "señor presidente> ");
+            return Integer.parseInt( this.scanner.nextLine());
+        } catch( Exception err ){
+            return -1;
+        }
     }
 }

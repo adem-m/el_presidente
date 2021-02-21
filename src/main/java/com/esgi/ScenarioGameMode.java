@@ -26,7 +26,7 @@ public class ScenarioGameMode extends GameMode {
         int input;
         do{
             input = this.inputHandler.getUserInput();
-        } while( input < 0 || this.choices.size() < input );
+        } while( input < 1 || this.choices.size() < input );
 
 
         String value = this.choices.get(input - 1);

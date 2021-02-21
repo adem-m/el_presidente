@@ -16,7 +16,7 @@ public class DifficultyGameMode extends GameMode {
         int returnInput = Difficulty.values().length + 1;
         do {
             input = this.inputHandler.getUserInput();
-        } while( input < 0 || returnInput < input );
+        } while( input < 1 || returnInput < input );
 
         if ( input == returnInput ) {
             this.setPreviousGameMode();

@@ -151,16 +151,15 @@ public class YearlyResults {
                 0;
     }
 
-    public void end() {
-        int lackOfFood = eat();
+    public String killingOrBirthingPeople() {
+        int lackOfFood = feedPopulation();
         if (lackOfFood > 0) {
-            killPeople(lackOfFood);
-        } else {
-            giveBirth();
+            return killPeople(lackOfFood);
         }
+        return giveBirth();
     }
 
-    private int eat() {
+    private int feedPopulation() {
         long lackOfFood = calculateLackOfFood();
         if (lackOfFood > 0) {
             this.state.getAttributes().put("food", 0);
@@ -172,26 +171,28 @@ public class YearlyResults {
         return 0;
     }
 
-    private void giveBirth() {
+    private String giveBirth() {
         int births = calculateBirthsNumber();
-        while (births > 0) {
+        for (int i = 0; i < births; i++) {
             this.state.getRandomFaction().modifyPopulation(1);
-            births--;
         }
+        return String.format("Votre abondance de nourriture a donné naissance à %d nouveau(x) partisan(s) !", births);
     }
 
     private int calculateBirthsNumber() {
         return Math.round((this.state.calculateTotalPopulation() * 0.01f) * (new Random().nextInt(10) + 1));
     }
 
-    private void killPeople(int foodRest) {
+    private String killPeople(int foodRest) {
         int deaths = foodRest / 4;
-        while (deaths > 0) {
+        for (int i = 0; i < deaths; i++) {
             Faction faction = this.state.getRandomFaction();
             if (faction.getPopulation() > 0) {
                 faction.modifyPopulation(-1);
-                deaths--;
+            } else {
+                i--;
             }
         }
+        return String.format("Par manque de nourriture, nous avons perdu %d partisan(s) cette année.", deaths);
     }
 }

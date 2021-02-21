@@ -17,33 +17,32 @@ public class State {
     private boolean sandboxMode = false;
     private final Difficulty difficulty;
 
-    public Difficulty getDifficulty()
-    {
+    public Difficulty getDifficulty() {
         return this.difficulty;
     }
 
     public Map<String, Integer> getAttributes() {
-        return attributes;
+        return this.attributes;
     }
 
     public Map<String, Faction> getFactions() {
-        return factions;
+        return this.factions;
     }
 
     public Map<Integer, Event> getEvents() {
-        return events;
+        return this.events;
     }
 
     public List<Event> getNextEvents() {
-        return nextEvents;
+        return this.nextEvents;
     }
 
     public int getTurnCount() {
-        return turnCount;
+        return this.turnCount;
     }
 
     public Season getStartingSeason() {
-        return startingSeason;
+        return this.startingSeason;
     }
 
     public State(String scenarioName, Difficulty difficulty) {
@@ -52,35 +51,35 @@ public class State {
         this.events.putAll(Loader.fetchEvents(scenarioName));
         Scenario scenario = Loader.fetchScenarioFromName(scenarioName);
         initializeAttributesFromScenario(scenario);
-        startingSeason = Season.fromId(new Random().nextInt(4));
+        this.startingSeason = Season.fromId(new Random().nextInt(4));
     }
 
     private void initializeAttributesFromScenario(Scenario scenario) {
         if (!scenario.getName().equals("sandbox")) {
             try {
-                nextEvents.add(getEventById(scenario.getFirstEventId()));
+                this.nextEvents.add(getEventById(scenario.getFirstEventId()));
             } catch (Exception exception) {
                 System.out.println(exception.getMessage());
             }
         } else {
             this.sandboxMode = true;
         }
-        attributes.put("industry", scenario.getIndustry());
-        attributes.put("agriculture", scenario.getAgriculture());
-        attributes.put("money", scenario.getMoney());
-        attributes.put("food", scenario.getFood());
+        this.attributes.put("industry", scenario.getIndustry());
+        this.attributes.put("agriculture", scenario.getAgriculture());
+        this.attributes.put("money", scenario.getMoney());
+        this.attributes.put("food", scenario.getFood());
         for (Faction faction : scenario.getFactions()) {
-            factions.put(faction.getName(), faction);
+            this.factions.put(faction.getName(), faction);
         }
     }
 
     public Event getNextEvent() {
-        if (sandboxMode) {
+        if (this.sandboxMode) {
             return getRandomEvent();
         }
-        if (!nextEvents.isEmpty()) {
-            Event event = nextEvents.get(0);
-            nextEvents.remove(0);
+        if (!this.nextEvents.isEmpty()) {
+            Event event = this.nextEvents.get(0);
+            this.nextEvents.remove(0);
             return event;
         }
         turnSandboxMode();
@@ -88,9 +87,9 @@ public class State {
     }
 
     private void turnSandboxMode() {
-        sandboxMode = true;
-        events.clear();
-        events.putAll(Loader.fetchEvents("sandbox"));
+        this.sandboxMode = true;
+        this.events.clear();
+        this.events.putAll(Loader.fetchEvents("sandbox"));
     }
 
     public Event getEventById(int id) {
@@ -99,7 +98,7 @@ public class State {
 
     private Event getRandomEvent() {
         Random generator = new Random();
-        Object[] values = events.values().toArray();
+        Object[] values = this.events.values().toArray();
         Event event = (Event) values[generator.nextInt(values.length)];
         if (!event.getSeasons().contains(getCurrentSeason())) {
             return getRandomEvent();
@@ -117,7 +116,7 @@ public class State {
     }
 
     private Season getCurrentSeason() {
-        return Season.fromId((turnCount + startingSeason.getId()) % 4);
+        return Season.fromId((this.turnCount + this.startingSeason.getId()) % 4);
     }
 
     private int calculateGlobalSatisfaction() {

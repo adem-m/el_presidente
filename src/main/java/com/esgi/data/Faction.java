@@ -1,6 +1,10 @@
 package com.esgi.data;
 
 public class Faction {
+    final static int MINIMUM_SATISFACTION = 0;
+    final static int MAXIMUM_SATISFACTION = 100;
+    final static int MINIMUM_POPULATION = 0;
+
     private final String name;
     private int population;
     private int satisfaction;
@@ -12,32 +16,32 @@ public class Faction {
     }
 
     public String getName() {
-        return name;
+        return this.name;
     }
 
     public int getPopulation() {
-        return population;
+        return this.population;
     }
 
     public int getSatisfaction() {
-        return satisfaction;
+        return this.satisfaction;
     }
 
     public void modifyPopulation(int modifier) {
         this.population += modifier;
-        if (this.population < 0) {
-            population = 0;
+        if (this.population < MINIMUM_POPULATION) {
+            this.population = MINIMUM_POPULATION;
         }
     }
 
     public void modifySatisfaction(int modifier) {
-        if (this.satisfaction > 0) {
+        if (this.satisfaction > MINIMUM_SATISFACTION) {
             this.satisfaction += modifier;
-            if (this.satisfaction < 0) {
-                this.satisfaction = 0;
+            if (this.satisfaction < MINIMUM_SATISFACTION) {
+                this.satisfaction = MINIMUM_SATISFACTION;
             }
-            if (this.satisfaction > 100) {
-                this.satisfaction = 100;
+            if (this.satisfaction > MAXIMUM_SATISFACTION) {
+                this.satisfaction = MAXIMUM_SATISFACTION;
             }
         }
     }

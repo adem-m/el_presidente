@@ -26,31 +26,31 @@ public class Scenario {
     }
 
     public String getName() {
-        return name;
+        return this.name;
     }
 
     public int getIndustry() {
-        return industry;
+        return this.industry;
     }
 
     public int getAgriculture() {
-        return agriculture;
+        return this.agriculture;
     }
 
     public int getMoney() {
-        return money;
+        return this.money;
     }
 
     public int getFood() {
-        return food;
+        return this.food;
     }
 
     public int getFirstEventId() {
-        return firstEventId;
+        return this.firstEventId;
     }
 
     public List<Faction> getFactions() {
-        return factions;
+        return this.factions;
     }
 
     private void fillFactions(JSONArray factions) {

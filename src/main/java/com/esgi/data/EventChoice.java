@@ -30,20 +30,20 @@ public class EventChoice {
     }
 
     public List<Effect> getEffects() {
-        return effects;
+        return this.effects;
     }
 
     public List<Integer> getNextEventsIds() {
-        return nextEventsIds;
+        return this.nextEventsIds;
     }
 
     public String generateLabel(Difficulty difficulty) {
-        Object[] values = new Object[effects.size()];
-        for (int i = 0; i < effects.size(); i++) {
+        Object[] values = new Object[this.effects.size()];
+        for (int i = 0; i < this.effects.size(); i++) {
             values[i] = ChoiceHandler.applyDifficultyToModifier(
-                    effects.get(i).getModifier(),
+                    this.effects.get(i).getModifier(),
                     difficulty,
-                    effects.get(i).getEffectType()
+                    this.effects.get(i).getEffectType()
             );
         }
         return String.format(this.text, values);

@@ -3,6 +3,15 @@ package com.esgi.data;
 import java.util.*;
 
 public class YearlyResults {
+    final static int INDUSTRY_MULTIPLIER = 10;
+    final static int AGRICULTURE_MULTIPLIER = 40;
+    final static long SINGLE_CORRUPTION_COST = 15;
+    final static long SATISFACTION_RAISE_WHEN_CORRUPTED = 10;
+    final static long SINGLE_FOOD_COST = 8;
+    final static int FOOD_NEED_PER_PERSON = 4;
+    final static int MINIMUM_BIRTHING_RATE = 1;
+    final static int MAXIMUM_BIRTHING_RATE = 10;
+
     private final Event corruptEvent;
     private final Event buyFoodEvent;
     private final State state;
@@ -14,15 +23,15 @@ public class YearlyResults {
     }
 
     public Event getCorruptEvent() {
-        return corruptEvent;
+        return this.corruptEvent;
     }
 
     public Event getBuyFoodEvent() {
-        return buyFoodEvent;
+        return this.buyFoodEvent;
     }
 
     private int calculateMoneyRaise() {
-        return this.state.getAttributes().get("industry") * 10;
+        return this.state.getAttributes().get("industry") * INDUSTRY_MULTIPLIER;
     }
 
     public String generateMoneyRaiseLabel() {
@@ -30,7 +39,7 @@ public class YearlyResults {
     }
 
     private int calculateFoodRaise() {
-        return this.state.getAttributes().get("agriculture") * 40;
+        return this.state.getAttributes().get("agriculture") * AGRICULTURE_MULTIPLIER;
     }
 
     public String generateFoodRaiseLabel() {
@@ -59,7 +68,7 @@ public class YearlyResults {
     }
 
     private long calculateCorruptionCost(Faction faction) {
-        return faction.getPopulation() * 15L;
+        return faction.getPopulation() * SINGLE_CORRUPTION_COST;
     }
 
     private Event buildCorruptEvent() {
@@ -73,7 +82,7 @@ public class YearlyResults {
                                         "faction",
                                         faction.getValue().getName(),
                                         "satisfaction",
-                                        10L,
+                                        SATISFACTION_RAISE_WHEN_CORRUPTED,
                                         "flat",
                                         "bonus"
                                 ),
@@ -115,7 +124,7 @@ public class YearlyResults {
                                         new Effect(
                                                 "attribute",
                                                 "money",
-                                                -8L,
+                                                SINGLE_FOOD_COST * -1,
                                                 "flat",
                                                 "malus"
                                         )
@@ -127,7 +136,7 @@ public class YearlyResults {
                                         new Effect(
                                                 "attribute",
                                                 "money",
-                                                calculateLackOfFood() * -8,
+                                                calculateLackOfFood() * SINGLE_FOOD_COST * -1,
                                                 "flat",
                                                 "malus"
                                         ),
@@ -145,7 +154,7 @@ public class YearlyResults {
     }
 
     private long calculateLackOfFood() {
-        long need = this.state.calculateTotalPopulation() * 4L;
+        long need = this.state.calculateTotalPopulation() * (long) FOOD_NEED_PER_PERSON;
         return this.state.getAttributes().get("food") < need ?
                 need - this.state.getAttributes().get("food") :
                 0;
@@ -167,7 +176,7 @@ public class YearlyResults {
         }
         this.state.getAttributes().put(
                 "food",
-                this.state.getAttributes().get("food") - (this.state.calculateTotalPopulation() * 4));
+                this.state.getAttributes().get("food") - (this.state.calculateTotalPopulation() * FOOD_NEED_PER_PERSON));
         return 0;
     }
 
@@ -180,11 +189,12 @@ public class YearlyResults {
     }
 
     private int calculateBirthsNumber() {
-        return Math.round((this.state.calculateTotalPopulation() * 0.01f) * (new Random().nextInt(10) + 1));
+        return Math.round((this.state.calculateTotalPopulation() * 0.01f) *
+                (new Random().nextInt(MAXIMUM_BIRTHING_RATE) + MINIMUM_BIRTHING_RATE));
     }
 
     private String killPeople(int foodRest) {
-        int deaths = foodRest / 4;
+        int deaths = foodRest / FOOD_NEED_PER_PERSON;
         for (int i = 0; i < deaths; i++) {
             Faction faction = this.state.getRandomFaction();
             if (faction.getPopulation() > 0) {

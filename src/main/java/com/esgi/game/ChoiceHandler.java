@@ -10,6 +10,10 @@ import com.esgi.data.enums.ModifierType;
 import com.esgi.data.enums.Target;
 
 public class ChoiceHandler {
+    final static int MINIMUM_ATTRIBUTE_VALUE = 0;
+    final static int MAXIMUM_SUM_OF_AGRICULTURE_AND_INDUSTRY = 100;
+    final static int AGRICULTURE_OR_INDUSTRY_MAXIMUM_VALUE = 100;
+
     private final State state;
 
     public ChoiceHandler(State state) {
@@ -51,8 +55,8 @@ public class ChoiceHandler {
         String attribute = effect.getAttribute();
         if (attribute.equals("money") || attribute.equals("food")) {
             this.state.getAttributes().put(attribute, this.state.getAttributes().get(attribute) + modifier);
-            if (this.state.getAttributes().get(attribute) < 0) {
-                this.state.getAttributes().put(attribute, 0);
+            if (this.state.getAttributes().get(attribute) < MINIMUM_ATTRIBUTE_VALUE) {
+                this.state.getAttributes().put(attribute, MINIMUM_ATTRIBUTE_VALUE);
             }
         } else {
             modifyAgricultureOrIndustry(effect.getAttribute(), modifier);
@@ -74,14 +78,17 @@ public class ChoiceHandler {
         int modification = calculateModificationValue(currentValue, modifier);
         this.state.getAttributes().put(attribute, currentValue + modification);
         int total = this.state.getAttributes().get(attribute) + this.state.getAttributes().get(other);
-        if (total > 100) {
-            this.state.getAttributes().put(other, this.state.getAttributes().get(other) - (total - 100));
+        if (total > MAXIMUM_SUM_OF_AGRICULTURE_AND_INDUSTRY) {
+            this.state.getAttributes().put(
+                    other,
+                    this.state.getAttributes().get(other) - (total - MAXIMUM_SUM_OF_AGRICULTURE_AND_INDUSTRY)
+            );
         }
     }
 
     private int calculateModificationValue(int currentValue, int modifier) {
-        if (currentValue + modifier > 100) {
-            return 100 - currentValue;
+        if (currentValue + modifier > AGRICULTURE_OR_INDUSTRY_MAXIMUM_VALUE) {
+            return AGRICULTURE_OR_INDUSTRY_MAXIMUM_VALUE - currentValue;
         } else if (currentValue + modifier < 0) {
             return currentValue * (-1);
         } else {

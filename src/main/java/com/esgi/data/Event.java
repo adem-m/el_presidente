@@ -33,19 +33,19 @@ public class Event {
     }
 
     public int getId() {
-        return id;
+        return this.id;
     }
 
     public String getText() {
-        return text;
+        return this.text;
     }
 
     public List<Season> getSeasons() {
-        return seasons;
+        return this.seasons;
     }
 
     public List<EventChoice> getChoices() {
-        return choices;
+        return this.choices;
     }
 
     private Season getSeasonFromSeasonId(long seasonId) {

@@ -5,12 +5,10 @@ public enum Difficulty {
     NORMAL(2, 1.2f, 25),
     HARD(3, 1.5f, 50);
 
-    private final int id;
     private final float multiplier;
     private final int minimumGlobalSatisfaction;
 
     Difficulty(int id, float multiplier, int minimumGlobalSatisfaction) {
-        this.id = id;
         this.multiplier = multiplier;
         this.minimumGlobalSatisfaction = minimumGlobalSatisfaction;
     }
@@ -32,7 +30,6 @@ public enum Difficulty {
             case 3:
                 return HARD;
         }
-
         return null;
     }
 }

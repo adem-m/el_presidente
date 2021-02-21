@@ -112,6 +112,10 @@ public class State {
         this.turnCount++;
     }
 
+    public void handleYearlyResultsChoice(EventChoice choice) {
+        this.choiceHandler.handle(choice, this.difficulty);
+    }
+
     private Season getCurrentSeason() {
         return Season.fromId((turnCount + startingSeason.getId()) % 4);
     }

@@ -1,21 +1,15 @@
 package com.esgi;
 
 import java.util.Stack;
-
-import com.esgi.data.Event;
-import com.esgi.data.EventChoice;
-import com.esgi.data.State;
-import com.esgi.data.YearlyResults;
-import com.esgi.data.enums.Difficulty;
 import com.esgi.utils.Keyboard;
 
 public class App {
     private GameMode mode;
-    private Keyboard inputHandler;
+    private final Keyboard inputHandler;
     protected Stack<GameMode> modesStack;
 
     public App() {
-        this.modesStack = new Stack<GameMode>();
+        this.modesStack = new Stack<>();
         this.inputHandler = new Keyboard();
         this.setGameMode(new MainTitleGameMode());
         this.run();

@@ -1,7 +1,7 @@
 package com.esgi;
 import com.esgi.builders.StateBuilder;
 import com.esgi.data.Loader;
-import javafx.util.Pair;
+import com.esgi.utils.Pair;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -13,7 +13,7 @@ public class ScenarioGameMode extends GameMode
     @Override
     void init() {
         int index = 0;
-        for( Pair<String, String> scenario: Loader.fetchScenariosList() )
+        for( Pair scenario: Loader.fetchScenariosList() )
         {
             System.out.println( String.format( "%d - %s", ++index, scenario.getValue() ));
             this.choices.add( scenario.getKey() );

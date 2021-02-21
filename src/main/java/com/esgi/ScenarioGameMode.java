@@ -23,7 +23,12 @@ public class ScenarioGameMode extends GameMode {
 
     @Override
     void handleInput() {
-        int input = this.inputHandler.getUserInput();
+        int input;
+        do{
+            input = this.inputHandler.getUserInput();
+        } while( input < 0 || this.choices.size() < input );
+
+
         String value = this.choices.get(input - 1);
         if (value.equals("exit")) {
             System.out.println("Fermeture...");

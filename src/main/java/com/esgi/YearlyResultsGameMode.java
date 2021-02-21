@@ -55,8 +55,8 @@ public class YearlyResultsGameMode extends PlayGameMode {
     {
         System.out.printf( "1 - %s\n", "Nourrir le peuple" );
         System.out.printf( "2 - %s\n", "¡ Corrupción absoluta !" );
-        int input;
 
+        int input;
         do{
             input = this.inputHandler.getUserInput();
         } while( input != 1 && input != 2 );

@@ -23,7 +23,11 @@ public class PlayGameMode extends GameMode {
 
     @Override
     void handleInput() {
-        int input = this.inputHandler.getUserInput();
+        int input;
+        do {
+            input = this.inputHandler.getUserInput();
+        } while( input < 0 || this.currentChoices.size() < input );
+
         this.state.handleChoice(
                 this.currentChoices.get(input - 1));
 

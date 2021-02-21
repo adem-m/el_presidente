@@ -12,8 +12,13 @@ public class DifficultyGameMode extends GameMode {
 
     @Override
     void handleInput() {
-        int input = this.inputHandler.getUserInput();
-        if (input == 4) {
+        int input;
+        int returnInput = Difficulty.values().length + 1;
+        do {
+            input = this.inputHandler.getUserInput();
+        } while( input < 0 || returnInput < input );
+
+        if ( input == returnInput ) {
             this.setPreviousGameMode();
             return;
         }
@@ -38,6 +43,6 @@ public class DifficultyGameMode extends GameMode {
             System.out.printf("%d - %s%n", index, difficulty);
             index += 1;
         }
-        System.out.printf("%d - %s%n", index, "Retour à l'écran titre");
+        System.out.printf("%d - %s%n", index, "Retour à la sélection de scénario");
     }
 }

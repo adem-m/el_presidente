@@ -1,6 +1,6 @@
 package com.esgi.data;
 
-import javafx.util.Pair;
+import com.esgi.utils.Pair;
 import org.junit.Test;
 
 import java.util.List;
@@ -23,7 +23,7 @@ public class LoaderTest {
 
     @Test
     public void should_get_sandBoxScenario_given_scenariosList() {
-        List<Pair<String, String>> scenarioList = Loader.fetchScenariosList();
+        List<Pair> scenarioList = Loader.fetchScenariosList();
         assertEquals("tsar",scenarioList.get(0).getKey());
         assertEquals("sandbox",scenarioList.get(1).getKey());
         assertEquals("fma",scenarioList.get(2).getKey());

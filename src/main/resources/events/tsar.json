@@ -132,7 +132,6 @@
               "modifierType": "flat",
               "effectType": "malus"
             }
-
           ]
         },
         {
@@ -167,191 +166,198 @@
             }
           ]
         },
-            {
-              "text": "Vous vous installer dans un quartier de travailleurs \nEffets : Satisfaction nationaliste +%d%%, communiste +%d%%, socialiste +%d%%, royalist %d%%",
-              "nextEvents": [
-                3
-              ],
-              "effects": [
-                {
-                  "target": "faction",
-                  "factionName": "nationalists",
-                  "attribute": "satisfaction",
-                  "modifier": 5,
-                  "modifierType": "flat",
-                  "effectType": "bonus"
-                },
-                {
-                  "target": "faction",
-                  "factionName": "communist",
-                  "attribute": "satisfaction",
-                  "modifier": 10,
-                  "modifierType": "flat",
-                  "effectType": "bonus"
-                },
-                {
-                  "target": "faction",
-                  "factionName": "socialists",
-                  "attribute": "satisfaction",
-                  "modifier": 10,
-                  "modifierType": "flat",
-                  "effectType": "bonus"
-                },
-                {
-                  "target": "faction",
-                  "factionName": "loyalists",
-                  "attribute": "satisfaction",
-                  "modifier": -10,
-                  "modifierType": "flat",
-                  "effectType": "malus"
-                }
-              ]
-            }
-        ]
-    },
         {
-          "id": 3,
-          "text": "Quel est votre choix du mode de production de la nation ?",
-          "seasons": [
-            0,
-            1,
-            2,
+          "text": "Vous vous installer dans un quartier de travailleurs \nEffets : Satisfaction nationaliste +%d%%, communiste +%d%%, socialiste +%d%%, royalist %d%%",
+          "nextEvents": [
             3
           ],
-          "choices": [
+          "effects": [
             {
-              "text": "Vous ne faites rien\nEffets : loyaliste +%d%%, communistes %d%%, socialist %d%%\n argent +%d,industrie %d%% , agriculture %d%%",
-              "nextEvents": [
-                4
-              ],
-              "effects": [
-                {
-                  "target": "faction",
-                  "factionName": "loyalists",
-                  "attribute": "satisfaction",
-                  "modifier": 10,
-                  "modifierType": "flat",
-                  "effectType": "bonus"
-                },
-                {
-                  "target": "faction",
-                  "factionName": "communists",
-                  "attribute": "satisfaction",
-                  "modifier": -5,
-                  "modifierType": "flat",
-                  "effectType": "malus"
-                },
-                {
-                  "target": "faction",
-                  "factionName": "socialist",
-                  "attribute": "satisfaction",
-                  "modifier": -5,
-                  "modifierType": "flat",
-                  "effectType": "malus"
-                },
-                {
-                  "target": "attribute",
-                  "attribute": "money",
-                  "modifier": 100,
-                  "modifierType": "flat",
-                  "effectType": "bonus"
-                },
-                {
-                  "target": "attribute",
-                  "attribute": "industrie",
-                  "modifier": -5,
-                  "modifierType": "flat",
-                  "effectType": "malus"
-                }
-              ]
+              "target": "faction",
+              "factionName": "nationalists",
+              "attribute": "satisfaction",
+              "modifier": 5,
+              "modifierType": "flat",
+              "effectType": "bonus"
             },
             {
-              "text": "Vous diminuer les taxes sur les paysans \nEffets : capitalistes %d%%, communistes +%d%%, socialist +%d%%\n argent %d, agriculture +%d%%",
-              "nextEvents": [
-                4
-              ],
-              "effects": [
-                {
-                  "target": "faction",
-                  "factionName": "capitalists",
-                  "attribute": "satisfaction",
-                  "modifier": -10,
-                  "modifierType": "flat",
-                  "effectType": "malus"
-                },
-                {
-                  "target": "faction",
-                  "factionName": "communists",
-                  "attribute": "satisfaction",
-                  "modifier": 5,
-                  "modifierType": "flat",
-                  "effectType": "bonus"
-                },
-                {
-                  "target": "faction",
-                  "factionName": "socialist",
-                  "attribute": "satisfaction",
-                  "modifier": 15,
-                  "modifierType": "flat",
-                  "effectType": "bonus"
-                },
-                {
-                  "target": "attribute",
-                  "attribute": "money",
-                  "modifier": -100,
-                  "modifierType": "flat",
-                  "effectType": "malus"
-                }
-              ]
+              "target": "faction",
+              "factionName": "communist",
+              "attribute": "satisfaction",
+              "modifier": 10,
+              "modifierType": "flat",
+              "effectType": "bonus"
             },
             {
-              "text": "Vous investissez dans l'industrie \nEffets : capitalistes +10%, communistes -5%, socialist +5%\n argent - 150, industrie +15%",
-              "nextEvents": [
-                4
-              ],
-              "effects": [
-                {
-                  "target": "faction",
-                  "factionName": "capitalists",
-                  "attribute": "satisfaction",
-                  "modifier": 10,
-                  "modifierType": "flat",
-                  "effectType": "bonus"
-                },
-                {
-                  "target": "faction",
-                  "factionName": "communists",
-                  "attribute": "satisfaction",
-                  "modifier": -5,
-                  "modifierType": "flat",
-                  "effectType": "malus"
-                },
-                {
-                  "target": "faction",
-                  "factionName": "socialist",
-                  "attribute": "satisfaction",
-                  "modifier": 5,
-                  "modifierType": "flat",
-                  "effectType": "bonus"
-                },
-                {
-                  "target": "attribute",
-                  "attribute": "money",
-                  "modifier": -150,
-                  "modifierType": "flat",
-                  "effectType": "malus"
-                },
-                {
-                  "target": "attribute",
-                  "attribute": "industrie",
-                  "modifier": 15,
-                  "modifierType": "flat",
-                  "effectType": "bonus"
-                }
-              ]
+              "target": "faction",
+              "factionName": "socialists",
+              "attribute": "satisfaction",
+              "modifier": 10,
+              "modifierType": "flat",
+              "effectType": "bonus"
+            },
+            {
+              "target": "faction",
+              "factionName": "loyalists",
+              "attribute": "satisfaction",
+              "modifier": -10,
+              "modifierType": "flat",
+              "effectType": "malus"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "text": "Quel est votre choix du mode de production de la nation ?",
+      "seasons": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "choices": [
+        {
+          "text": "Vous ne faites rien\nEffets : loyaliste +%d%%, communistes %d%%, socialist %d%%\n argent +%d,industrie %d%% , agriculture %d%%",
+          "nextEvents": [
+            4
+          ],
+          "effects": [
+            {
+              "target": "faction",
+              "factionName": "loyalists",
+              "attribute": "satisfaction",
+              "modifier": 10,
+              "modifierType": "flat",
+              "effectType": "bonus"
+            },
+            {
+              "target": "faction",
+              "factionName": "communists",
+              "attribute": "satisfaction",
+              "modifier": -5,
+              "modifierType": "flat",
+              "effectType": "malus"
+            },
+            {
+              "target": "faction",
+              "factionName": "socialist",
+              "attribute": "satisfaction",
+              "modifier": -5,
+              "modifierType": "flat",
+              "effectType": "malus"
+            },
+            {
+              "target": "attribute",
+              "attribute": "money",
+              "modifier": 100,
+              "modifierType": "flat",
+              "effectType": "bonus"
+            },
+            {
+              "target": "attribute",
+              "attribute": "industrie",
+              "modifier": -5,
+              "modifierType": "flat",
+              "effectType": "malus"
+            },
+            {
+              "target": "attribute",
+              "attribute": "agriculture",
+              "modifier": -5,
+              "modifierType": "flat",
+              "effectType": "malus"
             }
           ]
         },
+        {
+          "text": "Vous diminuer les taxes sur les paysans \nEffets : capitalistes %d%%, communistes +%d%%, socialist +%d%%\n argent %d, agriculture +%d%%",
+          "nextEvents": [
+            4
+          ],
+          "effects": [
+            {
+              "target": "faction",
+              "factionName": "capitalists",
+              "attribute": "satisfaction",
+              "modifier": -10,
+              "modifierType": "flat",
+              "effectType": "malus"
+            },
+            {
+              "target": "faction",
+              "factionName": "communists",
+              "attribute": "satisfaction",
+              "modifier": 5,
+              "modifierType": "flat",
+              "effectType": "bonus"
+            },
+            {
+              "target": "faction",
+              "factionName": "socialist",
+              "attribute": "satisfaction",
+              "modifier": 15,
+              "modifierType": "flat",
+              "effectType": "bonus"
+            },
+            {
+              "target": "attribute",
+              "attribute": "money",
+              "modifier": -100,
+              "modifierType": "flat",
+              "effectType": "malus"
+            }
+          ]
+        },
+        {
+          "text": "Vous investissez dans l'industrie \nEffets : capitalistes +10%, communistes -5%, socialist +5%\n argent - 150, industrie +15%",
+          "nextEvents": [
+            4
+          ],
+          "effects": [
+            {
+              "target": "faction",
+              "factionName": "capitalists",
+              "attribute": "satisfaction",
+              "modifier": 10,
+              "modifierType": "flat",
+              "effectType": "bonus"
+            },
+            {
+              "target": "faction",
+              "factionName": "communists",
+              "attribute": "satisfaction",
+              "modifier": -5,
+              "modifierType": "flat",
+              "effectType": "malus"
+            },
+            {
+              "target": "faction",
+              "factionName": "socialist",
+              "attribute": "satisfaction",
+              "modifier": 5,
+              "modifierType": "flat",
+              "effectType": "bonus"
+            },
+            {
+              "target": "attribute",
+              "attribute": "money",
+              "modifier": -150,
+              "modifierType": "flat",
+              "effectType": "malus"
+            },
+            {
+              "target": "attribute",
+              "attribute": "industrie",
+              "modifier": 15,
+              "modifierType": "flat",
+              "effectType": "bonus"
+            }
+          ]
+        }
+      ]
+    },
     {
       "id": 4,
       "text": "Votre conseiller Sergueï Witte vous propose de négocier avec l'Allemagne afin d'avoir des échanges commerciaux privilégiés",
@@ -598,7 +604,8 @@
               "effectType": "malus"
             }
           ]
-        },        {
+        },
+        {
           "text": "Vous ne ripostez pas\nEffets : Satisfaction capitaliste %d%%, nationaliste %d%%,militaristes %d%% communiste +%d%%, loyaliste %d%%,\n argent +%d, industrie +%d%%, agriculture +%d%%,partisan %d par faction",
           "nextEvents": [
             6
@@ -714,7 +721,8 @@
               "effectType": "malus"
             }
           ]
-        },    {
+        },
+        {
           "text": "Vous négociez un traité de paix moyennement finance\nEffets : Satisfaction capitaliste %d%%, nationaliste %d%%,militaristes %d%% communiste +%d%%, loyaliste %d%%,\n argent %d, industrie +%d%%, agriculture +%d%%,partisan %d par faction",
           "nextEvents": [
             6
@@ -889,7 +897,6 @@
               "modifierType": "flat",
               "effectType": "bonus"
             },
-
             {
               "target": "faction",
               "factionName": "militarists",
@@ -919,7 +926,6 @@
               "modifierType": "flat",
               "effectType": "malus"
             }
-
           ]
         },
         {
@@ -1407,7 +1413,6 @@
               "modifierType": "flat",
               "effectType": "malus"
             }
-
           ]
         },
         {
@@ -1461,7 +1466,6 @@
       ]
     }
   ]
-
 }
 
 

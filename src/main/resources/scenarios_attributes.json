@@ -107,6 +107,7 @@
       "industry": 10,
       "agriculture": 30,
       "money": 400,
+      "food": 100,
       "factions": [
         {
           "name": "capitalists",
@@ -152,6 +153,7 @@
       "industry": 10,
       "agriculture": 30,
       "money": 400,
+      "food": 100,
       "factions": [
         {
           "name": "capitalists",

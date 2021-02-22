@@ -115,10 +115,6 @@ public class State {
         this.turnCount++;
     }
 
-    public void handleYearlyChoice(EventChoice choice) {
-        this.choiceHandler.handle(choice, this.difficulty);
-    }
-
     public void handleYearlyResultsChoice(EventChoice choice) {
         this.choiceHandler.handle(choice, this.difficulty);
     }

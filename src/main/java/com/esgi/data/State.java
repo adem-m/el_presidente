@@ -11,7 +11,7 @@ public class State {
     private final Map<String, Faction> factions = new HashMap<>();
     private final Map<Integer, Event> events = new HashMap<>();
     private final List<Event> nextEvents = new ArrayList<>();
-    private int turnCount = 1;
+    private int turnCount = 0;
     private final Season startingSeason;
     private final ChoiceHandler choiceHandler;
     private boolean sandboxMode = false;
@@ -117,10 +117,6 @@ public class State {
     }
 
     public void handleYearlyChoice(EventChoice choice) {
-        this.choiceHandler.handle(choice, this.difficulty);
-    }
-
-    public void handleYearlyResultsChoice(EventChoice choice) {
         this.choiceHandler.handle(choice, this.difficulty);
     }
 

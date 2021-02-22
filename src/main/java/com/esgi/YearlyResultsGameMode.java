@@ -47,9 +47,9 @@ public class YearlyResultsGameMode extends PlayGameMode {
     {
         Event yearlyEvent;
         if( this.mode == CORRUPTION_MODE ){
-            yearlyEvent = this.results.getCorruptEvent();
+            yearlyEvent = this.results.buildCorruptEvent();
         } else {
-            yearlyEvent = this.results.getBuyFoodEvent();
+            yearlyEvent = this.results.buildBuyFoodEvent();
         }
 
         this.printEvent( yearlyEvent );

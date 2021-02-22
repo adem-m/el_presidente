@@ -18,7 +18,7 @@ public class PlayGameMode extends GameMode {
 
     @Override
     void init() {
-        this.printEvent( this.state.getNextEvent() );
+        this.printEvent(this.state.getNextEvent());
     }
 
     @Override
@@ -26,7 +26,7 @@ public class PlayGameMode extends GameMode {
         int input;
         do {
             input = this.inputHandler.getUserInput();
-        } while( input < 1 || this.currentChoices.size() < input );
+        } while (input < 1 || this.currentChoices.size() < input);
 
         this.state.handleChoice(
                 this.currentChoices.get(input - 1));
@@ -35,7 +35,8 @@ public class PlayGameMode extends GameMode {
     }
 
     protected void printEvent(Event currentEvent) {
-        System.out.printf( "\n\n%s\n", currentEvent.getText());
+        System.out.println(this.state.generateStateDisplay());
+        System.out.printf("\n\n%s\n", currentEvent.getText());
         this.printChoices(currentEvent);
     }
 
@@ -51,21 +52,16 @@ public class PlayGameMode extends GameMode {
         }
     }
 
-    private void update()
-    {
-        if( this.state.isGameLost() )
-        {
-            System.out.println( "Partie terminée..." );
-            this.switchGameMode( new MainTitleGameMode() );
+    private void update() {
+        if (this.state.isGameLost()) {
+            System.out.println("Partie terminée...");
+            this.switchGameMode(new MainTitleGameMode());
             return;
         }
 
-        if( this.state.hasYearPassed() )
-        {
-            this.switchGameMode( new YearlyResultsGameMode( this.state ));
-        }
-        else
-        {
+        if (this.state.hasYearPassed()) {
+            this.switchGameMode(new YearlyResultsGameMode(this.state));
+        } else {
             this.printEvent(this.state.getNextEvent());
         }
     }

@@ -12,14 +12,12 @@ public class YearlyResults {
     final static int MINIMUM_BIRTHING_RATE = 1;
     final static int MAXIMUM_BIRTHING_RATE = 10;
 
-    private final Event corruptEvent;
-    private final Event buyFoodEvent;
+    private Event corruptEvent;
+    private Event buyFoodEvent;
     private final State state;
 
     public YearlyResults(State state) {
         this.state = state;
-        this.corruptEvent = buildCorruptEvent();
-        this.buyFoodEvent = buildBuyFoodEvent();
     }
 
     public Event getCorruptEvent() {
@@ -55,6 +53,9 @@ public class YearlyResults {
                 "money",
                 this.state.getAttributes().get("money") + calculateMoneyRaise()
         );
+
+        this.corruptEvent = buildCorruptEvent();
+        this.buyFoodEvent = buildBuyFoodEvent();
     }
 
     private String generateFactionDetails(Faction faction) {
@@ -112,7 +113,7 @@ public class YearlyResults {
                 "Acheter de la nourriture pour vos habitants",
                 Arrays.asList(
                         new EventChoice(
-                                "Acheter 1 unité de nourriture\nCoût : 8$",
+                                "Acheter 1 unité de nourriture\nArgent : -8$",
                                 Arrays.asList(
                                         new Effect(
                                                 "attribute",
@@ -131,7 +132,7 @@ public class YearlyResults {
                                 )
                         ),
                         new EventChoice(
-                                "Acheter assez de nourriture pour tout le monde\nCoût : %d$",
+                                "Acheter assez de nourriture pour tout le monde\nArgent : %d$",
                                 Arrays.asList(
                                         new Effect(
                                                 "attribute",

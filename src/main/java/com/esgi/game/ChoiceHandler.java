@@ -29,6 +29,17 @@ public class ChoiceHandler {
             }
         }
         for (Effect effect : choice.getEffects()) {
+            if (effect.getAttribute().equals("money")) {
+                int modifier = effect.getModifierType() == ModifierType.PERCENTAGE ?
+                        calculatePercentage(state.getAttributes().get(effect.getAttribute()), effect.getModifier()) :
+                        effect.getModifier();
+                if (modifier < 0 && (modifier * -1) > this.state.getAttributes().get("money")) {
+                    System.out.println("Pas assez d'argent pour cela.");
+                    return;
+                }
+            }
+        }
+        for (Effect effect : choice.getEffects()) {
             try {
                 executeEffect(effect, difficulty);
             } catch (Exception exception) {

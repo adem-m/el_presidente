@@ -15,7 +15,10 @@ public class DisplayGenerator {
                 "\n" +
                 generateAttributesDisplay() +
                 "\n" +
-                generateFactionsDisplay();
+                generateFactionsDisplay() +
+                "\n" +
+                generateGlobalSatisfactionDisplay() +
+                generateTotalPopulationDisplay();
     }
 
     private String generateTurnDisplay() {
@@ -53,5 +56,17 @@ public class DisplayGenerator {
 
     private String capitalizeFirstLetter(String string) {
         return string.substring(0, 1).toUpperCase() + string.substring(1);
+    }
+
+    private String generateGlobalSatisfactionDisplay() {
+        return "Satifaction globale : " +
+                this.state.calculateGlobalSatisfaction() +
+                " %\n";
+    }
+
+    private String generateTotalPopulationDisplay() {
+        return "Population totale : " +
+                this.state.calculateTotalPopulation() +
+                " partisans\n";
     }
 }

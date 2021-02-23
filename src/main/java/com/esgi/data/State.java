@@ -121,7 +121,7 @@ public class State {
     }
 
     public Season getCurrentSeason() {
-        return Season.fromId((this.turnCount - 1 + this.startingSeason.getId()) % 4);
+        return Season.fromId((this.turnCount + this.startingSeason.getId()) % 4);
     }
 
     public int calculateGlobalSatisfaction() {

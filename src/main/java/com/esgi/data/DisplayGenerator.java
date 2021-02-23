@@ -22,7 +22,7 @@ public class DisplayGenerator {
     }
 
     private String generateTurnDisplay() {
-        return "Tour " + this.state.getTurnCount() + "\n";
+        return "Tour " + (this.state.getTurnCount() + 1) + "\n";
     }
 
     private String generateSeasonDisplay() {

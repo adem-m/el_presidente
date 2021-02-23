@@ -1,0 +1,1271 @@
+{
+  "events": [
+    {
+      "id": 1,
+      "text": "Franklin Roosevelt vient de se faire assassiner, vous prenez sa place. Quelle est votre première déclaration ?",
+      "seasons": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "choices": [
+        {
+          "text": "C'est par la Grâce de Dieu que je suis arrivé à ce jour !\nEffets : Satisfaction religieux +%d%%, Satisfaction nationalistes +%d%%",
+          "nextEvents": [
+            2
+          ],
+          "effects": [
+            {
+              "target": "faction",
+              "factionName": "religious",
+              "attribute": "satisfaction",
+              "modifier": 20,
+              "modifierType": "flat",
+              "effectType": "bonus"
+            },
+            {
+              "target": "faction",
+              "factionName": "nationalists",
+              "attribute": "satisfaction",
+              "modifier": 10,
+              "modifierType": "flat",
+              "effectType": "bonus"
+            }
+          ]
+        },
+        {
+          "text": "Les états unis domineront le monde ! \nEffets : Satisfaction nationalistes +%d%%, militaire +%d%%, capitalistes +%d%% communistes %d%% liberals %d%%",
+          "nextEvents": [
+            2
+          ],
+          "effects": [
+            {
+              "target": "faction",
+              "factionName": "nationalists",
+              "attribute": "satisfaction",
+              "modifier": 20,
+              "modifierType": "flat",
+              "effectType": "bonus"
+            },
+            {
+              "target": "faction",
+              "factionName": "militarists",
+              "attribute": "satisfaction",
+              "modifier": 10,
+              "modifierType": "flat",
+              "effectType": "bonus"
+            },
+            {
+              "target": "faction",
+              "factionName": "capitalists",
+              "attribute": "satisfaction",
+              "modifier": 10,
+              "modifierType": "flat",
+              "effectType": "bonus"
+            },
+            {
+              "target": "faction",
+              "factionName": "communists",
+              "attribute": "satisfaction",
+              "modifier": -10,
+              "modifierType": "flat",
+              "effectType": "malus"
+            },
+            {
+              "target": "faction",
+              "factionName": "liberals",
+              "attribute": "satisfaction",
+              "modifier": -10,
+              "modifierType": "flat",
+              "effectType": "malus"
+            }
+          ]
+        },
+        {
+          "text": "Nous allons entrer dans une nouvelle ère de solidarité \nEffets : Satisfaction nationalistes +%d%%, communistes +%d%%, capitaliste +%d%%",
+          "nextEvents": [
+            2
+          ],
+          "effects": [
+            {
+              "target": "faction",
+              "factionName": "nationalists",
+              "attribute": "satisfaction",
+              "modifier": 5,
+              "modifierType": "flat",
+              "effectType": "bonus"
+            },
+            {
+              "target": "faction",
+              "factionName": "militarists",
+              "attribute": "satisfaction",
+              "modifier": -5,
+              "modifierType": "flat",
+              "effectType": "malus"
+            },
+            {
+              "target": "faction",
+              "factionName": "communists",
+              "attribute": "satisfaction",
+              "modifier": -10,
+              "modifierType": "flat",
+              "effectType": "malus"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "text": "Les alliées ont gagnés la guerre contre les allemands, qu'elle est votre déclaration ?",
+      "seasons": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "choices": [
+        {
+          "text": "Nous avons vaincus les nazis, mais les russes sont toujours là !\nEffets : nationalistes +%d%%, communistes %d%%, liberals %d%%, militaristes +%d%%",
+          "nextEvents": [
+            3
+          ],
+          "effects": [
+            {
+              "target": "faction",
+              "factionName": "nationalists",
+              "attribute": "satisfaction",
+              "modifier": 10,
+              "modifierType": "flat",
+              "effectType": "bonus"
+            },
+            {
+              "target": "faction",
+              "factionName": "communists",
+              "attribute": "satisfaction",
+              "modifier": -10,
+              "modifierType": "flat",
+              "effectType": "malus"
+            },
+            {
+              "target": "faction",
+              "factionName": "liberals",
+              "attribute": "satisfaction",
+              "modifier": -10,
+              "modifierType": "flat",
+              "effectType": "malus"
+            },
+            {
+              "target": "faction",
+              "factionName": "militarists",
+              "attribute": "satisfaction",
+              "modifier": 10,
+              "modifierType": "flat",
+              "effectType": "bonus"
+            }
+          ]
+        },
+        {
+          "text": "Cette fin de guerre marque le début d'une ère de solidarité !\nEffets : Satisfaction religieux +%d%%, communistes +%d%%, liberals +%d%%, nationaliste %d%%, ecologist +%d%%, militarist %d%% ",
+          "nextEvents": [
+            3
+          ],
+          "effects": [
+            {
+              "target": "faction",
+              "factionName": "religious",
+              "attribute": "satisfaction",
+              "modifier": 10,
+              "modifierType": "flat",
+              "effectType": "bonus"
+            },
+            {
+              "target": "faction",
+              "factionName": "communists",
+              "attribute": "satisfaction",
+              "modifier": 10,
+              "modifierType": "flat",
+              "effectType": "bonus"
+            },
+            {
+              "target": "faction",
+              "factionName": "liberals",
+              "attribute": "satisfaction",
+              "modifier": 10,
+              "modifierType": "flat",
+              "effectType": "bonus"
+            },
+            {
+              "target": "faction",
+              "factionName": "nationalists",
+              "attribute": "satisfaction",
+              "modifier": -10,
+              "modifierType": "flat",
+              "effectType": "malus"
+            },
+            {
+              "target": "faction",
+              "factionName": "ecologists",
+              "attribute": "satisfaction",
+              "modifier": 10,
+              "modifierType": "flat",
+              "effectType": "bonus"
+            },
+            {
+              "target": "faction",
+              "factionName": "militarists",
+              "attribute": "satisfaction",
+              "modifier": -10,
+              "modifierType": "flat",
+              "effectType": "malus"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "text": "Quel est votre choix du mode de production de la nation ?",
+      "seasons": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "choices": [
+        {
+          "text": "Vous ne faites rien\nEffets : nationaliste +%d%%, communistes %d%%\n argent +%d, industrie %d%% , agriculture %d%%",
+          "nextEvents": [
+            4
+          ],
+          "effects": [
+            {
+              "target": "faction",
+              "factionName": "nationalists",
+              "attribute": "satisfaction",
+              "modifier": 5,
+              "modifierType": "flat",
+              "effectType": "bonus"
+            },
+            {
+              "target": "faction",
+              "factionName": "communists",
+              "attribute": "satisfaction",
+              "modifier": -5,
+              "modifierType": "flat",
+              "effectType": "malus"
+            },
+            {
+              "target": "attribute",
+              "attribute": "money",
+              "modifier": 100,
+              "modifierType": "flat",
+              "effectType": "bonus"
+            },
+            {
+              "target": "attribute",
+              "attribute": "industry",
+              "modifier": -5,
+              "modifierType": "flat",
+              "effectType": "malus"
+            },
+            {
+              "target": "attribute",
+              "attribute": "agriculture",
+              "modifier": -5,
+              "modifierType": "flat",
+              "effectType": "malus"
+            }
+          ]
+        },
+        {
+          "text": "Vous diminuer les taxes sur les pauvres, et augmenter les taxes des riches \nEffets : capitalistes %d%%, communistes +%d%%\n argent %d, agriculture +%d%%",
+          "nextEvents": [
+            4
+          ],
+          "effects": [
+            {
+              "target": "faction",
+              "factionName": "capitalists",
+              "attribute": "satisfaction",
+              "modifier": -10,
+              "modifierType": "flat",
+              "effectType": "malus"
+            },
+            {
+              "target": "faction",
+              "factionName": "communists",
+              "attribute": "satisfaction",
+              "modifier": 5,
+              "modifierType": "flat",
+              "effectType": "bonus"
+            },
+            {
+              "target": "attribute",
+              "attribute": "money",
+              "modifier": -100,
+              "modifierType": "flat",
+              "effectType": "malus"
+            },
+            {
+              "target": "attribute",
+              "attribute": "agriculture",
+              "modifier": 20,
+              "modifierType": "flat",
+              "effectType": "bonus"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": 4,
+      "text": "Vous avez inventé la bombe nucléaire ! Qu'en faites-vous ?",
+      "seasons": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "choices": [
+        {
+          "text": "Vous L'utiliser sur Hiroshima \nEffets : Satisfaction capitaliste +%d%%, Satisfaction nationalistes +%d%%, communist %d%% , liberals %d%%, ecologist %d%%, religieux %d%%, militaristes +%d%% \n argent %d",
+          "nextEvents": [
+            5
+          ],
+          "effects": [
+            {
+              "target": "faction",
+              "factionName": "capitalists",
+              "attribute": "satisfaction",
+              "modifier": 5,
+              "modifierType": "flat",
+              "effectType": "bonus"
+            },
+            {
+              "target": "faction",
+              "factionName": "nationalists",
+              "attribute": "satisfaction",
+              "modifier": 10,
+              "modifierType": "flat",
+              "effectType": "bonus"
+            },
+            {
+              "target": "faction",
+              "factionName": "communists",
+              "attribute": "satisfaction",
+              "modifier": -25,
+              "modifierType": "flat",
+              "effectType": "malus"
+            },
+            {
+              "target": "faction",
+              "factionName": "liberals",
+              "attribute": "satisfaction",
+              "modifier": 15,
+              "modifierType": "flat",
+              "effectType": "bonus"
+            },
+            {
+              "target": "faction",
+              "factionName": "ecologists",
+              "attribute": "satisfaction",
+              "modifier": -25,
+              "modifierType": "flat",
+              "effectType": "malus"
+            },
+            {
+              "target": "faction",
+              "factionName": "religious",
+              "attribute": "satisfaction",
+              "modifier": -25,
+              "modifierType": "flat",
+              "effectType": "malus"
+            },
+            {
+              "target": "faction",
+              "factionName": "militarists",
+              "attribute": "satisfaction",
+              "modifier": -25,
+              "modifierType": "flat",
+              "effectType": "malus"
+            },
+            {
+              "target": "attribute",
+              "attribute": "money",
+              "modifier": -100,
+              "modifierType": "flat",
+              "effectType": "bonus"
+            }
+          ]
+        },
+        {
+          "text": "Vous refuser de l'utiliser pour montrer l'exemple\nEffets : Satisfaction capitaliste %d%%, Satisfaction nationalistes %d%%, communist +%d%% , liberals +%d%%, ecologist +%d%%, loyalist +%d%%, militarist %d%%\n argent +%d",
+          "nextEvents": [
+            5
+          ],
+          "effects": [
+            {
+              "target": "faction",
+              "factionName": "capitalists",
+              "attribute": "satisfaction",
+              "modifier": -10,
+              "modifierType": "flat",
+              "effectType": "malus"
+            },
+            {
+              "target": "faction",
+              "factionName": "nationalists",
+              "attribute": "satisfaction",
+              "modifier": -10,
+              "modifierType": "flat",
+              "effectType": "malus"
+            },
+            {
+              "target": "faction",
+              "factionName": "communists",
+              "attribute": "satisfaction",
+              "modifier": 10,
+              "modifierType": "flat",
+              "effectType": "bonus"
+            },
+            {
+              "target": "faction",
+              "factionName": "liberals",
+              "attribute": "satisfaction",
+              "modifier": 10,
+              "modifierType": "flat",
+              "effectType": "bonus"
+            },
+            {
+              "target": "faction",
+              "factionName": "ecologists",
+              "attribute": "satisfaction",
+              "modifier": 10,
+              "modifierType": "flat",
+              "effectType": "bonus"
+            },
+            {
+              "target": "faction",
+              "factionName": "loyalists",
+              "attribute": "satisfaction",
+              "modifier": 10,
+              "modifierType": "flat",
+              "effectType": "bonus"
+            },
+            {
+              "target": "faction",
+              "factionName": "militarists",
+              "attribute": "satisfaction",
+              "modifier": -10,
+              "modifierType": "flat",
+              "effectType": "malus"
+            },
+            {
+              "target": "attribute",
+              "attribute": "money",
+              "modifier": 100,
+              "modifierType": "flat",
+              "effectType": "bonus"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": 5,
+      "text": "Après la fin de la guerre, beaucoup de vétérans se retrouvent sans emplois. Que faites-vous ?",
+      "seasons": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "choices": [
+        {
+          "text": "Vous créer des aides et infrastructures pour les vétérans\nEffets : Satisfaction capitaliste %d%%, nationaliste +%d%%,militaristes +%d%% communiste %d%%, royaliste +%d%%,\n argent %d, industrie +%d%%, agriculture %d%%,partisan %d par faction sauf capitaliste",
+          "nextEvents": [
+            6
+          ],
+          "effects": [
+            {
+              "target": "faction",
+              "factionName": "capitalists",
+              "attribute": "satisfaction",
+              "modifier": -15,
+              "modifierType": "flat",
+              "effectType": "malus"
+            },
+            {
+              "target": "faction",
+              "factionName": "nationalists",
+              "attribute": "satisfaction",
+              "modifier": 10,
+              "modifierType": "flat",
+              "effectType": "bonus"
+            },
+            {
+              "target": "faction",
+              "factionName": "militarists",
+              "attribute": "satisfaction",
+              "modifier": 10,
+              "modifierType": "flat",
+              "effectType": "bonus"
+            },
+            {
+              "target": "faction",
+              "factionName": "communists",
+              "attribute": "satisfaction",
+              "modifier": 10,
+              "modifierType": "flat",
+              "effectType": "bonus"
+            },
+            {
+              "target": "faction",
+              "factionName": "loyalists",
+              "attribute": "satisfaction",
+              "modifier": 5,
+              "modifierType": "flat",
+              "effectType": "bonus"
+            },
+            {
+              "target": "faction",
+              "factionName": "capitalists",
+              "attribute": "satisfaction",
+              "modifier": -15,
+              "modifierType": "flat",
+              "effectType": "malus"
+            },
+            {
+              "target": "attribute",
+              "attribute": "money",
+              "modifier": -200,
+              "modifierType": "flat",
+              "effectType": "malus"
+            },
+            {
+              "target": "attribute",
+              "attribute": "industry",
+              "modifier": 5,
+              "modifierType": "flat",
+              "effectType": "bonus"
+            },
+            {
+              "target": "attribute",
+              "attribute": "agriculture",
+              "modifier": 10,
+              "modifierType": "flat",
+              "effectType": "bonus"
+            },
+            {
+              "target": "faction",
+              "factionName": "nationalists",
+              "attribute": "population",
+              "modifier": -5,
+              "modifierType": "flat",
+              "effectType": "malus"
+            },
+            {
+              "target": "faction",
+              "factionName": "communists",
+              "attribute": "population",
+              "modifier": -5,
+              "modifierType": "flat",
+              "effectType": "malus"
+            },
+            {
+              "target": "faction",
+              "factionName": "loyalists",
+              "attribute": "population",
+              "modifier": -5,
+              "modifierType": "flat",
+              "effectType": "malus"
+            },
+            {
+              "target": "faction",
+              "factionName": "religious",
+              "attribute": "population",
+              "modifier": -5,
+              "modifierType": "flat",
+              "effectType": "malus"
+            },
+            {
+              "target": "faction",
+              "factionName": "militarists",
+              "attribute": "population",
+              "modifier": -5,
+              "modifierType": "flat",
+              "effectType": "malus"
+            }
+          ]
+        },
+        {
+          "text": "Vous ne faites rien\nEffets : Satisfaction capitaliste +%d%%, nationaliste %d%%,militaristes %d%% communiste %d%%, liberals  %d%%,\n  industrie %d%%, agriculture %d%%,partisan %d par faction en moins sauf capitaliste",
+          "nextEvents": [
+            6
+          ],
+          "effects": [
+            {
+              "target": "faction",
+              "factionName": "capitalists",
+              "attribute": "satisfaction",
+              "modifier": 10,
+              "modifierType": "flat",
+              "effectType": "bonus"
+            },
+            {
+              "target": "faction",
+              "factionName": "nationalists",
+              "attribute": "satisfaction",
+              "modifier": -5,
+              "modifierType": "flat",
+              "effectType": "malus"
+            },
+            {
+              "target": "faction",
+              "factionName": "militarists",
+              "attribute": "satisfaction",
+              "modifier": -15,
+              "modifierType": "flat",
+              "effectType": "malus"
+            },
+            {
+              "target": "faction",
+              "factionName": "communists",
+              "attribute": "satisfaction",
+              "modifier": -5,
+              "modifierType": "flat",
+              "effectType": "malus"
+            },
+            {
+              "target": "faction",
+              "factionName": "liberals",
+              "attribute": "satisfaction",
+              "modifier": -5,
+              "modifierType": "flat",
+              "effectType": "malus"
+            },
+            {
+              "target": "attribute",
+              "attribute": "industry",
+              "modifier": -5,
+              "modifierType": "flat",
+              "effectType": "malus"
+            },
+            {
+              "target": "attribute",
+              "attribute": "agriculture",
+              "modifier": -5,
+              "modifierType": "flat",
+              "effectType": "malus"
+            },
+            {
+              "target": "faction",
+              "factionName": "nationalists",
+              "attribute": "population",
+              "modifier": -1,
+              "modifierType": "flat",
+              "effectType": "malus"
+            },
+            {
+              "target": "faction",
+              "factionName": "communists",
+              "attribute": "population",
+              "modifier": -1,
+              "modifierType": "flat",
+              "effectType": "malus"
+            },
+            {
+              "target": "faction",
+              "factionName": "loyalists",
+              "attribute": "population",
+              "modifier": -1,
+              "modifierType": "flat",
+              "effectType": "malus"
+            },
+            {
+              "target": "faction",
+              "factionName": "religious",
+              "attribute": "population",
+              "modifier": -1,
+              "modifierType": "flat",
+              "effectType": "malus"
+            },
+            {
+              "target": "faction",
+              "factionName": "militarists",
+              "attribute": "population",
+              "modifier": -1,
+              "modifierType": "flat",
+              "effectType": "malus"
+            },
+            {
+              "target": "faction",
+              "factionName": "ecologists",
+              "attribute": "population",
+              "modifier": -1,
+              "modifierType": "flat",
+              "effectType": "malus"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": 6,
+      "text": "Des manifestations éclatent car la ségrégation raciale est encore présente dans l'armée, que faites-vous ?",
+      "seasons": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "choices": [
+        {
+          "text": "Réprimer violemment les manifestants \nEffets : Satisfaction communiste %d%%, liberals %d%%, nationalistes +%d%%, loyalist %d%%,capitaliste +%d%%, militariste +%d%%\n  industrie %d%%, agriculture %d%%",
+          "nextEvents": [
+            7
+          ],
+          "effects": [
+            {
+              "target": "faction",
+              "factionName": "communists",
+              "attribute": "satisfaction",
+              "modifier": -10,
+              "modifierType": "flat",
+              "effectType": "malus"
+            },
+            {
+              "target": "faction",
+              "factionName": "liberals",
+              "attribute": "satisfaction",
+              "modifier": -10,
+              "modifierType": "flat",
+              "effectType": "malus"
+            },
+            {
+              "target": "faction",
+              "factionName": "nationalists",
+              "attribute": "satisfaction",
+              "modifier": 10,
+              "modifierType": "flat",
+              "effectType": "bonus"
+            },
+            {
+              "target": "faction",
+              "factionName": "loyalists",
+              "attribute": "satisfaction",
+              "modifier": 15,
+              "modifierType": "flat",
+              "effectType": "malus"
+            },
+            {
+              "target": "faction",
+              "factionName": "capitalists",
+              "attribute": "satisfaction",
+              "modifier": 10,
+              "modifierType": "flat",
+              "effectType": "bonus"
+            },
+            {
+              "target": "faction",
+              "factionName": "militarists",
+              "attribute": "satisfaction",
+              "modifier": 10,
+              "modifierType": "flat",
+              "effectType": "bonus"
+            },
+            {
+              "target": "attribute",
+              "attribute": "industry",
+              "modifier": -5,
+              "modifierType": "flat",
+              "effectType": "malus"
+            },
+            {
+              "target": "attribute",
+              "attribute": "agriculture",
+              "modifier": -10,
+              "modifierType": "flat",
+              "effectType": "malus"
+            }
+          ]
+        },
+        {
+          "text": "Vous mettez fin à la segregation raciale dans l'armée ! \nEffets : Satisfaction communiste +%d%%, socialiste +%d%%, nationalistes %d%%, loyaliste +%d%%,capitaliste %d%%, militariste %d%%\n industrie +%d%%, agriculture +%d%%",
+          "nextEvents": [
+            7
+          ],
+          "effects": [
+            {
+              "target": "faction",
+              "factionName": "communists",
+              "attribute": "satisfaction",
+              "modifier": 10,
+              "modifierType": "flat",
+              "effectType": "bonus"
+            },
+            {
+              "target": "faction",
+              "factionName": "liberals",
+              "attribute": "satisfaction",
+              "modifier": 10,
+              "modifierType": "flat",
+              "effectType": "bonus"
+            },
+            {
+              "target": "faction",
+              "factionName": "nationalists",
+              "attribute": "satisfaction",
+              "modifier": -10,
+              "modifierType": "flat",
+              "effectType": "malus"
+            },
+            {
+              "target": "faction",
+              "factionName": "loyalists",
+              "attribute": "satisfaction",
+              "modifier": 10,
+              "modifierType": "flat",
+              "effectType": "bonus"
+            },
+            {
+              "target": "faction",
+              "factionName": "capitalists",
+              "attribute": "satisfaction",
+              "modifier": -10,
+              "modifierType": "flat",
+              "effectType": "malus"
+            },
+            {
+              "target": "faction",
+              "factionName": "militarists",
+              "attribute": "satisfaction",
+              "modifier": -10,
+              "modifierType": "flat",
+              "effectType": "malus"
+            },
+            {
+              "target": "attribute",
+              "attribute": "industry",
+              "modifier": 10,
+              "modifierType": "flat",
+              "effectType": "bonus"
+            },
+            {
+              "target": "attribute",
+              "attribute": "agriculture",
+              "modifier": 10,
+              "modifierType": "flat",
+              "effectType": "bonus"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": 7,
+      "text": "Après les dégâts de la seconde guerre mondiale, qu'allez vous faire pour aider les alliés ? ",
+      "seasons": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "choices": [
+        {
+          "text": "Instaurer le plan Marshall, un prêt d'argent colossal \nEffets : Satisfaction religieux +%d%%, nationalistes %d%%, communistes +%d%%, capitalistes %d%%, militariste %d%%\n argent %d%% industrie +%d%%, agriculture +%d%%",
+          "nextEvents": [
+            8
+          ],
+          "effects": [
+            {
+              "target": "faction",
+              "factionName": "religious",
+              "attribute": "satisfaction",
+              "modifier": 5,
+              "modifierType": "flat",
+              "effectType": "bonus"
+            },
+            {
+              "target": "faction",
+              "factionName": "nationalists",
+              "attribute": "satisfaction",
+              "modifier": -10,
+              "modifierType": "flat",
+              "effectType": "malus"
+            },
+            {
+              "target": "faction",
+              "factionName": "communists",
+              "attribute": "satisfaction",
+              "modifier": 10,
+              "modifierType": "flat",
+              "effectType": "bonus"
+            },
+            {
+              "target": "faction",
+              "factionName": "capitalists",
+              "attribute": "satisfaction",
+              "modifier": -10,
+              "modifierType": "flat",
+              "effectType": "malus"
+            },
+            {
+              "target": "faction",
+              "factionName": "militarists",
+              "attribute": "satisfaction",
+              "modifier": -10,
+              "modifierType": "flat",
+              "effectType": "malus"
+            },
+            {
+              "target": "attribute",
+              "attribute": "money",
+              "modifier": -300,
+              "modifierType": "flat",
+              "effectType": "malus"
+            },
+            {
+              "target": "attribute",
+              "attribute": "industry",
+              "modifier": 5,
+              "modifierType": "flat",
+              "effectType": "bonus"
+            },
+            {
+              "target": "attribute",
+              "attribute": "agriculture",
+              "modifier": 5,
+              "modifierType": "flat",
+              "effectType": "bonus"
+            }
+          ]
+        },
+        {
+          "text": "Vous faites payer les réparations à l'Allemagne, l'Italie et le Japon \nEffets : Satisfaction nationalistes +%d%%, communistes %d%%, socialistes %d%%, capitalistes +%d%%, militariste +%d%%\n argent +%d%%, industrie +%d%%, agriculture +%d%%",
+          "nextEvents": [
+            8
+          ],
+          "effects": [
+            {
+              "target": "faction",
+              "factionName": "nationalists",
+              "attribute": "satisfaction",
+              "modifier": 10,
+              "modifierType": "flat",
+              "effectType": "bonus"
+            },
+            {
+              "target": "faction",
+              "factionName": "communists",
+              "attribute": "satisfaction",
+              "modifier": -10,
+              "modifierType": "flat",
+              "effectType": "malus"
+            },
+            {
+              "target": "faction",
+              "factionName": "liberals",
+              "attribute": "satisfaction",
+              "modifier": -10,
+              "modifierType": "flat",
+              "effectType": "bonus"
+            },
+            {
+              "target": "faction",
+              "factionName": "capitalists",
+              "attribute": "satisfaction",
+              "modifier": 5,
+              "modifierType": "flat",
+              "effectType": "bonus"
+            },
+            {
+              "target": "faction",
+              "factionName": "militarists",
+              "attribute": "satisfaction",
+              "modifier": 10,
+              "modifierType": "flat",
+              "effectType": "bonus"
+            },
+            {
+              "target": "attribute",
+              "attribute": "money",
+              "modifier": 50,
+              "modifierType": "flat",
+              "effectType": "bonus"
+            },
+            {
+              "target": "attribute",
+              "attribute": "industry",
+              "modifier": 5,
+              "modifierType": "flat",
+              "effectType": "bonus"
+            },
+            {
+              "target": "attribute",
+              "attribute": "agriculture",
+              "modifier": 5,
+              "modifierType": "flat",
+              "effectType": "bonus"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": 8,
+      "text": "La Corée du Nord et la Corée du Sud sont sur le point de s'affronter, qui soutenait vous ?",
+      "seasons": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "choices": [
+        {
+          "text": "Se ranger du côté de la corée du Sud \nEffets : Satisfaction nationalistes +%d%%, communistes %d%%, socialistes %d%%, capitalistes +%d%%, militariste +%d%%\n argent +%d%%, industrie +%d%%, agriculture %d%%",
+          "nextEvents": [
+            9
+          ],
+          "effects": [
+            {
+              "target": "faction",
+              "factionName": "nationalists",
+              "attribute": "satisfaction",
+              "modifier": 10,
+              "modifierType": "flat",
+              "effectType": "bonus"
+            },
+            {
+              "target": "faction",
+              "factionName": "communists",
+              "attribute": "satisfaction",
+              "modifier": -10,
+              "modifierType": "flat",
+              "effectType": "malus"
+            },
+            {
+              "target": "faction",
+              "factionName": "liberals",
+              "attribute": "satisfaction",
+              "modifier": -10,
+              "modifierType": "flat",
+              "effectType": "bonus"
+            },
+            {
+              "target": "faction",
+              "factionName": "capitalists",
+              "attribute": "satisfaction",
+              "modifier": 15,
+              "modifierType": "flat",
+              "effectType": "bonus"
+            },
+            {
+              "target": "faction",
+              "factionName": "militarists",
+              "attribute": "satisfaction",
+              "modifier": 5,
+              "modifierType": "flat",
+              "effectType": "bonus"
+            },
+            {
+              "target": "attribute",
+              "attribute": "money",
+              "modifier": 50,
+              "modifierType": "flat",
+              "effectType": "bonus"
+            },
+            {
+              "target": "attribute",
+              "attribute": "industry",
+              "modifier": -5,
+              "modifierType": "flat",
+              "effectType": "bonus"
+            },
+            {
+              "target": "attribute",
+              "attribute": "agriculture",
+              "modifier": 5,
+              "modifierType": "flat",
+              "effectType": "malus"
+            }
+          ]
+        },
+        {
+          "text": "Se ranger du côté de la Corée du Nord \nEffets : Satisfaction nationalistes +%d%%, communistes +%d%%, capitalistes %d%%, militariste %d%%\n argent %d%%, industrie +%d%%, agriculture +%d%%",
+          "nextEvents": [
+            9
+          ],
+          "effects": [
+            {
+              "target": "faction",
+              "factionName": "nationalists",
+              "attribute": "satisfaction",
+              "modifier": 10,
+              "modifierType": "flat",
+              "effectType": "bonus"
+            },
+            {
+              "target": "faction",
+              "factionName": "communists",
+              "attribute": "satisfaction",
+              "modifier": 10,
+              "modifierType": "flat",
+              "effectType": "bonus"
+            },
+            {
+              "target": "faction",
+              "factionName": "capitalists",
+              "attribute": "satisfaction",
+              "modifier": -15,
+              "modifierType": "flat",
+              "effectType": "malus"
+            },
+            {
+              "target": "faction",
+              "factionName": "militarists",
+              "attribute": "satisfaction",
+              "modifier": -5,
+              "modifierType": "flat",
+              "effectType": "malus"
+            },
+            {
+              "target": "attribute",
+              "attribute": "money",
+              "modifier": -100,
+              "modifierType": "flat",
+              "effectType": "malus"
+            },
+            {
+              "target": "attribute",
+              "attribute": "industry",
+              "modifier": 3,
+              "modifierType": "flat",
+              "effectType": "bonus"
+            },
+            {
+              "target": "attribute",
+              "attribute": "agriculture",
+              "modifier": 5,
+              "modifierType": "flat",
+              "effectType": "bonus"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": 9,
+      "text": "La Russie fait exploser sa première bombe nucléaire, que faites vous ?",
+      "seasons": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "choices": [
+        {
+          "text": "Accuser les communistes de votre gouvernement d'en être responsable et les virer de la politique \nEffets : Satisfaction nationalistes %d%%, communistes %d%%, socialistes %d%%, capitalistes %d%%, militariste +%d%%, religieux %d%% ",
+          "nextEvents": [
+          ],
+          "effects": [
+            {
+              "target": "faction",
+              "factionName": "nationalists",
+              "attribute": "satisfaction",
+              "modifier": 10,
+              "modifierType": "flat",
+              "effectType": "bonus"
+            },
+            {
+              "target": "faction",
+              "factionName": "communists",
+              "attribute": "satisfaction",
+              "modifier": -20,
+              "modifierType": "flat",
+              "effectType": "malus"
+            },
+            {
+              "target": "faction",
+              "factionName": "liberals",
+              "attribute": "satisfaction",
+              "modifier": -10,
+              "modifierType": "flat",
+              "effectType": "malus"
+            },
+            {
+              "target": "faction",
+              "factionName": "capitalists",
+              "attribute": "satisfaction",
+              "modifier": 10,
+              "modifierType": "flat",
+              "effectType": "bonus"
+            },
+            {
+              "target": "faction",
+              "factionName": "militarists",
+              "attribute": "satisfaction",
+              "modifier": 5,
+              "modifierType": "flat",
+              "effectType": "bonus"
+            },
+            {
+              "target": "faction",
+              "factionName": "religious",
+              "attribute": "satisfaction",
+              "modifier": -5,
+              "modifierType": "flat",
+              "effectType": "malus"
+            }
+          ]
+        },
+        {
+          "text": "Ne fais rien\nEffets : Satisfaction nationalistes +%d%%, communistes +%d%%, capitalistes %d%%, militariste %d%%\n",
+          "nextEvents": [
+          ],
+          "effects": [
+            {
+              "target": "faction",
+              "factionName": "nationalists",
+              "attribute": "satisfaction",
+              "modifier": 5,
+              "modifierType": "flat",
+              "effectType": "malus"
+            },
+            {
+              "target": "faction",
+              "factionName": "communists",
+              "attribute": "satisfaction",
+              "modifier": 5,
+              "modifierType": "flat",
+              "effectType": "bonus"
+            },
+            {
+              "target": "faction",
+              "factionName": "capitalists",
+              "attribute": "satisfaction",
+              "modifier": -5,
+              "modifierType": "flat",
+              "effectType": "malus"
+            },
+            {
+              "target": "faction",
+              "factionName": "militarists",
+              "attribute": "satisfaction",
+              "modifier": -5,
+              "modifierType": "flat",
+              "effectType": "malus"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
+
+
+
+
+

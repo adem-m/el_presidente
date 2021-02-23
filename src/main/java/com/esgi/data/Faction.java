@@ -1,6 +1,6 @@
 package com.esgi.data;
 
-public class Faction {
+public class Faction implements Comparable<Faction> {
     final static int MINIMUM_SATISFACTION = 0;
     final static int MAXIMUM_SATISFACTION = 100;
     final static int MINIMUM_POPULATION = 0;
@@ -46,4 +46,11 @@ public class Faction {
         }
     }
 
+    @Override
+    public int compareTo(Faction o) {
+        return Integer.compare(
+                o.getPopulation() * o.getSatisfaction(),
+                this.getPopulation() * this.getSatisfaction()
+        );
+    }
 }

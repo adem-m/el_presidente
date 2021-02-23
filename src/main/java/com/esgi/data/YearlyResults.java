@@ -169,11 +169,25 @@ public class YearlyResults {
     }
 
     private String giveBirth() {
-        int births = calculateBirthsNumber();
-        for (int i = 0; i < births; i++) {
-            this.state.getRandomFaction().modifyPopulation(1);
+        int totalBirths = calculateBirthsNumber();
+        int effectiveTotalBirths = 0;
+
+        List<Faction> factions = new ArrayList<>(this.state.getFactions().values());
+        Collections.sort(factions);
+        int[] quarters = calculateQuartersSize();
+
+        for (int percent = 40, i = 0, k = 0; percent > 0; percent -= 10, k++) {
+            int births = Math.round((totalBirths / 100f * percent) / quarters[k]);
+            if(births == 0){
+                break;
+            }
+            for (int j = 0; j < quarters[k]; j++, i++) {
+                factions.get(i).modifyPopulation(births);
+                effectiveTotalBirths += births;
+                System.out.println("Faction " + factions.get(i).getName() + " : +" + births + " partisan(s).");
+            }
         }
-        return String.format("Votre abondance de nourriture a donné naissance à %d nouveau(x) partisan(s) !", births);
+        return String.format("Votre abondance de nourriture a donné naissance à %d nouveau(x) partisan(s) !", effectiveTotalBirths);
     }
 
     private int calculateBirthsNumber() {
@@ -192,5 +206,16 @@ public class YearlyResults {
             }
         }
         return String.format("Par manque de nourriture, nous avons perdu %d partisan(s) cette année.", deaths);
+    }
+
+    private int[] calculateQuartersSize() {
+        int[] quarters = new int[4];
+        for (int i = 0, j = 0; i < this.state.getFactions().size(); i++, j++) {
+            if (j >= quarters.length) {
+                j = 0;
+            }
+            quarters[j]++;
+        }
+        return quarters;
     }
 }

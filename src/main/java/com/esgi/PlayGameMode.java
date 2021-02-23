@@ -18,6 +18,11 @@ public class PlayGameMode extends GameMode {
 
     @Override
     void init() {
+        if (this.state.isGameLost()) {
+            System.out.println("Partie terminée...");
+            this.switchGameMode(new MainTitleGameMode());
+            return;
+        }
         this.printEvent(this.state.getNextEvent());
     }
 
@@ -53,12 +58,6 @@ public class PlayGameMode extends GameMode {
     }
 
     private void update() {
-        if (this.state.isGameLost()) {
-            System.out.println("Partie terminée...");
-            this.switchGameMode(new MainTitleGameMode());
-            return;
-        }
-
         if (this.state.hasYearPassed()) {
             this.switchGameMode(new YearlyResultsGameMode(this.state));
         } else {

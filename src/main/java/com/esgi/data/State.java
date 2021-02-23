@@ -11,7 +11,7 @@ public class State {
     private final Map<String, Faction> factions = new HashMap<>();
     private final Map<Integer, Event> events = new HashMap<>();
     private final List<Event> nextEvents = new ArrayList<>();
-    private int turnCount = 1;
+    private int turnCount = 0;
     private final Season startingSeason;
     private final ChoiceHandler choiceHandler;
     private boolean sandboxMode = false;
@@ -91,6 +91,7 @@ public class State {
     }
 
     private void turnSandboxMode() {
+        System.out.print( "\n\nVous avez terminé ce scénario, passage en mode sandbox...\n\n" );
         this.sandboxMode = true;
         this.events.clear();
         this.events.putAll(Loader.fetchEvents("sandbox"));
@@ -115,7 +116,7 @@ public class State {
         this.turnCount++;
     }
 
-    public void handleYearlyResultsChoice(EventChoice choice) {
+    public void handleYearlyChoice(EventChoice choice) {
         this.choiceHandler.handle(choice, this.difficulty);
     }
 

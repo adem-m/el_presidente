@@ -12,20 +12,10 @@ public class YearlyResults {
     final static int MINIMUM_BIRTHING_RATE = 1;
     final static int MAXIMUM_BIRTHING_RATE = 10;
 
-    private Event corruptEvent;
-    private Event buyFoodEvent;
     private final State state;
 
     public YearlyResults(State state) {
         this.state = state;
-    }
-
-    public Event getCorruptEvent() {
-        return this.corruptEvent;
-    }
-
-    public Event getBuyFoodEvent() {
-        return this.buyFoodEvent;
     }
 
     private int calculateMoneyRaise() {
@@ -53,9 +43,6 @@ public class YearlyResults {
                 "money",
                 this.state.getAttributes().get("money") + calculateMoneyRaise()
         );
-
-        this.corruptEvent = buildCorruptEvent();
-        this.buyFoodEvent = buildBuyFoodEvent();
     }
 
     private String generateFactionDetails(Faction faction) {
@@ -72,7 +59,7 @@ public class YearlyResults {
         return faction.getPopulation() * SINGLE_CORRUPTION_COST;
     }
 
-    private Event buildCorruptEvent() {
+    public Event buildCorruptEvent() {
         List<EventChoice> choices = new ArrayList<>();
         for (Map.Entry<String, Faction> faction : this.state.getFactions().entrySet()) {
             if (!faction.getValue().getName().equals("loyalists")) {
@@ -108,7 +95,7 @@ public class YearlyResults {
         return new Event("Quelle faction souhaitez vous corrompre ?", choices);
     }
 
-    private Event buildBuyFoodEvent() {
+    public Event buildBuyFoodEvent() {
         return new Event(
                 "Acheter de la nourriture pour vos habitants",
                 Arrays.asList(

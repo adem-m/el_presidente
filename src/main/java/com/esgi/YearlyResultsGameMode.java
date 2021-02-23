@@ -5,10 +5,12 @@ import com.esgi.data.State;
 import com.esgi.data.YearlyResults;
 
 public class YearlyResultsGameMode extends PlayGameMode {
-    private Event yearlyEvent;
+    private final static int CORRUPTION_MODE = 2;
+    private final static int FEED_MODE = 1;
+    private int mode;
     private YearlyResults results;
 
-    public YearlyResultsGameMode(State state ){
+    public YearlyResultsGameMode( State state ){
         super( state );
     }
 
@@ -32,6 +34,7 @@ public class YearlyResultsGameMode extends PlayGameMode {
             return;
         }
 
+        this.state.handleYearlyChoice( this.currentChoices.get( input - 1 ));
         this.printAllChoices();
     }
 
@@ -42,7 +45,14 @@ public class YearlyResultsGameMode extends PlayGameMode {
 
     private void printAllChoices()
     {
-        this.printEvent( this.yearlyEvent );
+        Event yearlyEvent;
+        if( this.mode == CORRUPTION_MODE ){
+            yearlyEvent = this.results.buildCorruptEvent();
+        } else {
+            yearlyEvent = this.results.buildBuyFoodEvent();
+        }
+
+        this.printEvent( yearlyEvent );
         System.out.printf( "%d - %s\n", this.currentChoices.size() + 1, "Retour au jeu" );
     }
 
@@ -57,22 +67,21 @@ public class YearlyResultsGameMode extends PlayGameMode {
 
     private void corruptionOrFoodChoice()
     {
-        System.out.printf( "1 - %s\n", "Nourrir le peuple" );
-        System.out.printf( "2 - %s\n", "¡ Corrupción absoluta !" );
+        System.out.printf( "%d - %s\n", FEED_MODE, "Nourrir le peuple" );
+        System.out.printf( "%d - %s\n", CORRUPTION_MODE,  "¡ Corrupción absoluta !" );
         System.out.printf( "3 - %s\n", "¡ Adelante Señor Presidente ! (Continuer)" );
 
         int input;
         do{
             input = this.inputHandler.getUserInput();
-        } while( input < 1 || 3 < input );
+        } while( input < CORRUPTION_MODE || 3 < input );
 
         if( input == 3 )
         {
             this.endYearlyResults();
             return;
         }
-
-        this.yearlyEvent = input == 1 ? results.getBuyFoodEvent() : results.getCorruptEvent();
+        this.mode = input;
         this.printAllChoices();
     }
 }

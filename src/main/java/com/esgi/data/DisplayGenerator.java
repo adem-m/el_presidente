@@ -3,6 +3,7 @@ package com.esgi.data;
 import java.util.Map;
 
 public class DisplayGenerator {
+    final static String SEPARATOR = "\n-----------------------------------------------------\n";
     private final State state;
 
     public DisplayGenerator(State state) {
@@ -10,7 +11,8 @@ public class DisplayGenerator {
     }
 
     public String generateStateDisplay() {
-        return generateTurnDisplay() +
+        return SEPARATOR +
+                generateTurnDisplay() +
                 generateSeasonDisplay() +
                 "\n" +
                 generateAttributesDisplay() +

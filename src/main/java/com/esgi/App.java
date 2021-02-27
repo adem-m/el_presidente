@@ -5,18 +5,18 @@ import java.util.Stack;
 import com.esgi.utils.Keyboard;
 
 public class App {
-    private GameMode mode;
+    private Screen mode;
     private final Keyboard inputHandler;
-    protected Stack<GameMode> modesStack;
+    protected Stack<Screen> modesStack;
 
     public App() {
         this.modesStack = new Stack<>();
         this.inputHandler = new Keyboard();
-        this.setGameMode(new MainTitleGameMode());
+        this.setGameMode(new MainTitleScreen());
         this.run();
     }
 
-    public void setGameMode(GameMode mode) {
+    public void setGameMode(Screen mode) {
         this.modesStack.push(mode);
         mode.setParent(this);
         mode.setInputHandler(this.inputHandler);

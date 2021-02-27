@@ -7,7 +7,7 @@ import com.esgi.utils.Pair;
 import java.util.ArrayList;
 import java.util.List;
 
-public class ScenarioGameMode extends GameMode {
+public class ScenarioScreen extends Screen {
     private final List<String> choices = new ArrayList<>();
 
     @Override
@@ -35,7 +35,7 @@ public class ScenarioGameMode extends GameMode {
             System.exit(0);
         } else {
             this.switchGameMode(
-                    new DifficultyGameMode(
+                    new DifficultyScreen(
                             new StateBuilder().setScenarioName(this.choices.get(input - 1))));
         }
     }

@@ -1,18 +1,16 @@
 package com.esgi;
 
-import com.esgi.builders.StateBuilder;
 import com.esgi.data.Event;
 import com.esgi.data.EventChoice;
 import com.esgi.data.State;
-import com.esgi.data.YearlyResults;
 
 import java.util.List;
 
-public class PlayGameMode extends GameMode {
+public class PlayScreen extends Screen {
     protected final State state;
     protected List<EventChoice> currentChoices;
 
-    public PlayGameMode(State state) {
+    public PlayScreen(State state) {
         this.state = state;
     }
 
@@ -20,7 +18,7 @@ public class PlayGameMode extends GameMode {
     void init() {
         if (this.state.isGameLost()) {
             System.out.println("Partie terminée...");
-            this.switchGameMode(new MainTitleGameMode());
+            this.switchGameMode(new MainTitleScreen());
             return;
         }
         this.printEvent(this.state.getNextEvent());
@@ -59,7 +57,7 @@ public class PlayGameMode extends GameMode {
 
     private void update() {
         if (this.state.hasYearPassed()) {
-            this.switchGameMode(new YearlyResultsGameMode(this.state));
+            this.switchGameMode(new YearlyResultsScreen(this.state));
         } else {
             this.printEvent(this.state.getNextEvent());
         }

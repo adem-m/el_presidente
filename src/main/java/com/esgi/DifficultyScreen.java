@@ -3,10 +3,10 @@ package com.esgi;
 import com.esgi.builders.StateBuilder;
 import com.esgi.data.enums.Difficulty;
 
-public class DifficultyGameMode extends GameMode {
+public class DifficultyScreen extends Screen {
     private final StateBuilder stateBuilder;
 
-    public DifficultyGameMode(StateBuilder stateBuilder) {
+    public DifficultyScreen(StateBuilder stateBuilder) {
         this.stateBuilder = stateBuilder;
     }
 
@@ -26,7 +26,7 @@ public class DifficultyGameMode extends GameMode {
         Difficulty difficulty = Difficulty.fromId(input);
         if (difficulty != null) {
             this.switchGameMode(
-                    new PlayGameMode(
+                    new PlayScreen(
                             this.stateBuilder.setDifficulty(difficulty).build() ));
         } else {
             System.out.println("Fermeture...");

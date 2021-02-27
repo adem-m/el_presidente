@@ -4,7 +4,9 @@ import com.esgi.data.enums.EffectType;
 import com.esgi.data.enums.ModifierType;
 import com.esgi.data.enums.Target;
 
-public class Effect {
+import java.io.Serializable;
+
+public class Effect implements Serializable {
     private final Target target;
     private String factionName;
     private final String attribute;

@@ -1,7 +1,6 @@
 package com.esgi;
 
 import java.util.Stack;
-
 import com.esgi.utils.Keyboard;
 
 public class App {

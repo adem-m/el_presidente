@@ -12,7 +12,6 @@ public class EventChoice {
     private final String text;
     private final List<Effect> effects = new ArrayList<>();
     private final List<Integer> nextEventsIds = new ArrayList<>();
-
     public EventChoice(String text, JSONArray nextEventsIds, JSONArray effects) {
         this.text = text;
         for (Object eventId : nextEventsIds) {
@@ -27,6 +26,10 @@ public class EventChoice {
     public EventChoice(String text, List<Effect> effects) {
         this.text = text;
         this.effects.addAll(effects);
+    }
+
+    public String getText() {
+        return text;
     }
 
     public List<Effect> getEffects() {

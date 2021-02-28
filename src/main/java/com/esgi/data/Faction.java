@@ -1,6 +1,8 @@
 package com.esgi.data;
 
-public class Faction implements Comparable<Faction> {
+import java.io.Serializable;
+
+public class Faction implements Comparable<Faction>, Serializable {
     final static int MINIMUM_SATISFACTION = 0;
     final static int MAXIMUM_SATISFACTION = 100;
     final static int MINIMUM_POPULATION = 0;

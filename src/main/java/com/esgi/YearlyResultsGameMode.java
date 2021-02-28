@@ -16,7 +16,7 @@ public class YearlyResultsGameMode extends PlayGameMode {
 
     @Override
     void init() {
-        System.out.printf( "\n\nBilan\n" );
+        System.out.print( "\n\nBilan\n" );
         this.yearlyResultHandler();
     }
 
@@ -74,7 +74,7 @@ public class YearlyResultsGameMode extends PlayGameMode {
         int input;
         do{
             input = this.inputHandler.getUserInput();
-        } while( input < CORRUPTION_MODE || 3 < input );
+        } while( input < FEED_MODE || 3 < input );
 
         if( input == 3 )
         {

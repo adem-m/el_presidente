@@ -4,9 +4,10 @@ import com.esgi.data.enums.Difficulty;
 import com.esgi.data.enums.Season;
 import com.esgi.game.ChoiceHandler;
 
+import java.io.Serializable;
 import java.util.*;
 
-public class State {
+public class State implements Serializable {
     private final Map<String, Integer> attributes = new HashMap<>();
     private final Map<String, Faction> factions = new HashMap<>();
     private final Map<Integer, Event> events = new HashMap<>();
@@ -43,10 +44,6 @@ public class State {
 
     public boolean hasYearPassed() {
         return this.turnCount % 4 == 0;
-    }
-
-    public Season getStartingSeason() {
-        return this.startingSeason;
     }
 
     public State(String scenarioName, Difficulty difficulty) {

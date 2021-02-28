@@ -4,11 +4,12 @@ import com.esgi.data.enums.Season;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-public class Event {
+public class Event implements Serializable {
     private final int id;
     private final String text;
     private final List<Season> seasons = new ArrayList<>();

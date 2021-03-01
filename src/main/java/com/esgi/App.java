@@ -7,7 +7,7 @@ import com.esgi.utils.Keyboard;
 public class App {
     private Screen screen;
     private final Keyboard inputHandler;
-    protected Stack<Screen> screensStack;
+    private final Stack<Screen> screensStack;
 
     public App() {
         this.screensStack = new Stack<>();
@@ -16,7 +16,7 @@ public class App {
         this.run();
     }
 
-    public void setScreen(Screen screen) {
+    public void setScreen( Screen screen ){
         this.screensStack.push(screen);
         screen.setParent(this);
         screen.setInputHandler(this.inputHandler);
@@ -36,6 +36,11 @@ public class App {
 
         this.setScreen(this.screensStack.pop());
     }
+
+    public void reinitializeScreens( Screen screen ){
+        this.screensStack.clear();
+        this.setScreen( screen );
+    } 
 
     public void run() {
         while (true) {

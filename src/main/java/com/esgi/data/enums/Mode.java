@@ -14,7 +14,7 @@ public enum Mode {
         return this.id;
     }
 
-    public Mode fromId( int id ) throws Error {
+    static public Mode fromId( int id ) throws Error {
         switch( id ){
             case 1:
                 return SANDBOX;

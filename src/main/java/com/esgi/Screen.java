@@ -25,4 +25,8 @@ abstract class Screen {
     public void setPreviousScreen() {
         this.parent.setPreviousScreen();
     }
+
+    public void switchToMainScreen(){
+        this.parent.reinitializeScreens( new MainTitleScreen() );
+    }
 }

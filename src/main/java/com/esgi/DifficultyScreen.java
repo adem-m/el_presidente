@@ -5,6 +5,7 @@ import com.esgi.data.enums.Difficulty;
 
 public class DifficultyScreen extends Screen {
     private final StateBuilder stateBuilder;
+    private int returnOption;
 
     public DifficultyScreen(StateBuilder stateBuilder) {
         this.stateBuilder = stateBuilder;
@@ -13,12 +14,12 @@ public class DifficultyScreen extends Screen {
     @Override
     void handleInput() {
         int input;
-        int returnInput = Difficulty.values().length + 1;
+
         do {
             input = this.inputHandler.getUserInput();
-        } while( input < 1 || returnInput < input );
+        } while( input < 1 || this.returnOption < input );
 
-        if ( input == returnInput ) {
+        if ( input == this.returnOption ) {
             this.setPreviousScreen();
             return;
         }
@@ -26,8 +27,8 @@ public class DifficultyScreen extends Screen {
         Difficulty difficulty = Difficulty.fromId(input);
         if (difficulty != null) {
             this.switchScreen(
-                    new PlayScreen(
-                            this.stateBuilder.setDifficulty(difficulty).build() ));
+                new PlayScreen(
+                    this.stateBuilder.setDifficulty(difficulty).build() ));
         } else {
             System.out.println("Fermeture...");
             System.exit(0);
@@ -43,6 +44,8 @@ public class DifficultyScreen extends Screen {
             System.out.printf("%d - %s%n", index, difficulty);
             index += 1;
         }
-        System.out.printf("%d - %s%n", index, "Retour à la sélection de scénario");
+
+        this.returnOption = index;
+        System.out.printf("%d - %s%n", this.returnOption, "Retour à la sélection de scénario");
     }
 }

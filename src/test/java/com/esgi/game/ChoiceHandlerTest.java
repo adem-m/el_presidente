@@ -61,23 +61,23 @@ public class ChoiceHandlerTest {
     public void should_apply_difficulty_to_modifier_easy_bonus() {
         int modifier = eventChoiceBonus.getEffects().get(0).getModifier();
         int expectedModifier = modifier*1;
-        int resultModifier = ChoiceHandler.applyDifficultyToModifier(modifier,Difficulty.EASY, EffectType.MALUS);
+        int resultModifier = ChoiceHandler.applyDifficultyToModifier(modifier,Difficulty.EASY, EffectType.BONUS);
 
         assertEquals(expectedModifier,resultModifier);
     }
     @Test
     public void should_apply_difficulty_to_modifier_normal_bonus() {
         int modifier = eventChoiceBonus.getEffects().get(0).getModifier();
-        int expectedModifier = (int) (modifier*(1.2));
-        int resultModifier = ChoiceHandler.applyDifficultyToModifier(modifier,Difficulty.NORMAL, EffectType.MALUS);
+        int expectedModifier = (int) (modifier*(0.8));
+        int resultModifier = ChoiceHandler.applyDifficultyToModifier(modifier,Difficulty.NORMAL, EffectType.BONUS);
 
         assertEquals(expectedModifier,resultModifier);
     }
     @Test
     public void should_apply_difficulty_to_modifier_hard_bonus() {
         int modifier = eventChoiceBonus.getEffects().get(0).getModifier();
-        int expectedModifier = (int) (modifier*(1.5));
-        int resultModifier = ChoiceHandler.applyDifficultyToModifier(modifier,Difficulty.HARD, EffectType.MALUS);
+        int expectedModifier = (int) (modifier*(0.7));
+        int resultModifier = ChoiceHandler.applyDifficultyToModifier(modifier,Difficulty.HARD, EffectType.BONUS);
 
         assertEquals(expectedModifier,resultModifier);
     }

@@ -8,7 +8,6 @@ import java.util.PriorityQueue;
 import java.util.Queue;
 import java.util.Random;
 
-import com.esgi.data.DisplayGenerator;
 import com.esgi.data.Event;
 import com.esgi.data.Faction;
 import com.esgi.data.Loader;
@@ -85,7 +84,7 @@ public abstract class State {
         }
     }
 
-    abstract Event getNextEvent();
+    public abstract Event getNextEvent();
 
     public Event getEventById( int id ){
         return this.events.get( id );
@@ -132,8 +131,4 @@ public abstract class State {
             factionKeys.get( 
                 new Random().nextInt( factionKeys.size() )));
     }
-
-    /*public String generateStateDisplay() {
-        return new DisplayGenerator(this).generateStateDisplay();
-    }*/
 }

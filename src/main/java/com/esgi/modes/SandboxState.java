@@ -12,7 +12,7 @@ public class SandboxState extends State {
     }
 
     @Override
-    Event getNextEvent() throws Error {
+    public Event getNextEvent() throws Error {
         int maxAttempts = 10;
         Random generator = new Random();
         Object[] values = this.events.values().toArray();

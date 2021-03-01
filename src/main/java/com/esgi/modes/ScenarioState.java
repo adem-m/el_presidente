@@ -10,8 +10,8 @@ public class ScenarioState extends State {
     }
 
     @Override
-    Event getNextEvent(){
-        return this.nextEvents.poll();     
+    public Event getNextEvent() {
+        return this.nextEvents.poll();
     }
 
     @Override

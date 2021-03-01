@@ -34,7 +34,7 @@ public class YearlyResultsScreen extends PlayScreen {
             return;
         }
 
-        this.state.handleYearlyChoice( this.currentChoices.get( input - 1 ));
+        this.choiceHandler.handleYearlyChoice( this.currentChoices.get( input - 1 ));
         this.printAllChoices();
     }
 

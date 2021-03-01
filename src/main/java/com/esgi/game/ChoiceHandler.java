@@ -20,16 +20,16 @@ public class ChoiceHandler {
         this.state = state;
     }
 
-    public void handle( EventChoice choice, Difficulty difficulty ){
-        this.internalHandle( choice, difficulty );
+    public void handle( EventChoice choice ){
+        this.internalHandle( choice );
         this.state.incrementTurnCount();
     }
 
-    public void handleYearlyResults( EventChoice choice, Difficulty difficulty ){
-        this.internalHandle( choice, difficulty );
+    public void handleYearlyChoice( EventChoice choice ){
+        this.internalHandle( choice );
     }
 
-    private void internalHandle(EventChoice choice, Difficulty difficulty) {
+    private void internalHandle(EventChoice choice ) {
         for( Integer id : choice.getNextEventsIds() ){
             this.state.getNextEvents().offer( this.state.getEventById( id ));            
         }
@@ -47,7 +47,7 @@ public class ChoiceHandler {
         }
         for (Effect effect : choice.getEffects()) {
             try {
-                executeEffect(effect, difficulty);
+                executeEffect( effect, this.state.getDifficulty() );
             } catch (Exception exception) {
                 System.out.println(exception.getMessage());
             }

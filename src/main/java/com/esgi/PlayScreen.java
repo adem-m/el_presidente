@@ -1,7 +1,9 @@
 package com.esgi;
 
+import com.esgi.data.DisplayGenerator;
 import com.esgi.data.Event;
 import com.esgi.data.EventChoice;
+import com.esgi.game.ChoiceHandler;
 import com.esgi.modes.State;
 
 import java.util.List;
@@ -9,9 +11,13 @@ import java.util.List;
 public class PlayScreen extends Screen {
     protected final State state;
     protected List<EventChoice> currentChoices;
+    protected ChoiceHandler choiceHandler;
+    protected DisplayGenerator display;
 
-    public PlayScreen(State state) {
+    public PlayScreen( State state ){
         this.state = state;
+        this.choiceHandler = new ChoiceHandler( this.state );
+        this.display = new DisplayGenerator( this.state );
     }
 
     @Override
@@ -31,14 +37,14 @@ public class PlayScreen extends Screen {
             input = this.inputHandler.getUserInput();
         } while (input < 1 || this.currentChoices.size() < input);
 
-        this.state.handleChoice(
-                this.currentChoices.get(input - 1));
+        this.choiceHandler.handle(
+            this.currentChoices.get( input - 1 ));
 
         this.update();
     }
 
     protected void printEvent(Event currentEvent) {
-        System.out.println(this.state.generateStateDisplay());
+        System.out.println( this.display.generateStateDisplay() );
         System.out.printf("\n\n%s\n", currentEvent.getText());
         this.printChoices(currentEvent);
     }

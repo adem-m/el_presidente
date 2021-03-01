@@ -1,8 +1,5 @@
 package com.esgi.modes;
 
-import java.util.PriorityQueue;
-import java.util.Queue;
-
 import com.esgi.data.Event;
 import com.esgi.data.Scenario;
 import com.esgi.data.enums.Difficulty;

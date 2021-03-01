@@ -10,7 +10,6 @@ import java.util.Random;
 
 import com.esgi.data.DisplayGenerator;
 import com.esgi.data.Event;
-import com.esgi.data.EventChoice;
 import com.esgi.data.Faction;
 import com.esgi.data.Loader;
 import com.esgi.data.Scenario;

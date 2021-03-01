@@ -2,6 +2,8 @@ package com.esgi.data;
 
 import java.util.*;
 
+import com.esgi.modes.State;
+
 public class YearlyResults {
     final static int INDUSTRY_MULTIPLIER = 10;
     final static int AGRICULTURE_MULTIPLIER = 40;

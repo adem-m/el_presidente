@@ -21,7 +21,7 @@ public enum Mode {
             case 2:
                 return SCENARIO;
             default:
-                throw new Error( "Mode inconnu" );
+                throw new Error( "Identifiant de mode invalide" );
         }
     }
 }

@@ -2,7 +2,7 @@ package com.esgi;
 
 import com.esgi.data.Event;
 import com.esgi.data.EventChoice;
-import com.esgi.data.State;
+import com.esgi.modes.State;
 
 import java.util.List;
 

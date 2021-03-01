@@ -1,7 +1,10 @@
 package com.esgi.builders;
 
-import com.esgi.data.State;
+import com.esgi.modes.SandboxState;
+import com.esgi.modes.ScenarioState;
+import com.esgi.modes.State;
 import com.esgi.data.enums.Difficulty;
+import com.esgi.data.enums.Mode;
 
 public class StateBuilder {
     private String scenarioName;
@@ -17,7 +20,14 @@ public class StateBuilder {
         return this;
     }
 
-    public State build() {
-        return new State(this.scenarioName, this.difficulty);
+    public State build( Mode mode ) throws Error {
+        switch( mode ){
+            case SANDBOX:
+                return new SandboxState( this.scenarioName, this.difficulty );
+            case SCENARIO:
+                return new ScenarioState( this.scenarioName, this.difficulty );
+            default:
+                throw new Error( "Mode inconnu" );
+        }
     }
 }

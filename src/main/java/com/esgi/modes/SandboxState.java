@@ -23,7 +23,7 @@ public class SandboxState extends State {
                 throw new Error( "Temps de calcul dépassé !" );
             }
 
-            event = (Event) values[ generator.nextInt(values.length) ];
+            event = (Event) values[ generator.nextInt( values.length )];
         } while( !event.getSeasons().contains( getCurrentSeason()) );
         return event;
     }   

@@ -19,7 +19,7 @@ public class ModeScreen extends Screen {
             System.out.printf("%d - %s%n", index, mode );
             index += 1;
         }
-        System.out.printf("%d - %s%n", index, "Retour à l'écran titre'");
+        System.out.printf("%d - %s%n", index, "Fermer");
     }
 
     @Override
@@ -32,7 +32,7 @@ public class ModeScreen extends Screen {
         } while( input < 1 || returnInput < input );
 
         if ( input == returnInput ) {
-            this.switchToMainScreen();
+            System.exit( 0 );
             return;
         }
 

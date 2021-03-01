@@ -2,9 +2,9 @@ package com.esgi.modes;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
-import java.util.PriorityQueue;
 import java.util.Queue;
 import java.util.Random;
 
@@ -19,7 +19,7 @@ public abstract class State {
     protected final Map<String, Integer> attributes = new HashMap<>();
     protected final Map<String, Faction> factions = new HashMap<>();
     protected final Map<Integer, Event> events = new HashMap<>();
-    protected final Queue<Event> nextEvents = new PriorityQueue<Event>();
+    protected final Queue<Event> nextEvents = new LinkedList<Event>();
     protected final Season startingSeason;
     protected final Difficulty difficulty;
     protected final Scenario scenario;
@@ -69,17 +69,18 @@ public abstract class State {
         this.difficulty = difficulty;
         this.events.putAll( Loader.fetchEvents( scenarioName ));
         this.scenario = Loader.fetchScenarioFromName( scenarioName );
-        this.initializeAttributesFromScenario( scenario );
+        System.out.println( "\n\nScenar" + this.scenario.getName() + "\n\n" );
+        this.initializeAttributesFromScenario();
         this.startingSeason = Season.fromId( new Random().nextInt( 4 ));
     }
 
-    protected void initializeAttributesFromScenario( Scenario scenario ){
-        this.attributes.put( "industry", scenario.getIndustry() );
-        this.attributes.put( "agriculture", scenario.getAgriculture() );
-        this.attributes.put( "money", scenario.getMoney() );
-        this.attributes.put( "food", scenario.getFood() );
+    private void initializeAttributesFromScenario(){
+        this.attributes.put( "industry", this.scenario.getIndustry() );
+        this.attributes.put( "agriculture", this.scenario.getAgriculture() );
+        this.attributes.put( "money", this.scenario.getMoney() );
+        this.attributes.put( "food", this.scenario.getFood() );
         
-        for( Faction faction : scenario.getFactions() ){
+        for( Faction faction : this.scenario.getFactions() ){
             this.factions.put( faction.getName(), faction );
         }
     }

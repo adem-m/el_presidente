@@ -1,12 +1,12 @@
 package com.esgi.modes;
 
 import com.esgi.data.Event;
-import com.esgi.data.Scenario;
 import com.esgi.data.enums.Difficulty;
 
 public class ScenarioState extends State {
     public ScenarioState( String scenarioName, Difficulty difficulty ){
-        super( scenarioName, difficulty );
+        super( scenarioName, difficulty );        
+        this.initializeAttributesFromScenario();
     }
 
     @Override
@@ -14,15 +14,9 @@ public class ScenarioState extends State {
         return this.nextEvents.poll();
     }
 
-    @Override
-    protected void initializeAttributesFromScenario( Scenario scenario ){
-        try {
-            this.nextEvents.add( getEventById( scenario.getFirstEventId() ));
-        } catch (Exception exception) {
-            System.out.println(exception.getMessage());
-        }
-
-        super.initializeAttributesFromScenario( scenario );
+    private void initializeAttributesFromScenario(){
+        System.out.println( "\n\n" + this.getEventById( this.scenario.getFirstEventId() ).getText() + "\n\n" );
+        this.nextEvents.offer( this.getEventById( this.scenario.getFirstEventId() ));
     }
     
 }

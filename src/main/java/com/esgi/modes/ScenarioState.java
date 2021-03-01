@@ -8,8 +8,6 @@ import com.esgi.data.Scenario;
 import com.esgi.data.enums.Difficulty;
 
 public class ScenarioState extends State {
-    private final Queue<Event> nextEvents = new PriorityQueue<Event>();
-
     public ScenarioState( String scenarioName, Difficulty difficulty ){
         super( scenarioName, difficulty );
     }

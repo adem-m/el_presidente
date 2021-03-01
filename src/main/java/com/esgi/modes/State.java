@@ -4,6 +4,8 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.PriorityQueue;
+import java.util.Queue;
 import java.util.Random;
 
 import com.esgi.data.DisplayGenerator;
@@ -19,6 +21,7 @@ public abstract class State {
     protected final Map<String, Integer> attributes = new HashMap<>();
     protected final Map<String, Faction> factions = new HashMap<>();
     protected final Map<Integer, Event> events = new HashMap<>();
+    protected final Queue<Event> nextEvents = new PriorityQueue<Event>();
     protected final Season startingSeason;
     protected final Difficulty difficulty;
     protected final Scenario scenario;
@@ -40,12 +43,16 @@ public abstract class State {
         return this.events;
     }
 
+    public Queue<Event> getNextEvents(){
+        return this.nextEvents;
+    }
+
     public int getTurnCount() {
         return this.turnCount;
     }
 
     public void incrementTurnCount(){
-        this.turnCount ++;
+        this.turnCount++;
     }
 
     public boolean hasYearPassed() {
@@ -84,15 +91,6 @@ public abstract class State {
     public Event getEventById( int id ){
         return this.events.get( id );
     }
-    /*
-    public void handleChoice( ChoiceHandler choiceHandler, EventChoice choice) {
-        choiceHandler.handle( choice, this.difficulty);
-        this.turnCount++;
-    }
-
-    public void handleYearlyChoice(  ChoiceHandler choiceHandler, EventChoice choice ){
-        choiceHandler.handle( choice, this.difficulty );
-    }*/
 
     public Season getCurrentSeason() {
         return Season.fromId(( this.turnCount + this.startingSeason.getId() ) % 4 );

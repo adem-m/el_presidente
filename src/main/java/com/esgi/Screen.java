@@ -18,11 +18,11 @@ abstract class Screen {
         this.inputHandler = inputHandler;
     }
 
-    public void switchGameMode(Screen mode) {
-        this.parent.setGameMode(mode);
+    public void switchScreen(Screen mode) {
+        this.parent.setScreen(mode);
     }
 
-    public void setPreviousGameMode() {
-        this.parent.setPreviousGameMode();
+    public void setPreviousScreen() {
+        this.parent.setPreviousScreen();
     }
 }

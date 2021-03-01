@@ -18,7 +18,7 @@ public class PlayScreen extends Screen {
     void init() {
         if (this.state.isGameLost()) {
             System.out.println("Partie terminée...");
-            this.switchGameMode(new MainTitleScreen());
+            this.switchScreen(new MainTitleScreen());
             return;
         }
         this.printEvent(this.state.getNextEvent());
@@ -57,7 +57,7 @@ public class PlayScreen extends Screen {
 
     private void update() {
         if (this.state.hasYearPassed()) {
-            this.switchGameMode(new YearlyResultsScreen(this.state));
+            this.switchScreen(new YearlyResultsScreen(this.state));
         } else {
             this.printEvent(this.state.getNextEvent());
         }

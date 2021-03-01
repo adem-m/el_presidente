@@ -34,7 +34,7 @@ public class ScenarioScreen extends Screen {
             System.out.println("Fermeture...");
             System.exit(0);
         } else {
-            this.switchGameMode(
+            this.switchScreen(
                     new DifficultyScreen(
                             new StateBuilder().setScenarioName(this.choices.get(input - 1))));
         }

@@ -40,7 +40,7 @@ public class YearlyResultsScreen extends PlayScreen {
 
     private void endYearlyResults(){
         System.out.println( this.results.killingOrBirthingPeople() );
-        this.setPreviousGameMode();
+        this.setPreviousScreen();
     }
 
     private void printAllChoices()

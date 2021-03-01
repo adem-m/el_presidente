@@ -19,13 +19,13 @@ public class DifficultyScreen extends Screen {
         } while( input < 1 || returnInput < input );
 
         if ( input == returnInput ) {
-            this.setPreviousGameMode();
+            this.setPreviousScreen();
             return;
         }
 
         Difficulty difficulty = Difficulty.fromId(input);
         if (difficulty != null) {
-            this.switchGameMode(
+            this.switchScreen(
                     new PlayScreen(
                             this.stateBuilder.setDifficulty(difficulty).build() ));
         } else {

@@ -2,6 +2,8 @@ package com.esgi.data;
 
 import java.util.*;
 
+import com.esgi.data.enums.EffectType;
+import com.esgi.game.ChoiceHandler;
 import com.esgi.modes.State;
 
 public class YearlyResults {
@@ -53,7 +55,11 @@ public class YearlyResults {
                 faction.getName(),
                 faction.getPopulation(),
                 faction.getSatisfaction(),
-                calculateCorruptionCost(faction)
+                ChoiceHandler.applyDifficultyToModifier(
+                        (int) calculateCorruptionCost(faction),
+                        this.state.getDifficulty(),
+                        EffectType.MALUS
+                )
         );
     }
 
@@ -180,7 +186,7 @@ public class YearlyResults {
 
         for (int percent = 40, i = 0, k = 0; percent > 0; percent -= 10, k++) {
             int births = Math.round((totalBirths / 100f * percent) / quarters[k]);
-            if(births == 0){
+            if (births == 0) {
                 break;
             }
             for (int j = 0; j < quarters[k]; j++, i++) {

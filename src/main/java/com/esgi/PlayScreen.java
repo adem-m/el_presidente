@@ -1,26 +1,30 @@
 package com.esgi;
 
-import com.esgi.builders.StateBuilder;
+import com.esgi.data.DisplayGenerator;
 import com.esgi.data.Event;
 import com.esgi.data.EventChoice;
-import com.esgi.data.State;
-import com.esgi.data.YearlyResults;
+import com.esgi.game.ChoiceHandler;
+import com.esgi.modes.State;
 
 import java.util.List;
 
-public class PlayGameMode extends GameMode {
+public class PlayScreen extends Screen {
     protected final State state;
     protected List<EventChoice> currentChoices;
+    protected ChoiceHandler choiceHandler;
+    protected DisplayGenerator display;
 
-    public PlayGameMode(State state) {
+    public PlayScreen( State state ){
         this.state = state;
+        this.choiceHandler = new ChoiceHandler( this.state );
+        this.display = new DisplayGenerator( this.state );
     }
 
     @Override
     void init() {
         if (this.state.isGameLost()) {
             System.out.println("Partie terminée...");
-            this.switchGameMode(new MainTitleGameMode());
+            this.switchScreen(new MainTitleScreen());
             return;
         }
         this.printEvent(this.state.getNextEvent());
@@ -33,14 +37,14 @@ public class PlayGameMode extends GameMode {
             input = this.inputHandler.getUserInput();
         } while (input < 1 || this.currentChoices.size() < input);
 
-        this.state.handleChoice(
-                this.currentChoices.get(input - 1));
+        this.choiceHandler.handle(
+            this.currentChoices.get( input - 1 ));
 
         this.update();
     }
 
     protected void printEvent(Event currentEvent) {
-        System.out.println(this.state.generateStateDisplay());
+        System.out.println( this.display.generateStateDisplay() );
         System.out.printf("\n\n%s\n", currentEvent.getText());
         this.printChoices(currentEvent);
     }
@@ -59,7 +63,7 @@ public class PlayGameMode extends GameMode {
 
     private void update() {
         if (this.state.hasYearPassed()) {
-            this.switchGameMode(new YearlyResultsGameMode(this.state));
+            this.switchScreen(new YearlyResultsScreen(this.state));
         } else {
             this.printEvent(this.state.getNextEvent());
         }

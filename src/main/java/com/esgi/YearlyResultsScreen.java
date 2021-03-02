@@ -1,16 +1,16 @@
 package com.esgi;
 
 import com.esgi.data.Event;
-import com.esgi.data.State;
+import com.esgi.modes.State;
 import com.esgi.data.YearlyResults;
 
-public class YearlyResultsGameMode extends PlayGameMode {
+public class YearlyResultsScreen extends PlayScreen {
     private final static int CORRUPTION_MODE = 2;
     private final static int FEED_MODE = 1;
     private int mode;
     private YearlyResults results;
 
-    public YearlyResultsGameMode( State state ){
+    public YearlyResultsScreen( State state ){
         super( state );
     }
 
@@ -34,13 +34,13 @@ public class YearlyResultsGameMode extends PlayGameMode {
             return;
         }
 
-        this.state.handleYearlyChoice( this.currentChoices.get( input - 1 ));
+        this.choiceHandler.handleYearlyChoice( this.currentChoices.get( input - 1 ));
         this.printAllChoices();
     }
 
     private void endYearlyResults(){
         System.out.println( this.results.killingOrBirthingPeople() );
-        this.setPreviousGameMode();
+        this.setPreviousScreen();
     }
 
     private void printAllChoices()

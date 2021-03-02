@@ -3,7 +3,7 @@ package com.esgi.game;
 import com.esgi.data.Effect;
 import com.esgi.data.EventChoice;
 import com.esgi.data.Faction;
-import com.esgi.data.State;
+import com.esgi.modes.State;
 import com.esgi.data.enums.Difficulty;
 import com.esgi.data.enums.EffectType;
 import com.esgi.data.enums.ModifierType;
@@ -22,14 +22,20 @@ public class ChoiceHandler implements Serializable {
         this.state = state;
     }
 
-    public void handle(EventChoice choice, Difficulty difficulty) {
-        for (Integer i : choice.getNextEventsIds()) {
-            try {
-                this.state.getNextEvents().add(this.state.getEventById(i));
-            } catch (Exception exception) {
-                System.out.println(exception.getMessage());
-            }
+    public void handle( EventChoice choice ){
+        this.internalHandle( choice );
+        this.state.incrementTurnCount();
+    }
+
+    public void handleYearlyChoice( EventChoice choice ){
+        this.internalHandle( choice );
+    }
+
+    private void internalHandle(EventChoice choice ) {
+        for( Integer id : choice.getNextEventsIds() ){
+            this.state.getNextEvents().offer( this.state.getEventById( id ));            
         }
+
         for (Effect effect : choice.getEffects()) {
             if (effect.getAttribute().equals("money")) {
                 int modifier = effect.getModifierType() == ModifierType.PERCENTAGE ?
@@ -43,7 +49,7 @@ public class ChoiceHandler implements Serializable {
         }
         for (Effect effect : choice.getEffects()) {
             try {
-                executeEffect(effect, difficulty);
+                executeEffect( effect, this.state.getDifficulty() );
             } catch (Exception exception) {
                 System.out.println(exception.getMessage());
             }

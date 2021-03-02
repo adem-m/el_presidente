@@ -4,41 +4,46 @@ import java.util.Stack;
 import com.esgi.utils.Keyboard;
 
 public class App {
-    private GameMode mode;
+    private Screen screen;
     private final Keyboard inputHandler;
-    protected Stack<GameMode> modesStack;
+    private final Stack<Screen> screensStack;
 
     public App() {
-        this.modesStack = new Stack<>();
+        this.screensStack = new Stack<>();
         this.inputHandler = new Keyboard();
-        this.setGameMode(new MainTitleGameMode());
+        this.setScreen(new MainTitleScreen());
         this.run();
     }
 
-    public void setGameMode(GameMode mode) {
-        this.modesStack.push(mode);
-        mode.setParent(this);
-        mode.setInputHandler(this.inputHandler);
-        this.mode = mode;
-        this.mode.init();
+    public void setScreen( Screen screen ){
+        this.screensStack.push(screen);
+        screen.setParent(this);
+        screen.setInputHandler(this.inputHandler);
+        this.screen = screen;
+        this.screen.init();
     }
 
-    public void setPreviousGameMode() {
-        if (!this.modesStack.isEmpty()) {
-            this.modesStack.pop();
+    public void setPreviousScreen() {
+        if (!this.screensStack.isEmpty()) {
+            this.screensStack.pop();
         }
 
-        if (this.modesStack.isEmpty()) {
+        if (this.screensStack.isEmpty()) {
             System.out.println("Erreur de la stack de menus...");
             System.exit(1);
         }
 
-        this.setGameMode(this.modesStack.pop());
+        this.setScreen(this.screensStack.pop());
     }
+
+    public void reinitializeScreens( Screen screen ){
+        this.screensStack.clear();
+        this.setScreen( screen );
+    } 
 
     public void run() {
         while (true) {
-            this.mode.handleInput();
+            this.screen.handleInput();
         }
     }
 

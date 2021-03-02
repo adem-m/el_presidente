@@ -2,6 +2,8 @@ package com.esgi.data;
 
 import java.util.Map;
 
+import com.esgi.modes.State;
+
 public class DisplayGenerator {
     final static String SEPARATOR = "\n-----------------------------------------------------\n";
     private final State state;

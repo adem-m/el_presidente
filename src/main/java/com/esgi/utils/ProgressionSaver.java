@@ -1,6 +1,6 @@
 package com.esgi.utils;
 
-import com.esgi.data.State;
+import com.esgi.modes.State;
 
 import java.io.*;
 

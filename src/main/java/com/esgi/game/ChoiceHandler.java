@@ -22,18 +22,44 @@ public class ChoiceHandler implements Serializable {
         this.state = state;
     }
 
-    public void handle( EventChoice choice ){
-        this.internalHandle( choice );
+    public void handle(EventChoice choice) {
+        this.internalHandle(choice);
         this.state.incrementTurnCount();
     }
 
-    public void handleYearlyChoice( EventChoice choice ){
-        this.internalHandle( choice );
+    public void handleYearlyChoice(EventChoice choice) {
+        if (isCorruptionChoice(choice) && !isCorruptionPossible(choice)) {
+            System.out.println("Corruption impossible");
+            return;
+        }
+        this.internalHandle(choice);
     }
 
-    private void internalHandle(EventChoice choice ) {
-        for( Integer id : choice.getNextEventsIds() ){
-            this.state.getNextEvents().offer( this.state.getEventById( id ));            
+    private boolean isCorruptionChoice(EventChoice choice) {
+        for (Effect effect : choice.getEffects()) {
+            if (effect.getTarget() == Target.FACTION &&
+                    effect.getAttribute().equals("satisfaction") &&
+                    effect.getEffectType() == EffectType.BONUS) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    private boolean isCorruptionPossible(EventChoice choice) {
+        for (Effect effect : choice.getEffects()) {
+            if (effect.getAttribute().equals("satisfaction") && effect.getEffectType() == EffectType.BONUS) {
+                if (this.state.getFactions().get(effect.getFactionName()).getSatisfaction() > 0) {
+                    return true;
+                }
+            }
+        }
+        return false;
+    }
+
+    private void internalHandle(EventChoice choice) {
+        for (Integer id : choice.getNextEventsIds()) {
+            this.state.getNextEvents().offer(this.state.getEventById(id));
         }
 
         for (Effect effect : choice.getEffects()) {
@@ -47,9 +73,10 @@ public class ChoiceHandler implements Serializable {
                 }
             }
         }
+
         for (Effect effect : choice.getEffects()) {
             try {
-                executeEffect( effect, this.state.getDifficulty() );
+                executeEffect(effect, this.state.getDifficulty());
             } catch (Exception exception) {
                 System.out.println(exception.getMessage());
             }

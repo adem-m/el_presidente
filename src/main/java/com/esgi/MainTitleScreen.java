@@ -9,6 +9,6 @@ public class MainTitleScreen extends Screen {
     @Override
     void handleInput() {
         this.inputHandler.expectEnter();
-        this.switchScreen( new ModeScreen() );
+        this.switchScreen( new MainScreen() );
     }
 }

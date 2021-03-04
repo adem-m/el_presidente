@@ -3,6 +3,8 @@ package com.esgi.data;
 import java.io.Serializable;
 
 public class Faction implements Comparable<Faction>, Serializable {
+    private static final long serialVersionUID = 1234567891011L;
+
     final static int MINIMUM_SATISFACTION = 0;
     final static int MAXIMUM_SATISFACTION = 100;
     final static int MINIMUM_POPULATION = 0;

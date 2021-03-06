@@ -1,9 +1,9 @@
 package com.esgi;
 
 public class MainScreen extends Screen {
-    private final int LOAD = 1;
-    private final int NEW_GAME = 2;
-    private final int EXIT = 3;
+    private static final int LOAD = 1;
+    private static final int NEW_GAME = 2;
+    private static final int EXIT = 3;
 
     @Override
     void init(){

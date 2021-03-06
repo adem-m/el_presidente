@@ -10,6 +10,8 @@ import java.util.Arrays;
 import java.util.List;
 
 public class Event implements Serializable {
+    private static final long serialVersionUID = 123456789L;
+
     private final int id;
     private final String text;
     private final List<Season> seasons = new ArrayList<>();

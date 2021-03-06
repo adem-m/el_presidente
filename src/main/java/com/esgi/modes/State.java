@@ -13,14 +13,18 @@ import com.esgi.data.Event;
 import com.esgi.data.Faction;
 import com.esgi.data.Loader;
 import com.esgi.data.Scenario;
+import com.esgi.data.enums.Mode;
 import com.esgi.data.enums.Season;
 import com.esgi.data.enums.Difficulty;
 
 public abstract class State implements Serializable {
+    private static final long serialVersionUID = 1234567L;
+
     protected final Map<String, Integer> attributes = new HashMap<>();
     protected final Map<String, Faction> factions = new HashMap<>();
     protected final Map<Integer, Event> events = new HashMap<>();
     protected final Queue<Event> nextEvents = new LinkedList<>();
+    protected final Mode mode;
     protected final Season startingSeason;
     protected final Difficulty difficulty;
     protected final Scenario scenario;
@@ -66,8 +70,9 @@ public abstract class State implements Serializable {
         return this.scenario.getName();
     }
 
-    public State(String scenarioName, Difficulty difficulty) {
+    public State(String scenarioName, Difficulty difficulty, Mode mode) {
         this.difficulty = difficulty;
+        this.mode = mode;
         this.events.putAll(Loader.fetchEvents(scenarioName));
         this.scenario = Loader.fetchScenarioFromName(scenarioName);
         System.out.println("\n\nScenar" + this.scenario.getName() + "\n\n");

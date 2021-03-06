@@ -8,6 +8,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Scenario implements Serializable {
+    private static final long serialVersionUID = 123456789101112L;
+
     private final String name;
     private final int industry;
     private final int agriculture;

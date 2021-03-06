@@ -21,19 +21,19 @@ public class StateBuilder {
         return this;
     }
 
-    public StateBuilder setMode( Mode mode ){
+    public StateBuilder setMode(Mode mode) {
         this.mode = mode;
         return this;
     }
 
     public State build() throws Error {
-        switch( this.mode ){
+        switch (this.mode) {
             case SANDBOX:
-                return new SandboxState( this.scenarioName, this.difficulty );
+                return new SandboxState(this.scenarioName, this.difficulty, this.mode);
             case SCENARIO:
-                return new ScenarioState( this.scenarioName, this.difficulty );
+                return new ScenarioState(this.scenarioName, this.difficulty, this.mode);
             default:
-                throw new Error( "Mode inconnu" );
+                throw new Error("Mode inconnu");
         }
     }
 }

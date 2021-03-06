@@ -12,6 +12,8 @@ import com.esgi.data.enums.Target;
 import java.io.Serializable;
 
 public class ChoiceHandler implements Serializable {
+    private static final long serialVersionUID = 12345678910111213L;
+
     final static int MINIMUM_ATTRIBUTE_VALUE = 0;
     final static int MAXIMUM_SUM_OF_AGRICULTURE_AND_INDUSTRY = 100;
     final static int AGRICULTURE_OR_INDUSTRY_MAXIMUM_VALUE = 100;

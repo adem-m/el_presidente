@@ -17,15 +17,14 @@ public class SandboxState extends State {
         int maxAttempts = 10;
         Random generator = new Random();
         Object[] values = this.events.values().toArray();
-        Event event;
 
         do {
             if (maxAttempts-- <= 0) {
                 throw new Error("Temps de calcul dépassé !");
             }
 
-            event = (Event) values[generator.nextInt(values.length)];
-        } while (!event.getSeasons().contains(getCurrentSeason()));
-        return event;
+            this.currentEvent = (Event) values[generator.nextInt(values.length)];
+        } while (!this.currentEvent.getSeasons().contains(getCurrentSeason()));
+        return this.currentEvent;
     }
 }

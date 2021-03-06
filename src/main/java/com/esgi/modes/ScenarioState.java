@@ -12,7 +12,8 @@ public class ScenarioState extends State {
 
     @Override
     public Event getNextEvent() {
-        return this.nextEvents.poll();
+        this.currentEvent = this.nextEvents.poll();
+        return this.currentEvent;
     }
 
     private void initializeAttributesFromScenario() {

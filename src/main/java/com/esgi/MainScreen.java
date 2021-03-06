@@ -1,5 +1,7 @@
 package com.esgi;
 
+import com.esgi.utils.ProgressionSaver;
+
 public class MainScreen extends Screen {
     private static final int LOAD = 1;
     private static final int NEW_GAME = 2;
@@ -19,9 +21,8 @@ public class MainScreen extends Screen {
             input = this.inputHandler.getUserInput();
             switch( input ){
                 case LOAD :
-                    System.out.println( "Go to load screen here !" );
-                    System.exit( 0 );
-                    break;
+                    this.loadGame();
+                    return;
                 case NEW_GAME :
                     this.switchScreen( new ModeScreen() );
                     return;
@@ -35,4 +36,13 @@ public class MainScreen extends Screen {
             }
         } while( input < LOAD || EXIT < input );
     }    
+
+    private void loadGame(){
+        if( ProgressionSaver.isFileFound() ){
+            this.switchScreen( new PlayScreen( ProgressionSaver.load() ));
+        } else {
+            System.out.println( "Fichier de sauvegarde non-trouvé ou invalide !" );
+            this.init();
+        }
+    }
 }

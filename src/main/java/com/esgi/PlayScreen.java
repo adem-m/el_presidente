@@ -28,7 +28,13 @@ public class PlayScreen extends Screen {
             this.switchScreen(new MainTitleScreen());
             return;
         }
-        this.printEvent(this.state.getNextEvent());
+
+        Event currentEvent = this.state.getCurrentEvent();
+        if( currentEvent != null ){
+            this.printEvent( currentEvent );
+        } else {
+            this.printEvent(this.state.getNextEvent());
+        }
     }
 
     @Override

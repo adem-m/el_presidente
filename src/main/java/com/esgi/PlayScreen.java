@@ -14,6 +14,7 @@ public class PlayScreen extends Screen {
     protected ChoiceHandler choiceHandler;
     protected DisplayGenerator display;
     private int pauseOption;
+    private Event currentEvent;
 
     public PlayScreen( State state ){
         this.state = state;
@@ -31,8 +32,9 @@ public class PlayScreen extends Screen {
 
         Event currentEvent = this.state.getLastEvent();
         if( currentEvent != null ){
+            this.currentEvent = currentEvent;
             this.printEvent( currentEvent );
-            this.state.deleteLastEvent();
+            this.state.setLastEvent( null );
             return;
         }
 
@@ -42,7 +44,8 @@ public class PlayScreen extends Screen {
             return;
         }
 
-        this.printEvent( this.state.getNextEvent() );
+        this.currentEvent = this.state.getNextEvent();
+        this.printEvent( this.currentEvent );
     }
 
     @Override
@@ -53,6 +56,7 @@ public class PlayScreen extends Screen {
         } while (input < 1 || this.pauseOption < input );
 
         if( input == this.pauseOption ){
+            this.state.setLastEvent( this.currentEvent );
             this.switchScreen( new PauseScreen( this.state ));
             return;
         }
@@ -100,6 +104,7 @@ public class PlayScreen extends Screen {
             return;
         }
         
-        this.printEvent(this.state.getNextEvent());
+        this.currentEvent = this.state.getNextEvent();
+        this.printEvent( this.currentEvent );
     }
 }

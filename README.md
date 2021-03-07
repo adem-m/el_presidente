@@ -19,7 +19,25 @@ We decided to use JSON files to store all the game variables like attributes and
  
  The source code is compliant with the clean code guidelines. There was several refactoring session to be sure that the code is still clear and maintenable.
 
+ ### Game Loop
+
+ The State Pattern is used to switch between the different screens: there is a Screen abstract class that implements a "handleInput" method in order to do something according to a user command. That method is called in an infinite loop in the App class. In this case, the context is the App class, and the State is the Screen class. A stack is used to save the previous screens when navigating, so that it is always possible to go back to a previous screen (depending on the current screen).
+
+ ### Game creation
+
+ While navigating between the different screens, the user will be asked to choose a difficulty, a scenario (from which the different events will be chosen) and a mode. All these attributes are needed to build a State instance for the game. A Builder Pattern is used to collect and save the different properties before building a State instance when the user reaches the PlayScreen.
+
+ ### Gameplay
+
+ The user will have to make different choices in a game, some might lead to their downfall ! At the moment, two modes are implemented: the scenario mode and the sandbox mode. Both will need a theme (for instance Tsar or FMA), the difference lies in the selection of the events. In Scenario Mode, the events have a specific order and when the user reaches the last one, the game is won and the user is sent back to the MainTitleScreen. In Sanbox Mode however, the events are randomly pulled from the event pool, only an event compatible with the current season can be picked.
+
 ## Collaborators
 Paolo MANAOIS  
 Ichaï CHTITSKI  
 Adem MRIZAK
+
+## Notes
+
+This project was partially realized with the help of ***Design Patterns*** - 
+*Apprendre la conception de logiciels en réalisant un jeu vidéo (avec exercices et corrigés)* 
+by Philippe GOSSELIN, published by eni

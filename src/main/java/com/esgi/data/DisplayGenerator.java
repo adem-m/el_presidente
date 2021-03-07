@@ -2,7 +2,10 @@ package com.esgi.data;
 
 import java.util.Map;
 
+import com.esgi.modes.State;
+
 public class DisplayGenerator {
+    final static String SEPARATOR = "\n-----------------------------------------------------\n";
     private final State state;
 
     public DisplayGenerator(State state) {
@@ -10,7 +13,8 @@ public class DisplayGenerator {
     }
 
     public String generateStateDisplay() {
-        return generateTurnDisplay() +
+        return SEPARATOR +
+                generateTurnDisplay() +
                 generateSeasonDisplay() +
                 "\n" +
                 generateAttributesDisplay() +
@@ -22,7 +26,7 @@ public class DisplayGenerator {
     }
 
     private String generateTurnDisplay() {
-        return "Tour " + this.state.getTurnCount() + "\n";
+        return "Tour " + (this.state.getTurnCount() + 1) + "\n";
     }
 
     private String generateSeasonDisplay() {

@@ -5,10 +5,13 @@ import com.esgi.game.ChoiceHandler;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
-public class EventChoice {
+public class EventChoice implements Serializable {
+    private static final long serialVersionUID = 12345678910L;
+
     private final String text;
     private final List<Effect> effects = new ArrayList<>();
     private final List<Integer> nextEventsIds = new ArrayList<>();

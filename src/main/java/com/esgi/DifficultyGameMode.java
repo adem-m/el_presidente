@@ -3,32 +3,31 @@ package com.esgi;
 import com.esgi.builders.StateBuilder;
 import com.esgi.data.enums.Difficulty;
 
-public class DifficultyScreen extends Screen {
+public class DifficultyGameMode extends GameMode {
     private final StateBuilder stateBuilder;
-    private int returnOption;
 
-    public DifficultyScreen(StateBuilder stateBuilder) {
+    public DifficultyGameMode(StateBuilder stateBuilder) {
         this.stateBuilder = stateBuilder;
     }
 
     @Override
     void handleInput() {
         int input;
-
+        int returnInput = Difficulty.values().length + 1;
         do {
             input = this.inputHandler.getUserInput();
-        } while( input < 1 || this.returnOption < input );
+        } while( input < 1 || returnInput < input );
 
-        if ( input == this.returnOption ) {
-            this.setPreviousScreen();
+        if ( input == returnInput ) {
+            this.setPreviousGameMode();
             return;
         }
 
         Difficulty difficulty = Difficulty.fromId(input);
         if (difficulty != null) {
-            this.switchScreen(
-                new PlayScreen(
-                    this.stateBuilder.setDifficulty(difficulty).build() ));
+            this.switchGameMode(
+                    new PlayGameMode(
+                            this.stateBuilder.setDifficulty(difficulty).build() ));
         } else {
             System.out.println("Fermeture...");
             System.exit(0);
@@ -44,8 +43,6 @@ public class DifficultyScreen extends Screen {
             System.out.printf("%d - %s%n", index, difficulty);
             index += 1;
         }
-
-        this.returnOption = index;
-        System.out.printf("%d - %s%n", this.returnOption, "Retour à la sélection de scénario");
+        System.out.printf("%d - %s%n", index, "Retour à la sélection de scénario");
     }
 }

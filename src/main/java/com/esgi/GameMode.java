@@ -2,7 +2,7 @@ package com.esgi;
 
 import com.esgi.utils.Keyboard;
 
-abstract class Screen {
+abstract class GameMode {
     private App parent;
     protected Keyboard inputHandler;
 
@@ -18,15 +18,11 @@ abstract class Screen {
         this.inputHandler = inputHandler;
     }
 
-    public void switchScreen(Screen mode) {
-        this.parent.setScreen(mode);
+    public void switchGameMode(GameMode mode) {
+        this.parent.setGameMode(mode);
     }
 
-    public void setPreviousScreen() {
-        this.parent.setPreviousScreen();
-    }
-
-    public void switchToMainScreen(){
-        this.parent.reinitializeScreens( new MainTitleScreen() );
+    public void setPreviousGameMode() {
+        this.parent.setPreviousGameMode();
     }
 }

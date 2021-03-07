@@ -2,10 +2,6 @@ package com.esgi.data;
 
 import java.util.*;
 
-import com.esgi.data.enums.EffectType;
-import com.esgi.game.ChoiceHandler;
-import com.esgi.modes.State;
-
 public class YearlyResults {
     final static int INDUSTRY_MULTIPLIER = 10;
     final static int AGRICULTURE_MULTIPLIER = 40;
@@ -55,11 +51,7 @@ public class YearlyResults {
                 faction.getName(),
                 faction.getPopulation(),
                 faction.getSatisfaction(),
-                ChoiceHandler.applyDifficultyToModifier(
-                        (int) calculateCorruptionCost(faction),
-                        this.state.getDifficulty(),
-                        EffectType.MALUS
-                )
+                calculateCorruptionCost(faction)
         );
     }
 
@@ -177,25 +169,11 @@ public class YearlyResults {
     }
 
     private String giveBirth() {
-        int totalBirths = calculateBirthsNumber();
-        int effectiveTotalBirths = 0;
-
-        List<Faction> factions = new ArrayList<>(this.state.getFactions().values());
-        Collections.sort(factions);
-        int[] quarters = calculateQuartersSize();
-
-        for (int percent = 40, i = 0, k = 0; percent > 0; percent -= 10, k++) {
-            int births = Math.round((totalBirths / 100f * percent) / quarters[k]);
-            if (births == 0) {
-                break;
-            }
-            for (int j = 0; j < quarters[k]; j++, i++) {
-                factions.get(i).modifyPopulation(births);
-                effectiveTotalBirths += births;
-                System.out.println("Faction " + factions.get(i).getName() + " : +" + births + " partisan(s).");
-            }
+        int births = calculateBirthsNumber();
+        for (int i = 0; i < births; i++) {
+            this.state.getRandomFaction().modifyPopulation(1);
         }
-        return String.format("Votre abondance de nourriture a donné naissance à %d nouveau(x) partisan(s) !", effectiveTotalBirths);
+        return String.format("Votre abondance de nourriture a donné naissance à %d nouveau(x) partisan(s) !", births);
     }
 
     private int calculateBirthsNumber() {
@@ -214,16 +192,5 @@ public class YearlyResults {
             }
         }
         return String.format("Par manque de nourriture, nous avons perdu %d partisan(s) cette année.", deaths);
-    }
-
-    private int[] calculateQuartersSize() {
-        int[] quarters = new int[4];
-        for (int i = 0, j = 0; i < this.state.getFactions().size(); i++, j++) {
-            if (j >= quarters.length) {
-                j = 0;
-            }
-            quarters[j]++;
-        }
-        return quarters;
     }
 }

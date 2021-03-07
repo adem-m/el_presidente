@@ -265,9 +265,9 @@
             {
               "target": "attribute",
               "attribute": "agriculture",
-              "modifier": 10,
+              "modifier": -5,
               "modifierType": "flat",
-              "effectType": "bonus"
+              "effectType": "malus"
             }
           ]
         },
@@ -1501,3 +1501,8 @@
     }
   ]
 }
+
+
+
+
+

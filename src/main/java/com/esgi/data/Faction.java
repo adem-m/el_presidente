@@ -1,10 +1,6 @@
 package com.esgi.data;
 
-import java.io.Serializable;
-
-public class Faction implements Comparable<Faction>, Serializable {
-    private static final long serialVersionUID = 1234567891011L;
-
+public class Faction {
     final static int MINIMUM_SATISFACTION = 0;
     final static int MAXIMUM_SATISFACTION = 100;
     final static int MINIMUM_POPULATION = 0;
@@ -50,11 +46,4 @@ public class Faction implements Comparable<Faction>, Serializable {
         }
     }
 
-    @Override
-    public int compareTo(Faction o) {
-        return Integer.compare(
-                o.getPopulation() * o.getSatisfaction(),
-                this.getPopulation() * this.getSatisfaction()
-        );
-    }
 }

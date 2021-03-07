@@ -1,22 +1,22 @@
 package com.esgi;
 
 import com.esgi.data.Event;
-import com.esgi.modes.State;
+import com.esgi.data.State;
 import com.esgi.data.YearlyResults;
 
-public class YearlyResultsScreen extends PlayScreen {
+public class YearlyResultsGameMode extends PlayGameMode {
     private final static int CORRUPTION_MODE = 2;
     private final static int FEED_MODE = 1;
     private int mode;
     private YearlyResults results;
 
-    public YearlyResultsScreen( State state ){
+    public YearlyResultsGameMode( State state ){
         super( state );
     }
 
     @Override
     void init() {
-        System.out.print( "\n\nBilan\n" );
+        System.out.printf( "\n\nBilan\n" );
         this.yearlyResultHandler();
     }
 
@@ -34,13 +34,13 @@ public class YearlyResultsScreen extends PlayScreen {
             return;
         }
 
-        this.choiceHandler.handleYearlyChoice( this.currentChoices.get( input - 1 ));
+        this.state.handleYearlyChoice( this.currentChoices.get( input - 1 ));
         this.printAllChoices();
     }
 
     private void endYearlyResults(){
         System.out.println( this.results.killingOrBirthingPeople() );
-        this.setPreviousScreen();
+        this.setPreviousGameMode();
     }
 
     private void printAllChoices()
@@ -74,7 +74,7 @@ public class YearlyResultsScreen extends PlayScreen {
         int input;
         do{
             input = this.inputHandler.getUserInput();
-        } while( input < FEED_MODE || 3 < input );
+        } while( input < CORRUPTION_MODE || 3 < input );
 
         if( input == 3 )
         {

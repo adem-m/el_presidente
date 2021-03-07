@@ -3,17 +3,13 @@ package com.esgi.game;
 import com.esgi.data.Effect;
 import com.esgi.data.EventChoice;
 import com.esgi.data.Faction;
-import com.esgi.modes.State;
+import com.esgi.data.State;
 import com.esgi.data.enums.Difficulty;
 import com.esgi.data.enums.EffectType;
 import com.esgi.data.enums.ModifierType;
 import com.esgi.data.enums.Target;
 
-import java.io.Serializable;
-
-public class ChoiceHandler implements Serializable {
-    private static final long serialVersionUID = 12345678910111213L;
-
+public class ChoiceHandler {
     final static int MINIMUM_ATTRIBUTE_VALUE = 0;
     final static int MAXIMUM_SUM_OF_AGRICULTURE_AND_INDUSTRY = 100;
     final static int AGRICULTURE_OR_INDUSTRY_MAXIMUM_VALUE = 100;
@@ -24,46 +20,14 @@ public class ChoiceHandler implements Serializable {
         this.state = state;
     }
 
-    public void handle(EventChoice choice) {
-        this.internalHandle(choice);
-        this.state.incrementTurnCount();
-    }
-
-    public void handleYearlyChoice(EventChoice choice) {
-        if (isCorruptionChoice(choice) && !isCorruptionPossible(choice)) {
-            System.out.println("Corruption impossible");
-            return;
-        }
-        this.internalHandle(choice);
-    }
-
-    private boolean isCorruptionChoice(EventChoice choice) {
-        for (Effect effect : choice.getEffects()) {
-            if (effect.getTarget() == Target.FACTION &&
-                    effect.getAttribute().equals("satisfaction") &&
-                    effect.getEffectType() == EffectType.BONUS) {
-                return true;
+    public void handle(EventChoice choice, Difficulty difficulty) {
+        for (Integer i : choice.getNextEventsIds()) {
+            try {
+                this.state.getNextEvents().add(this.state.getEventById(i));
+            } catch (Exception exception) {
+                System.out.println(exception.getMessage());
             }
         }
-        return false;
-    }
-
-    private boolean isCorruptionPossible(EventChoice choice) {
-        for (Effect effect : choice.getEffects()) {
-            if (effect.getAttribute().equals("satisfaction") && effect.getEffectType() == EffectType.BONUS) {
-                if (this.state.getFactions().get(effect.getFactionName()).getSatisfaction() > 0) {
-                    return true;
-                }
-            }
-        }
-        return false;
-    }
-
-    private void internalHandle(EventChoice choice) {
-        for (Integer id : choice.getNextEventsIds()) {
-            this.state.getNextEvents().offer(this.state.getEventById(id));
-        }
-
         for (Effect effect : choice.getEffects()) {
             if (effect.getAttribute().equals("money")) {
                 int modifier = effect.getModifierType() == ModifierType.PERCENTAGE ?
@@ -75,10 +39,9 @@ public class ChoiceHandler implements Serializable {
                 }
             }
         }
-
         for (Effect effect : choice.getEffects()) {
             try {
-                executeEffect(effect, this.state.getDifficulty());
+                executeEffect(effect, difficulty);
             } catch (Exception exception) {
                 System.out.println(exception.getMessage());
             }

@@ -7,14 +7,8 @@ import com.esgi.utils.Pair;
 import java.util.ArrayList;
 import java.util.List;
 
-public class ScenarioScreen extends Screen {
+public class ScenarioGameMode extends GameMode {
     private final List<String> choices = new ArrayList<>();
-    private final StateBuilder stateBuilder;
-    private int returnOption;
-
-    public ScenarioScreen( StateBuilder stateBuilder ){
-        this.stateBuilder = stateBuilder;
-    }
 
     @Override
     void init() {
@@ -23,8 +17,8 @@ public class ScenarioScreen extends Screen {
             System.out.printf("%d - %s%n", ++index, scenario.getValue());
             this.choices.add(scenario.getKey());
         }
-        this.returnOption = ++index;
-        System.out.printf("%d - %s%n", this.returnOption, "Retour" );
+        this.choices.add("exit");
+        System.out.printf("%d - %s%n", ++index, "exit");
     }
 
     @Override
@@ -33,15 +27,16 @@ public class ScenarioScreen extends Screen {
         do{
             input = this.inputHandler.getUserInput();
         } while( input < 1 || this.choices.size() < input );
-        
-        if( input == this.returnOption ){
-            this.setPreviousScreen();
-            return;
-        }
 
-        this.switchScreen(
-            new DifficultyScreen(
-                this.stateBuilder.setScenarioName( this.choices.get( input - 1 ))));
-        
+
+        String value = this.choices.get(input - 1);
+        if (value.equals("exit")) {
+            System.out.println("Fermeture...");
+            System.exit(0);
+        } else {
+            this.switchGameMode(
+                    new DifficultyGameMode(
+                            new StateBuilder().setScenarioName(this.choices.get(input - 1))));
+        }
     }
 }

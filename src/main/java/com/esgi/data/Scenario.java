@@ -3,13 +3,10 @@ package com.esgi.data;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 
-import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Scenario implements Serializable {
-    private static final long serialVersionUID = 123456789101112L;
-
+public class Scenario {
     private final String name;
     private final int industry;
     private final int agriculture;

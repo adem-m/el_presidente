@@ -1,6 +1,6 @@
 package com.esgi;
 
-public class MainTitleGameMode extends GameMode {
+public class MainTitleScreen extends Screen {
     @Override
     void init() {
         System.out.println("\n\n¡ Bienvenido en El Presidente !\n\nAppuyez sur 'Entrée' pour continuer'...");
@@ -9,6 +9,6 @@ public class MainTitleGameMode extends GameMode {
     @Override
     void handleInput() {
         this.inputHandler.expectEnter();
-        this.switchGameMode(new ScenarioGameMode());
+        this.switchScreen( new MainScreen() );
     }
 }

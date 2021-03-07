@@ -29,12 +29,20 @@ public class PlayScreen extends Screen {
             return;
         }
 
-        Event currentEvent = this.state.getCurrentEvent();
+        Event currentEvent = this.state.getLastEvent();
         if( currentEvent != null ){
             this.printEvent( currentEvent );
-        } else {
-            this.printEvent(this.state.getNextEvent());
+            this.state.deleteLastEvent();
+            return;
         }
+
+        if( this.state.isGameEnded() ){
+            System.out.println( "Félicitations, jeu terminé !" );
+            this.switchToMainScreen();
+            return;
+        }
+
+        this.printEvent( this.state.getNextEvent() );
     }
 
     @Override
@@ -83,8 +91,15 @@ public class PlayScreen extends Screen {
     private void update() {
         if (this.state.hasYearPassed()) {
             this.switchScreen(new YearlyResultsScreen(this.state));
-        } else {
-            this.printEvent(this.state.getNextEvent());
+            return;
         }
+
+        if( this.state.isGameEnded() ){
+            System.out.println( "Félicitations, jeu terminé !" );
+            this.switchToMainScreen();
+            return;
+        }
+        
+        this.printEvent(this.state.getNextEvent());
     }
 }

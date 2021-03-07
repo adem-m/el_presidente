@@ -12,8 +12,7 @@ public class ScenarioState extends State {
 
     @Override
     public Event getNextEvent() {
-        this.currentEvent = this.nextEvents.poll();
-        return this.currentEvent;
+        return this.nextEvents.poll();
     }
 
     private void initializeAttributesFromScenario() {
@@ -21,4 +20,8 @@ public class ScenarioState extends State {
         this.nextEvents.offer(this.getEventById(this.scenario.getFirstEventId()));
     }
 
+    @Override
+    public boolean isGameEnded() {
+        return this.nextEvents.isEmpty();
+    }
 }

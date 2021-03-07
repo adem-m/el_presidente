@@ -26,6 +26,7 @@ public abstract class State implements Serializable {
     protected final Queue<Event> nextEvents = new LinkedList<>();
     protected final Mode mode;
     protected final Season startingSeason;
+    protected Event lastEvent;
     protected final Difficulty difficulty;
     protected final Scenario scenario;
     protected int turnCount = 0;
@@ -70,6 +71,14 @@ public abstract class State implements Serializable {
         return this.scenario.getName();
     }
 
+    public Event getLastEvent(){
+        return this.lastEvent;
+    }
+
+    public void deleteLastEvent(){
+        this.lastEvent = null;
+    }
+
     public State(String scenarioName, Difficulty difficulty, Mode mode) {
         this.difficulty = difficulty;
         this.mode = mode;
@@ -92,6 +101,8 @@ public abstract class State implements Serializable {
     }
 
     public abstract Event getNextEvent();
+
+    public abstract boolean isGameEnded();
 
     public Event getEventById(int id) {
         return this.events.get(id);

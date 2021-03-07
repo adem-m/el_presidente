@@ -28,4 +28,9 @@ public class SandboxState extends State {
         } while (!event.getSeasons().contains(getCurrentSeason()));
         return event;
     }
+
+    @Override
+    public boolean isGameEnded() {
+        return false;
+    }
 }

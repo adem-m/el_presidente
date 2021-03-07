@@ -20,4 +20,8 @@ public class ScenarioState extends State {
         this.nextEvents.offer(this.getEventById(this.scenario.getFirstEventId()));
     }
 
+    @Override
+    public boolean isGameEnded() {
+        return this.nextEvents.isEmpty();
+    }
 }

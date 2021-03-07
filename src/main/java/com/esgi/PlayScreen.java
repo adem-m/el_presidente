@@ -13,6 +13,7 @@ public class PlayScreen extends Screen {
     protected List<EventChoice> currentChoices;
     protected ChoiceHandler choiceHandler;
     protected DisplayGenerator display;
+    private int pauseOption;
 
     public PlayScreen( State state ){
         this.state = state;
@@ -27,7 +28,21 @@ public class PlayScreen extends Screen {
             this.switchScreen(new MainTitleScreen());
             return;
         }
-        this.printEvent(this.state.getNextEvent());
+
+        Event currentEvent = this.state.getLastEvent();
+        if( currentEvent != null ){
+            this.printEvent( currentEvent );
+            this.state.deleteLastEvent();
+            return;
+        }
+
+        if( this.state.isGameEnded() ){
+            System.out.println( "Félicitations, jeu terminé !" );
+            this.switchToMainScreen();
+            return;
+        }
+
+        this.printEvent( this.state.getNextEvent() );
     }
 
     @Override
@@ -35,7 +50,12 @@ public class PlayScreen extends Screen {
         int input;
         do {
             input = this.inputHandler.getUserInput();
-        } while (input < 1 || this.currentChoices.size() < input);
+        } while (input < 1 || this.pauseOption < input );
+
+        if( input == this.pauseOption ){
+            this.switchScreen( new PauseScreen( this.state ));
+            return;
+        }
 
         this.choiceHandler.handle(
             this.currentChoices.get( input - 1 ));
@@ -54,18 +74,32 @@ public class PlayScreen extends Screen {
         int index = 0;
         for (EventChoice choice : this.currentChoices) {
             System.out.printf(
-                    "%d - %s%n",
-                    ++index,
-                    choice.generateLabel(this.state.getDifficulty())
+                "%d - %s\n",
+                ++index,
+                choice.generateLabel(this.state.getDifficulty())
             );
         }
+
+        this.pauseOption = ++index;
+        System.out.printf(
+            "%d - %s\n",
+            this.pauseOption,
+            "PAUSE"
+        );
     }
 
     private void update() {
         if (this.state.hasYearPassed()) {
             this.switchScreen(new YearlyResultsScreen(this.state));
-        } else {
-            this.printEvent(this.state.getNextEvent());
+            return;
         }
+
+        if( this.state.isGameEnded() ){
+            System.out.println( "Félicitations, jeu terminé !" );
+            this.switchToMainScreen();
+            return;
+        }
+        
+        this.printEvent(this.state.getNextEvent());
     }
 }

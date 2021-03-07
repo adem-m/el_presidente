@@ -21,6 +21,11 @@ public class ProgressionSaver {
         }
     }
 
+    public static boolean isFileFound(){
+        File saveFile = new File( FILE_NAME );
+        return saveFile.exists() && !saveFile.isDirectory();
+    }
+
     public static State load() {
         FileInputStream fileInputStream;
         State state = null;

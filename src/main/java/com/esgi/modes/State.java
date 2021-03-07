@@ -75,8 +75,8 @@ public abstract class State implements Serializable {
         return this.lastEvent;
     }
 
-    public void deleteLastEvent(){
-        this.lastEvent = null;
+    public void setLastEvent( Event event ){
+        this.lastEvent = event;
     }
 
     public State(String scenarioName, Difficulty difficulty, Mode mode) {

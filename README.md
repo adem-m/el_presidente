@@ -31,7 +31,12 @@ We decided to use JSON files to store all the game variables like attributes and
 
  The user will have to make different choices in a game, some might lead to their downfall ! At the moment, two modes are implemented: the scenario mode and the sandbox mode. Both will need a theme (for instance Tsar or FMA), the difference lies in the selection of the events. In Scenario Mode, the events have a specific order and when the user reaches the last one, the game is won and the user is sent back to the MainTitleScreen. In Sanbox Mode however, the events are randomly pulled from the event pool, only an event compatible with the current season can be picked.
 
+### Save
+
+ All the information that defines a game is centralized in the State object which is created at the beginning. So, to save the user's progression, we just have to save the content of the State object into a file and to load it if needed. To do this, we used serialization to handle the "object to file" conversion.
+
 ## Collaborators
+
 Paolo MANAOIS  
 Ichaï CHTITSKI  
 Adem MRIZAK

@@ -19,7 +19,7 @@ We decided to use JSON files to store all the game variables like attributes and
  
  The source code is compliant with the clean code guidelines. There was several refactoring session to be sure that the code is still clear and maintenable.
 
-## Collaborators
+### Collaborators
 Paolo MANAOIS  
 Ichaï CHTITSKI  
 Adem MRIZAK
